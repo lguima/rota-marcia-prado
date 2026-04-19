@@ -38,6 +38,6 @@ export default {
     numberOfLatestPostsOnHomePage: 6, // Number of latest posts on homepage
     numberOfBlogPostsPerPage: 8, // Number of posts per paginated blog
 
-    gTag: "G-V5QHDKBFP" // Google Analytics tracking ID
+    gTag: "" // Google Analytics tracking ID
 }
 
