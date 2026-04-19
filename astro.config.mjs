@@ -13,6 +13,8 @@ import remarkSoundcloudEmbed from './src/plugins/remarkSoundcloudEmbed.js';
 
 // https://astro.build/config
 export default defineConfig({
+    site: 'https://lguima.github.io',
+    base: '/rota-marcia-prado',
     vite: {
         plugins: [tailwindcss()]
     },
