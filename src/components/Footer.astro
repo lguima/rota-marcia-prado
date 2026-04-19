@@ -1,6 +1,5 @@
 ---
 import SiteOptions from "../site.config.mjs"
-const base = import.meta.env.BASE_URL;
 ---
 
 <footer class="mt-16 py-8 text-center text-gray-400 dark:text-gray-500 text-sm border-t border-gray-100 dark:border-gray-700">
@@ -10,21 +9,21 @@ const base = import.meta.env.BASE_URL;
       <div class="flex items-center justify-center space-x-8 text-sm">
         {
           SiteOptions.showCategoriesLinkOnFooter && (
-            <a href={`${base}/categories`} class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-slate-100 transition-colors font-medium">
+            <a href="/categories" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-slate-100 transition-colors font-medium">
               Categories
             </a>
           )
         }
         {
           SiteOptions.showTagsLinkOnFooter && (
-            <a href={`${base}/tags`} class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-slate-100 transition-colors font-medium">
+            <a href="/tags" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-slate-100 transition-colors font-medium">
               Tags
             </a>
           )
         }
         {
           SiteOptions.showAuthorsLinkOnFooter && (
-            <a href={`${base}/authors`} class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-slate-100 transition-colors font-medium">
+            <a href="/authors" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-slate-100 transition-colors font-medium">
               Authors
             </a>
           )

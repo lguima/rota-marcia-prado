@@ -1,7 +1,6 @@
 ---
 import { type CollectionEntry } from "astro:content"
 import SiteOptions from "../site.config.mjs"
-const base = import.meta.env.BASE_URL;
 
 export interface Props {
   post: CollectionEntry<"article">
@@ -21,7 +20,7 @@ const formattedDate = new Intl.DateTimeFormat("en-US", {
 
 <li class="flex flex-col sm:flex-row justify-between sm:items-center py-4 border-b border-gray-100 dark:border-gray-800">
   <div class="mb-2 sm:mb-0">
-    <a href={`${base}/article/${post.slug}`} class="text-xl font-medium hover:underline">
+    <a href={`/article/${post.slug}`} class="text-xl font-medium hover:underline">
       {title}
       {SiteOptions.showAuthorsOnHomePage && author && <span class="text-sm text-gray-500 dark:text-gray-400 ml-2">by {author}</span>}
     </a>

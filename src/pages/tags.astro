@@ -4,7 +4,6 @@ import BlogLayout from "../layouts/BlogLayout.astro"
 import Header from "../components/Header.astro"
 import Footer from "../components/Footer.astro"
 import SiteOptions from "../site.config.mjs"
-const base = import.meta.env.BASE_URL;
 
 // Get all articles and extract unique tags
 const allPosts = await getCollection("article")
@@ -34,7 +33,7 @@ const tagCounts = allTags.map((tag) => ({
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       {
         tagCounts.map(({ name, count }) => (
-          <a href={`${base}/tag/${name.toLowerCase().replace(/\s+/g, "-")}`} class="bg-gray-50 dark:bg-slate-800 rounded-lg p-4 hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors border border-gray-200 dark:border-gray-700">
+          <a href={`/tag/${name.toLowerCase().replace(/\s+/g, "-")}`} class="bg-gray-50 dark:bg-slate-800 rounded-lg p-4 hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors border border-gray-200 dark:border-gray-700">
             <div class="flex items-center justify-between">
               <span class="font-medium text-gray-900 dark:text-slate-100 capitalize">{name}</span>
               <span class="text-sm text-gray-500 dark:text-gray-400 bg-gray-200 dark:bg-slate-600 px-2 py-1 rounded">{count}</span>
@@ -47,7 +46,7 @@ const tagCounts = allTags.map((tag) => ({
 
   <!-- Back to Home -->
   <div class="mt-12 text-center">
-    <a href={`${base}/`} class="inline-flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-slate-100 transition-colors">
+    <a href="/" class="inline-flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-slate-100 transition-colors">
       <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
       </svg>
