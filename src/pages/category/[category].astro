@@ -29,7 +29,7 @@ type Props = {
 const { category, posts } = Astro.props
 ---
 
-<BlogLayout title={`${category} Articles - ${SiteOptions.siteTitle}`} description={`Articles in the ${category} category`}>
+<BlogLayout title={`${SiteOptions.labels.articles} em ${category} - ${SiteOptions.siteTitle}`} description={`Publicações na categoria ${category}`}>
   <Header showTitle={false} />
 
   <!-- Light Horizontal Bar -->
@@ -42,7 +42,7 @@ const { category, posts } = Astro.props
     </h1>
     <p class="text-lg text-gray-500 dark:text-gray-400">
       {posts.length}
-      {posts.length === 1 ? "article" : "articles"} in the {category} category
+      {posts.length === 1 ? "publicação" : "publicações"} na categoria {category}
     </p>
   </header>
 

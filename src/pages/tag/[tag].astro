@@ -29,7 +29,7 @@ type Props = {
 const { tag, posts } = Astro.props
 ---
 
-<BlogLayout title={`${tag} Articles - ${SiteOptions.siteTitle}`} description={`Articles tagged with ${tag}`}>
+<BlogLayout title={`${SiteOptions.labels.articles} sobre ${tag} - ${SiteOptions.siteTitle}`} description={`Publicações sobre ${tag}`}>
   <Header showTitle={false} />
 
   <!-- Light Horizontal Bar -->
@@ -37,12 +37,12 @@ const { tag, posts } = Astro.props
 
   <!-- Page Header -->
   <header class="mb-12 text-center">
-    <h1 class="text-3xl font-bold tracking-tight mb-4 text-gray-900 dark:text-slate-100 capitalize">
-      {tag.toUpperCase()}
+    <h1 class="text-3xl font-bold tracking-tight mb-4 text-gray-900 dark:text-slate-100">
+      {tag}
     </h1>
     <p class="text-lg text-gray-500 dark:text-gray-400">
       {posts.length}
-      {posts.length === 1 ? "article" : "articles"} tagged with "{tag}"
+      {posts.length === 1 ? "publicação" : "publicações"} sobre {tag}
     </p>
   </header>
 

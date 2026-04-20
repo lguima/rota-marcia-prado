@@ -24,7 +24,7 @@ const authors = Array.from(authorMap.entries())
   .sort((a, b) => a.author.localeCompare(b.author))
 ---
 
-<BlogLayout title={`Authors - ${SiteOptions.siteTitle}`} description="Browse all authors and their articles">
+<BlogLayout title={`${SiteOptions.labels.authors} - ${SiteOptions.siteTitle}`} description="Navegue pelas publicações por autoria">
   <Header showTitle={false} />
 
   <!-- Light Horizontal Bar -->
