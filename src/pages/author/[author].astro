@@ -29,7 +29,7 @@ type Props = {
 const { author, posts } = Astro.props
 ---
 
-<BlogLayout title={`${author} - ${SiteOptions.siteTitle}`} description={`Articles written by ${author}`}>
+<BlogLayout title={`${author} - ${SiteOptions.siteTitle}`} description={`Publicações por ${author}`}>
   <Header showTitle={false} />
 
   <!-- Light Horizontal Bar -->
@@ -42,7 +42,7 @@ const { author, posts } = Astro.props
     </h1>
     <p class="text-lg text-gray-500 dark:text-gray-400">
       {posts.length}
-      {posts.length === 1 ? "article" : "articles"} by {author}
+      {posts.length === 1 ? "publicação" : "publicações"} por {author}
     </p>
   </header>
 
