@@ -49,5 +49,8 @@ export default {
     numberOfLatestPostsOnHomePage: 6, // Number of latest posts on homepage
     numberOfBlogPostsPerPage: 8, // Number of posts per paginated blog
 
-    gTag: "G-X8970LK9KF" // Google Analytics tracking ID
+    googleTag: {
+        enabled: true, // Enable Google Analytics
+        measurementId: "G-X8970LK9KF" // Google Analytics Measurement ID
+    },
 }
