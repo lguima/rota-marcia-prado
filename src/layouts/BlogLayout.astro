@@ -34,22 +34,26 @@ const { title = SiteOptions.siteTitle, description = SiteOptions.siteSubTitle } 
         document.documentElement.classList.toggle("dark", theme === "dark")
       })()
     </script>
-    {SiteOptions.gTag && (
+    {SiteOptions.googleTag.enabled && (
       <script
         data-category="analytics"
         is:inline
         type="text/partytown"
-        src={`https://www.googletagmanager.com/gtag/js?id=${SiteOptions.gTag}`}
+        async
+        src={`https://www.googletagmanager.com/gtag/js?id=${SiteOptions.googleTag.measurementId}`}
       ></script>
 
-      <script data-category="analytics" is:inline type="text/partytown" define:vars={{gTag: SiteOptions.gTag}}>
+      <script
+        data-category="analytics"
+        is:inline
+        type="text/partytown"
+        define:vars={{googleTagMeasurementId: SiteOptions.googleTag.measurementId}}
+      >
         window.dataLayer = window.dataLayer || [];
-        function gtag() {
-          dataLayer.push(arguments);
-        }
-        gtag("js", new Date());
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-        gtag("config", gTag);
+        gtag('config', googleTagMeasurementId);
       </script>
     )}
   </head>
