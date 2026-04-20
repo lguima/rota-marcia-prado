@@ -11,10 +11,10 @@ export interface Props {
 const { post, showImage = false, showCategory = true } = Astro.props
 const { title, pubDate, category, description, author } = post.data
 
-const formattedDate = new Intl.DateTimeFormat("en-US", {
-  year: "numeric",
-  month: "long",
-  day: "numeric",
+const formattedDate = new Intl.DateTimeFormat(SiteOptions.localization.locale, {
+  year: SiteOptions.localization.date.year as Intl.DateTimeFormatOptions['year'],
+  month: SiteOptions.localization.date.month as Intl.DateTimeFormatOptions['month'],
+  day: SiteOptions.localization.date.day as Intl.DateTimeFormatOptions['day'],
 }).format(pubDate)
 ---
 

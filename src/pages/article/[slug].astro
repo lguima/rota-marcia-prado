@@ -24,10 +24,10 @@ const { Content } = await post.render()
 const allPosts = await getCollection("article")
 const similarPosts = allPosts.filter((p) => p.slug !== post.slug && p.data.category === post.data.category).slice(0, 3)
 
-const formattedDate = new Intl.DateTimeFormat("en-US", {
-  year: "numeric",
-  month: "long",
-  day: "numeric",
+const formattedDate = new Intl.DateTimeFormat(SiteOptions.localization.locale, {
+  year: SiteOptions.localization.date.year as Intl.DateTimeFormatOptions['year'],
+  month: SiteOptions.localization.date.month as Intl.DateTimeFormatOptions['month'],
+  day: SiteOptions.localization.date.day as Intl.DateTimeFormatOptions['day'],
 }).format(pubDate)
 ---
 
