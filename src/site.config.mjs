@@ -3,7 +3,7 @@ export default {
     siteSubTitle: "Rota cicloturística entre a Região Metropolitana de São Paulo e Santos", // Subtitle shown under main title
     copyright: "© 2026 Rota Márcia Prado. Todos os direitos reservados.", // Footer copyright text
     showAuthorsOnHomePage: false, // Display author info on homepage
-    showFeaturrdPostsOnHomePage: true, // Show featured posts section on homepage
+    showFeaturedPostsOnHomePage: true, // Show featured posts section on homepage
     showCategoryOnPosts: true, // Display categories on posts in homepage
     labels: {
         featuredPosts: "Publicações em destaque", // Title for featured posts section
@@ -11,8 +11,10 @@ export default {
         viewAllPosts: "Ver todos as publicações", // Text for link to paginated blog
         backToHome: "Voltar ao início", // Back navigation text
         youMightAlsoLike: "Você também pode gostar", // Similar posts section title
+        postedBy: "Por", // Author prefix text in articles
         postedIn: "Publicado em", // Category prefix text in articles
         noArticlesFound: "Nenhuma informação encontrada.", // Empty state message
+        articles: "Publicações", // Label articles
         allCategories: "Todas as categorias", // Categories page title
         allTags: "Todas os tópicos", // Tags page title
         allAuthors: "Todas autorias", // Authors page title
