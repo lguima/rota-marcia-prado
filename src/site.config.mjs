@@ -1,34 +1,45 @@
 export default {
-    siteTitle: "The Storyteller", // Main site title displayed in header
-    siteSubTitle: "Minimal musings on code, design, and life", // Subtitle shown under main title
-    copyright: "© 2025 The Storyteller. All Rights Reserved.", // Footer copyright text
+    siteTitle: "Rota Márcia Prado", // Main site title displayed in header
+    siteSubTitle: "Rota cicloturística entre a Região Metropolitana de São Paulo e Santos", // Subtitle shown under main title
+    copyright: "© 2026 Rota Márcia Prado. Todos os direitos reservados.", // Footer copyright text
     showAuthorsOnHomePage: false, // Display author info on homepage
     showFeaturrdPostsOnHomePage: true, // Show featured posts section on homepage
     showCategoryOnPosts: true, // Display categories on posts in homepage
     labels: {
-        featuredPosts: "Featured Posts", // Title for featured posts section
-        latestPosts: "Latest Posts", // Title for latest posts section
-        viewAllPosts: "View All Posts", // Text for link to paginated blog
-        backToHome: "Back to Home", // Back navigation text
-        youMightAlsoLike: "You Might Also Like", // Similar posts section title
-        postedIn: "Posted in", // Category prefix text in articles
-        noArticlesFound: "No articles found.", // Empty state message
-        allCategories: "All Categories", // Categories page title
-        allTags: "All Tags", // Tags page title
-        allAuthors: "All Authors", // Authors page title
-        exploreArticlesByTags: "Explore articles organized by topics", // Tags page description
-        exploreArticlesByCategories: "Explore articles organized by topics", // Categories page description
-        exploreArticlesByAuthors: "Explore articles organized by authors", // Authors page description
-        readMore: "Read More", // Text for "Read More" links on featured posts
-        shareThisArticle: "Share this article", // Share button text
+        featuredPosts: "Publicações em destaque", // Title for featured posts section
+        latestPosts: "Publicações recentes", // Title for latest posts section
+        viewAllPosts: "Ver todos as publicações", // Text for link to paginated blog
+        backToHome: "Voltar ao início", // Back navigation text
+        youMightAlsoLike: "Você também pode gostar", // Similar posts section title
+        postedIn: "Publicado em", // Category prefix text in articles
+        noArticlesFound: "Nenhuma informação encontrada.", // Empty state message
+        allCategories: "Todas as categorias", // Categories page title
+        allTags: "Todas os tópicos", // Tags page title
+        allAuthors: "Todas autorias", // Authors page title
+        categories: "Categorias", // Categories link text
+        tags: "Tópicos", // Tags link text
+        authors: "Autorias", // Authors link text
+        exploreArticlesByTags: "Publicações por tópico", // Tags page description
+        exploreArticlesByCategories: "Publicações organizados por categoria", // Categories page description
+        exploreArticlesByAuthors: "Publicações organizados por autoria", // Authors page description
+        readMore: "Ler mais", // Text for "Read More" links on featured posts
+        shareThisArticle: "Compartilhar esta publicação", // Share button text
+    },
+    localization: { // Localization settings (e.g., date formats)
+        locale: "pt-BR", // Locale code for formatting
+        date: {
+            year: "numeric", // Year format
+            month: "long", // Month format
+            day: "numeric", // Day format
+        }
     },
     pagination: {
         showPrevNext: true, // Show Previous/Next navigation buttons
-        prevText: "Previous", // Text for previous page button
-        nextText: "Next", // Text for next page button
-        postLabel: "posts", // Label used in pagination info (e.g., "8 posts")
+        prevText: "Anterior", // Text for previous page button
+        nextText: "Próxima", // Text for next page button
+        postLabel: "publicações", // Label used in pagination info (e.g., "8 posts")
     },
-    defaultAuthorName: "Hasin Hayder",
+    defaultAuthorName: "Rota Márcia Prado", // Default author name if not specified in post frontmatter
     showCategoriesLinkOnFooter: true, // Show Categories link in footer
     showTagsLinkOnFooter: true, // Show Tags link in footer
     showAuthorsLinkOnFooter: true, // Show Authors link in footer
@@ -40,4 +51,3 @@ export default {
 
     gTag: "G-X8970LK9KF" // Google Analytics tracking ID
 }
-
