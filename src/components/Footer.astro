@@ -10,21 +10,21 @@ import SiteOptions from "../site.config.mjs"
         {
           SiteOptions.showCategoriesLinkOnFooter && (
             <a href="/categories" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-slate-100 transition-colors font-medium">
-              Categories
+              {SiteOptions.labels.categories}
             </a>
           )
         }
         {
           SiteOptions.showTagsLinkOnFooter && (
             <a href="/tags" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-slate-100 transition-colors font-medium">
-              Tags
+              {SiteOptions.labels.tags}
             </a>
           )
         }
         {
           SiteOptions.showAuthorsLinkOnFooter && (
             <a href="/authors" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-slate-100 transition-colors font-medium">
-              Authors
+              {SiteOptions.labels.authors}
             </a>
           )
         }
