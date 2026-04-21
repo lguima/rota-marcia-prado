@@ -8,7 +8,7 @@ export default {
     labels: {
         featuredPosts: "Publicações em destaque", // Title for featured posts section
         latestPosts: "Publicações recentes", // Title for latest posts section
-        viewAllPosts: "Ver todos as publicações", // Text for link to paginated blog
+        viewAllPosts: "Ver todas as publicações", // Text for link to paginated blog
         backToHome: "Voltar ao início", // Back navigation text
         youMightAlsoLike: "Você também pode gostar", // Similar posts section title
         postedBy: "Por", // Author prefix text in articles
