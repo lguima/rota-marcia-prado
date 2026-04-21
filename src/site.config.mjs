@@ -15,8 +15,8 @@ export default {
         postedIn: "Publicado em", // Category prefix text in articles
         noArticlesFound: "Nenhuma informação encontrada.", // Empty state message
         articles: "Publicações", // Label articles
-        allCategories: "Todas as categorias", // Categories page title
-        allTags: "Todas os tópicos", // Tags page title
+        allCategories: "Todas categorias", // Categories page title
+        allTags: "Todos tópicos", // Tags page title
         allAuthors: "Todas autorias", // Authors page title
         categories: "Categorias", // Categories link text
         tags: "Tópicos", // Tags link text
