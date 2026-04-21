@@ -23,11 +23,16 @@ const { page } = Astro.props
   {
     SiteOptions.pagination.showPrevNext &&
       (page.url.prev ? (
-        <a href={page.url.prev} class="px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 border border-gray-300 dark:border-gray-600 rounded-md hover:border-gray-400 dark:hover:border-gray-500 transition-colors" aria-label="Go to previous page">
+        <a
+          href={page.url.prev}
+          class="px-4 py-2 text-sm font-medium text-mist-600 dark:text-mist-400 hover:text-mist-900 dark:hover:text-mist-100 border border-gray-300 dark:border-gray-600 rounded-md hover:border-gray-400 dark:hover:border-gray-500 transition-colors" aria-label="Ir para a página anterior"
+        >
           ← {SiteOptions.pagination.prevText}
         </a>
       ) : (
-        <span class="px-4 py-2 text-sm font-medium text-gray-400 dark:text-gray-600 border border-gray-200 dark:border-gray-700 rounded-md cursor-not-allowed">← {SiteOptions.pagination.prevText}</span>
+        <span class="px-4 py-2 text-sm font-medium text-mist-400 dark:text-mist-600 border border-mist-200 dark:border-gray-700 rounded-md cursor-not-allowed">
+          ← {SiteOptions.pagination.prevText}
+        </span>
       ))
   }
 
@@ -39,11 +44,18 @@ const { page } = Astro.props
         const pageUrl = pageNum === 1 ? "/blog/" : `/blog/${pageNum}/`
 
         return isCurrentPage ? (
-          <span class="px-3 py-2 text-sm font-medium bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 rounded-md" aria-current="page">
+          <span
+            class="px-3 py-2 text-sm font-medium bg-mist-900 dark:bg-mist-100 text-white dark:text-mist-900 rounded-md"
+            aria-current="page"
+          >
             {pageNum}
           </span>
         ) : (
-          <a href={pageUrl} class="px-3 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors" aria-label={`Go to page ${pageNum}`}>
+          <a
+            href={pageUrl}
+            class="px-3 py-2 text-sm font-medium text-mist-600 dark:text-mist-400 hover:text-mist-900 dark:hover:text-mist-100 hover:bg-mist-100 dark:hover:bg-mist-800 rounded-md transition-colors"
+            aria-label={`Ir para a página ${pageNum}`}
+          >
             {pageNum}
           </a>
         )
@@ -55,17 +67,22 @@ const { page } = Astro.props
   {
     SiteOptions.pagination.showPrevNext &&
       (page.url.next ? (
-        <a href={page.url.next} class="px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 border border-gray-300 dark:border-gray-600 rounded-md hover:border-gray-400 dark:hover:border-gray-500 transition-colors" aria-label="Go to next page">
+        <a
+          href={page.url.next}
+          class="px-4 py-2 text-sm font-medium text-mist-600 dark:text-mist-400 hover:text-mist-900 dark:hover:text-mist-100 border border-gray-300 dark:border-gray-600 rounded-md hover:border-gray-400 dark:hover:border-gray-500 transition-colors"
+          aria-label="Ir para a próxima página"
+        >
           {SiteOptions.pagination.nextText} →
         </a>
       ) : (
-        <span class="px-4 py-2 text-sm font-medium text-gray-400 dark:text-gray-600 border border-gray-200 dark:border-gray-700 rounded-md cursor-not-allowed">{SiteOptions.pagination.nextText} →</span>
+        <span class="px-4 py-2 text-sm font-medium text-mist-400 dark:text-mist-600 border border-mist-200 dark:border-gray-700 rounded-md cursor-not-allowed">
+          {SiteOptions.pagination.nextText} →
+        </span>
       ))
   }
 </nav>
 
 <!-- Pagination Info -->
-<div class="text-center mt-4 text-sm text-gray-500 dark:text-gray-400">
-  Showing {(page.currentPage - 1) * page.size + 1} to {Math.min(page.currentPage * page.size, page.total)} of {page.total}
-  {SiteOptions.pagination.postLabel}
+<div class="text-center mt-4 text-sm text-mist-500 dark:text-mist-400">
+  Mostrando {(page.currentPage - 1) * page.size + 1} a {Math.min(page.currentPage * page.size, page.total)} de {page.total} {SiteOptions.pagination.postLabel}
 </div>
