@@ -14,5 +14,8 @@
     "astro": "^5.9.0",
     "partytown": "^0.0.0",
     "tailwindcss": "^4.2.0"
+  },
+  "devDependencies": {
+    "@astrojs/partytown": "^2.1.7"
   }
 }
