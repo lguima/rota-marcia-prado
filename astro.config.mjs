@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import tailwindcss from "@tailwindcss/vite";
+import partytown from '@astrojs/partytown';
 import remarkYoutubeEmbed from './src/plugins/remarkYoutubeEmbed.js'
 import remarkVimeoEmbed from './src/plugins/remarkVimeoEmbed.js'
 import remarkWistiaEmbed from './src/plugins/remarkWistiaEmbed.js'
@@ -17,6 +18,7 @@ export default defineConfig({
     vite: {
         plugins: [tailwindcss()]
     },
+    integrations: [partytown({ config: { forward: ['dataLayer.push', 'gtag'] } })],
     markdown: {
         remarkPlugins: [
             remarkYoutubeEmbed,
