@@ -7,6 +7,4 @@ tags: ["Trajeto", "História", "Lei"]
 featured: true
 ---
 
-# A Rota Márcia Prado
-
 Confira o <a href="https://bicicreteiro.org/dbm/a-rota-marcia-prado/" target="_blank">conteúdo do blog Bicicreteiro sobre a Rota Márcia Prado</a>, contando sua história, sobre o trajeto e a luta pela lei que instituiu a rota e sua viabilização.

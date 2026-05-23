@@ -7,6 +7,4 @@ tags: ["Trajeto", "Lei"]
 featured: true
 ---
 
-# Rota Márcia Prado
-
 Confira a <a href="https://pt.wikipedia.org/wiki/Rota_M%C3%A1rcia_Prado" target="_blank">página na Wikipédia sobre Rota Márcia Prado</a>.
