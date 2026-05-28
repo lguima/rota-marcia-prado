@@ -12,13 +12,15 @@ import remarkGistEmbed from './src/plugins/remarkGistEmbed.js'
 import remarkAscinemaEmbed from './src/plugins/remarkAscinemaEmbed.js';
 import remarkSoundcloudEmbed from './src/plugins/remarkSoundcloudEmbed.js';
 
+import sitemap from '@astrojs/sitemap';
+
 // https://astro.build/config
 export default defineConfig({
     site: 'https://rotamarciaprado.org',
     vite: {
         plugins: [tailwindcss()]
     },
-    integrations: [partytown({ config: { forward: ['dataLayer.push', 'gtag'] } })],
+    integrations: [partytown({ config: { forward: ['dataLayer.push', 'gtag'] } }), sitemap()],
     markdown: {
         remarkPlugins: [
             remarkYoutubeEmbed,
