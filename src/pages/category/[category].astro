@@ -6,8 +6,6 @@ import Footer from "../../components/Footer.astro"
 import PostCard from "../../components/PostCard.astro"
 import SiteOptions from "../../site.config.mjs"
 
-export const prerender = true;
-
 export async function getStaticPaths() {
   const allPosts = await getCollection("article")
   const allCategories = [...new Set(allPosts.map((post) => post.data.category))]
