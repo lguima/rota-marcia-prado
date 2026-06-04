@@ -22,18 +22,18 @@ export default defineConfig({
     },
     integrations: [partytown({ config: { forward: ['dataLayer.push', 'gtag'] } }), sitemap()],
     i18n: {
-      locales: ["pt-BR", {
+      locales: ["pt-BR"/* {
         path: "es",
         codes: ["es", "es-ES", "es-UY", "es-AR", "es-CL", "es-PY", "es-BO", "es-PE", "es-EC", "es-CO", "es-VE"],
       },  {
         path: "en",
         codes: ["en", "en-US", "en-GB", "en-CA", "en-AU"],
-      }],
+      }*/],
       defaultLocale: "pt-BR",
-      fallback: {
+      /*fallback: {
         es: "pt-BR",
         en: "pt-BR",
-      },
+      },*/
     },
     image: {
       remotePatterns: [{ protocol: "https" }],

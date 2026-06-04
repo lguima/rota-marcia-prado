@@ -6,6 +6,8 @@ import Footer from "../../components/Footer.astro"
 import FeaturedCard from "../../components/FeaturedCard.astro"
 import SiteOptions from "../../site.config.mjs"
 
+export const prerender = true;
+
 export async function getStaticPaths() {
   const posts = await getCollection("article")
   return posts.map((post) => ({
