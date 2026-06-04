@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import { unified } from '@astrojs/markdown-remark';
 import tailwindcss from "@tailwindcss/vite";
 import partytown from '@astrojs/partytown';
 import remarkYoutubeEmbed from './src/plugins/remarkYoutubeEmbed.js'
@@ -22,16 +23,18 @@ export default defineConfig({
     },
     integrations: [partytown({ config: { forward: ['dataLayer.push', 'gtag'] } }), sitemap()],
     markdown: {
-        remarkPlugins: [
-            remarkYoutubeEmbed,
-            remarkVimeoEmbed,
-            remarkWistiaEmbed,
-            remarkGoogleMapsEmbed,
-            remarkIframeEmbed,
-            remarkPdfEmbed,
-            remarkGistEmbed,
-            remarkAscinemaEmbed,
-            remarkSoundcloudEmbed,
-        ],
+        processor: unified({
+            remarkPlugins: [
+                remarkYoutubeEmbed,
+                remarkVimeoEmbed,
+                remarkWistiaEmbed,
+                remarkGoogleMapsEmbed,
+                remarkIframeEmbed,
+                remarkPdfEmbed,
+                remarkGistEmbed,
+                remarkAscinemaEmbed,
+                remarkSoundcloudEmbed,
+            ],
+        }),
     },
 });

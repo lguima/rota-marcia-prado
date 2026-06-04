@@ -1,8 +1,10 @@
-import { defineCollection, z } from 'astro:content';
-import SiteOptions from "../site.config.mjs"
+import { defineCollection } from 'astro:content';
+import { z } from 'astro/zod';
+import { glob } from 'astro/loaders';
+import SiteOptions from "./site.config.mjs"
 
 const articleCollection = defineCollection({
-    type: 'content',
+    loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/content/article" }),
     schema: z.object({
         title: z.string(),
         description: z.string(),
