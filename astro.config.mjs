@@ -22,6 +22,10 @@ export default defineConfig({
         plugins: [tailwindcss()]
     },
     integrations: [partytown({ config: { forward: ['dataLayer.push', 'gtag'] } }), sitemap()],
+    image: {
+      remotePatterns: [{ protocol: "https" }],
+      domains: ["res.cloudinary.com"],
+    },
     markdown: {
         processor: unified({
             remarkPlugins: [
