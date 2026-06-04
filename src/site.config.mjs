@@ -1,4 +1,13 @@
 export default {
+    metadata: {
+        name: "Rota Márcia Prado",
+        title: "Rota Márcia Prado - Cicloturismo entre São Paulo e Santos",
+        description: "Explore a Rota Márcia Prado, rota cicloturística entre São Paulo e Santos. Guias, dicas, mapas e atrações para sua aventura de bicicleta.",
+        image: {
+            url: "https://res.cloudinary.com/rota-marcia-prado/image/upload/v1780594091/rota-marcia-prado-og_wtcdzd.webp", // Open Graph image URL
+            alt: "Título e descrição do site juntamente com o logotipo", // Alternative text for the image
+        }
+    },
     siteTitle: "Rota Márcia Prado", // Main site title displayed in header
     siteSubTitle: "Rota cicloturística entre a Região Metropolitana de São Paulo e Santos", // Subtitle shown under main title
     copyright: "© 2026 Rota Márcia Prado. Todos os direitos reservados.", // Footer copyright text
