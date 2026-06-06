@@ -1,0 +1,25 @@
+---
+import SiteOptions from "../site.config.mjs"
+
+export interface Props {
+  title: string
+  description?: string
+}
+
+const { title = SiteOptions.metadata.title, description = SiteOptions.metadata.description } = Astro.props
+---
+
+<meta property="og:url" content={Astro.url} />
+<meta property="og:type" content="website" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={SiteOptions.metadata.image.url} />
+<meta property="og:image:alt" content={SiteOptions.metadata.image.alt} />
+<meta property="og:site_name" content={SiteOptions.metadata.name} />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:domain" content={Astro.site} />
+<meta property="twitter:url" content={Astro.url} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={SiteOptions.metadata.image.url} />
