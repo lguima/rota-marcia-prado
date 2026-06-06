@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css"
+import BaseLayout from "./BaseLayout.astro";
 import SiteOptions from "../site.config.mjs"
 
 export interface Props {
@@ -10,77 +11,10 @@ export interface Props {
 const { title = SiteOptions.metadata.title, description = SiteOptions.metadata.description } = Astro.props
 ---
 
-<!doctype html>
-<html lang="pt-BR" class="h-full">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>{title}</title>
-    <meta name="description" content={description} />
-
-    <meta property="og:url" content={Astro.url} />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={SiteOptions.metadata.image.url} />
-    <meta property="og:image:alt" content={SiteOptions.metadata.image.alt} />
-    <meta property="og:site_name" content={SiteOptions.metadata.name} />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta property="twitter:domain" content={Astro.site} />
-    <meta property="twitter:url" content={Astro.url} />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={SiteOptions.metadata.image.url} />
-
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="sitemap" href="/sitemap-index.xml" />
-    <link rel="alternate" type="application/rss+xml" title={SiteOptions.siteTitle} href={new URL("rss.xml", Astro.site)} />
-
-    <script is:inline>
-      // Theme initialization - prevents FOUC
-      ;(() => {
-        const theme = localStorage.getItem("theme") ?? (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
-
-        document.documentElement.classList.toggle("dark", theme === "dark")
-      })()
-    </script>
-    {SiteOptions.googleTag.enabled && (
-      <script
-        data-category="analytics"
-        is:inline
-        type="text/partytown"
-        async
-        src={`https://www.googletagmanager.com/gtag/js?id=${SiteOptions.googleTag.measurementId}`}
-      ></script>
-
-      <script
-        data-category="analytics"
-        is:inline
-        type="text/partytown"
-        define:vars={{googleTagMeasurementId: SiteOptions.googleTag.measurementId}}
-      >
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', googleTagMeasurementId);
-      </script>
-    )}
-  </head>
-
-  <body class="bg-white text-mist-900 dark:bg-mist-900 dark:text-mist-200 transition-colors duration-300 min-h-full">
-    <main class={`max-w-[1100px] mx-auto px-4`}>
-      <slot />
-    </main>
+<BaseLayout title={title} description={description} bodyClass="bg-white text-mist-900 dark:bg-mist-900 dark:text-mist-200 transition-colors duration-300 min-h-full">
+  <main class={`max-w-275 mx-auto px-4`}>
+    <slot />
 
     <script is:inline src="/scripts/theme-toggle.js"></script>
-  </body>
-</html>
-
-<style>
-  @view-transition {
-    navigation: auto;
-  }
-</style>
+  </main>
+</BaseLayout>

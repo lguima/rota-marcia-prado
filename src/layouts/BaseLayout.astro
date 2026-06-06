@@ -1,0 +1,20 @@
+---
+import Head from "../components/Head.astro";
+
+const { title, description, bodyClass } = Astro.props
+---
+
+<!doctype html>
+<html lang={Astro.currentLocale} class="h-full">
+  <Head title={title} description={description} />
+
+  <body class={bodyClass}>
+    <slot />
+  </body>
+</html>
+
+<style>
+  @view-transition {
+    navigation: auto;
+  }
+</style>

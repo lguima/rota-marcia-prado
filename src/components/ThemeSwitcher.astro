@@ -1,0 +1,11 @@
+---
+---
+
+<script is:inline>
+  // Theme initialization - prevents FOUC
+  ;(() => {
+    const theme = localStorage.getItem("theme") ?? (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
+
+    document.documentElement.classList.toggle("dark", theme === "dark")
+  })()
+</script>

@@ -1,0 +1,28 @@
+---
+import SiteOptions from "../site.config.mjs"
+
+const isProd = import.meta.env.PROD;
+---
+
+{SiteOptions.googleTag.enabled && isProd && (
+  <script
+    data-category="analytics"
+    is:inline
+    type="text/partytown"
+    async
+    src={`https://www.googletagmanager.com/gtag/js?id=${SiteOptions.googleTag.measurementId}`}
+  ></script>
+
+  <script
+    data-category="analytics"
+    is:inline
+    type="text/partytown"
+    define:vars={{googleTagMeasurementId: SiteOptions.googleTag.measurementId}}
+  >
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', googleTagMeasurementId);
+  </script>
+)}
