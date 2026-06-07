@@ -4,6 +4,7 @@ import SiteOptions from "../site.config.mjs"
 
 export async function GET(context) {
   const articles = await getCollection('article');
+  const sortedArticles = articles.sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf())
 
   return rss({
     // `<title>` field in output xml
@@ -23,7 +24,7 @@ export async function GET(context) {
     stylesheet: '/rss/styles.xsl',
 
     // Array of `<item>`s in output xml
-    items: articles.map((post) => ({
+    items: sortedArticles.map((post) => ({
       title: post.data.title,
       pubDate: post.data.pubDate,
       description: post.data.description,
