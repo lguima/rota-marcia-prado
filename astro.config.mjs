@@ -15,7 +15,10 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  integrations: [partytown({ config: { forward: ['dataLayer.push', 'gtag'] } }), sitemap()],
+  integrations: [
+    partytown({ config: { forward: ['dataLayer.push', 'gtag'] } }),
+    sitemap(),
+  ],
   i18n: {
     locales: ["pt-BR"/* {
         path: "es",
