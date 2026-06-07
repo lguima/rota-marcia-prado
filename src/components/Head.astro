@@ -4,12 +4,17 @@ import ThemeSwitcher from "../components/ThemeSwitcher.astro";
 import Analytics from "../components/Analytics.astro";
 import SiteOptions from "../site.config.mjs"
 
-const { title, description } = Astro.props
+const { title, description = SiteOptions.metadata.description } = Astro.props
+
+const pageTitle = title ? `${title} | ${SiteOptions.metadata.name}` : SiteOptions.metadata.name;
 ---
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>{pageTitle}</title>
+  <meta name="description" content={description} />
 
   <MetaTags title={title} description={description} />
 

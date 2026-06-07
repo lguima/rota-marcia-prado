@@ -19,7 +19,7 @@ export const getStaticPaths = (async ({ paginate }) => {
 
 const { page } = Astro.props
 
-const pageTitle = page.currentPage === 1 ? SiteOptions.siteTitle : `Blog - Page ${page.currentPage} | ${SiteOptions.siteTitle}`
+const pageTitle = page.currentPage === 1 ? 'Publicações' : `Publicações - Página ${page.currentPage}`
 const showCategory = SiteOptions.showCategoryOnPosts || false
 ---
 
