@@ -36,14 +36,6 @@ export default {
     readMore: "Ler mais", // Text for "Read More" links on featured posts
     shareThisArticle: "Compartilhar esta publicação", // Share button text
   },
-  localization: { // Localization settings (e.g., date formats)
-    locale: "pt-BR", // Locale code for formatting
-    date: {
-      year: "numeric", // Year format
-      month: "long", // Month format
-      day: "numeric", // Day format
-    }
-  },
   pagination: {
     showPrevNext: true, // Show Previous/Next navigation buttons
     prevText: "Anterior", // Text for previous page button

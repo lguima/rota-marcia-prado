@@ -1,5 +1,6 @@
 ---
 import { type CollectionEntry } from "astro:content"
+import localization from "@config/localization.mjs"
 import SiteOptions from "../site.config.mjs"
 
 export interface Props {
@@ -11,10 +12,10 @@ export interface Props {
 const { post, showImage = false, showCategory = true } = Astro.props
 const { title, pubDate, category, description, author } = post.data
 
-const formattedDate = new Intl.DateTimeFormat(SiteOptions.localization.locale, {
-  year: SiteOptions.localization.date.year as Intl.DateTimeFormatOptions['year'],
-  month: SiteOptions.localization.date.month as Intl.DateTimeFormatOptions['month'],
-  day: SiteOptions.localization.date.day as Intl.DateTimeFormatOptions['day'],
+const formattedDate = new Intl.DateTimeFormat(localization.locale, {
+  year: localization.date.year as Intl.DateTimeFormatOptions['year'],
+  month: localization.date.month as Intl.DateTimeFormatOptions['month'],
+  day: localization.date.day as Intl.DateTimeFormatOptions['day'],
 }).format(pubDate)
 ---
 
