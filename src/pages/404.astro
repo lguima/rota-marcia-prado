@@ -2,24 +2,30 @@
 import BlogLayout from "../layouts/BlogLayout.astro"
 import Header from "../components/Header.astro"
 import Footer from "../components/Footer.astro"
-import SiteOptions from "../site.config.mjs"
 ---
 
-<BlogLayout title={`Página não encontrada - ${SiteOptions.siteTitle}`} description="A página que você está procurando não existe.">
+<BlogLayout title={`Página não encontrada`} description="A página que você está procurando não existe.">
   <Header showTitle={true} />
 
   <!-- Light Horizontal Bar -->
   <hr class="border-t border-gray-200 dark:border-gray-700 my-8" />
 
   <!-- Page Header -->
-  <header class="mb-12 text-center">
+  <header class="mb-12">
     <h1 class="text-3xl font-bold tracking-tight mb-4 text-mist-900 dark:text-mist-100">
-      Página não encontrada
+      ⚠️ Página não encontrada
     </h1>
   </header>
 
-  <main class="mb-12 text-center">
-    <p>Desculpe, a página que você está procurando não existe.</p>
+  <main class="mb-12 text-gray-700 dark:text-mist-300">
+    <p class="mb-8">Desculpe, a página que você está procurando não está disponível.</p>
+
+    <p class="mb-2">Algumas razões para isso podem ser:</p>
+    <ul class="list-disc list-inside text-left">
+      <li>A página pode ter sido removida e outras ainda linkam para ela.</li>
+      <li>O conteúdo pode estar temporariamente indisponível.</li>
+      <li>O endereço digitado pode estar incorreto.</li>
+    </ul>
   </main>
 
   <!-- Back to Home -->
