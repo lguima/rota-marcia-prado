@@ -41,7 +41,7 @@ const { page } = Astro.props
     {
       Array.from({ length: page.lastPage }, (_, i) => i + 1).map((pageNum) => {
         const isCurrentPage = pageNum === page.currentPage
-        const pageUrl = pageNum === 1 ? "/blog/" : `/blog/${pageNum}/`
+        const pageUrl = pageNum === 1 ? "/publicacoes/" : `/publicacoes/${pageNum}/`
 
         return isCurrentPage ? (
           <span

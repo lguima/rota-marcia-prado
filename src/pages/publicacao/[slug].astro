@@ -41,13 +41,13 @@ const formattedDate = new Intl.DateTimeFormat(SiteOptions.localization.locale, {
       {title}
     </h1>
     <div class="flex flex-wrap items-center text-sm text-gray-500 dark:text-gray-400 space-x-4 mb-4">
-      <span>{SiteOptions.labels.postedBy} <a href={`/author/${author.toLowerCase().replace(/\s+/g, "-")}`} class="text-gray-500 dark:text-gray-400 hover:underline no-underline"><strong>{author}</strong></a></span>
+      <span>{SiteOptions.labels.postedBy} <a href={`/autoria/${author.toLowerCase().replace(/\s+/g, "-")}`} class="text-gray-500 dark:text-gray-400 hover:underline no-underline"><strong>{author}</strong></a></span>
       <span>{formattedDate}</span>
       {
         category && (
           <span>
             {SiteOptions.labels.postedIn}
-            <a href={`/category/${category.toLowerCase().replace(/\s+/g, "-")}`} class="text-gray-500 dark:text-gray-400 hover:underline no-underline">
+            <a href={`/categoria/${category.toLowerCase().replace(/\s+/g, "-")}`} class="text-gray-500 dark:text-gray-400 hover:underline no-underline">
               <strong>{category}</strong>
             </a>
           </span>
@@ -59,7 +59,7 @@ const formattedDate = new Intl.DateTimeFormat(SiteOptions.localization.locale, {
       {
         tags.map((tag) => (
           <a
-            href={`/tag/${tag.toLowerCase().replace(/\s+/g, "-")}`}
+            href={`/topico/${tag.toLowerCase().replace(/\s+/g, "-")}`}
             class="bg-gray-100 text-gray-600 dark:bg-mist-700 dark:text-mist-300 px-2 py-1 rounded hover:bg-gray-200 dark:hover:bg-mist-600 ml-1 no-underline hover:underline"
           >
             {tag}

@@ -20,7 +20,7 @@ const formattedDate = new Intl.DateTimeFormat(SiteOptions.localization.locale, {
 
 <li class="flex flex-col sm:flex-row justify-between sm:items-center py-4 border-b border-gray-100 dark:border-gray-800">
   <div class="mb-2 sm:mb-0">
-    <a href={`/article/${post.id}`} class="text-xl font-medium hover:underline">
+    <a href={`/publicacao/${post.id}`} class="text-xl font-medium hover:underline">
       {title}
       {SiteOptions.showAuthorsOnHomePage && author && <span class="text-sm text-mist-500 dark:text-mist-400 ml-2">{SiteOptions.labels.postedBy} {author}</span>}
     </a>

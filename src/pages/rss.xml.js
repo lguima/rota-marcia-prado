@@ -28,7 +28,7 @@ export async function GET(context) {
       pubDate: post.data.pubDate,
       description: post.data.description,
       // Compute RSS link from post `id`
-      link: `/article/${post.id}/`,
+      link: `/publicacao/${post.id}/`,
     })),
 
     // (optional) inject custom xml

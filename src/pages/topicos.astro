@@ -38,7 +38,7 @@ const tagCounts = allTags.map((tag) => ({
       {
         tagCounts.map(({ name, count }) => (
           <a
-            href={`/tag/${name.toLowerCase().replace(/\s+/g, "-")}`}
+            href={`/topico/${name.toLowerCase().replace(/\s+/g, "-")}`}
             class="bg-gray-50 dark:bg-mist-800 rounded-lg p-4 hover:bg-gray-100 dark:hover:bg-mist-700 transition-colors border border-gray-200 dark:border-gray-700"
           >
             <div class="flex items-center justify-between">
