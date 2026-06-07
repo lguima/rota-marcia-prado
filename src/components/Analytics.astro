@@ -1,23 +1,23 @@
 ---
-import SiteOptions from "../site.config.mjs"
+import analytics from "@config/analytics.mjs";
 
 const isProd = import.meta.env.PROD;
 ---
 
-{SiteOptions.googleTag.enabled && isProd && (
+{analytics.googleTag.enabled && isProd && (
   <script
     data-category="analytics"
     is:inline
     type="text/partytown"
     async
-    src={`https://www.googletagmanager.com/gtag/js?id=${SiteOptions.googleTag.measurementId}`}
+    src={`https://www.googletagmanager.com/gtag/js?id=${analytics.googleTag.measurementId}`}
   ></script>
 
   <script
     data-category="analytics"
     is:inline
     type="text/partytown"
-    define:vars={{googleTagMeasurementId: SiteOptions.googleTag.measurementId}}
+    define:vars={{googleTagMeasurementId: analytics.googleTag.measurementId}}
   >
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
