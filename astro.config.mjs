@@ -11,37 +11,37 @@ import remarkIframeEmbed from './src/plugins/remarkIframeEmbed.js'
 import remarkPdfEmbed from './src/plugins/remarkPdfEmbed.js'
 
 export default defineConfig({
-    site: 'https://rotamarciaprado.org',
-    vite: {
-        plugins: [tailwindcss()]
-    },
-    integrations: [partytown({ config: { forward: ['dataLayer.push', 'gtag'] } }), sitemap()],
-    i18n: {
-      locales: ["pt-BR"/* {
+  site: 'https://rotamarciaprado.org',
+  vite: {
+    plugins: [tailwindcss()],
+  },
+  integrations: [partytown({ config: { forward: ['dataLayer.push', 'gtag'] } }), sitemap()],
+  i18n: {
+    locales: ["pt-BR"/* {
         path: "es",
         codes: ["es", "es-ES", "es-UY", "es-AR", "es-CL", "es-PY", "es-BO", "es-PE", "es-EC", "es-CO", "es-VE"],
       },  {
         path: "en",
         codes: ["en", "en-US", "en-GB", "en-CA", "en-AU"],
       }*/],
-      defaultLocale: "pt-BR",
-      /*fallback: {
-        es: "pt-BR",
-        en: "pt-BR",
-      },*/
-    },
-    image: {
-      remotePatterns: [{ protocol: "https" }],
-      domains: ["res.cloudinary.com"],
-    },
-    markdown: {
-        processor: unified({
-            remarkPlugins: [
-                remarkYouTubeEmbed,
-                remarkGoogleMapsEmbed,
-                remarkIframeEmbed,
-                remarkPdfEmbed,
-            ],
-        }),
-    },
+    defaultLocale: "pt-BR",
+    /*fallback: {
+      es: "pt-BR",
+      en: "pt-BR",
+    },*/
+  },
+  image: {
+    remotePatterns: [{ protocol: "https" }],
+    domains: ["res.cloudinary.com"],
+  },
+  markdown: {
+    processor: unified({
+      remarkPlugins: [
+        remarkYouTubeEmbed,
+        remarkGoogleMapsEmbed,
+        remarkIframeEmbed,
+        remarkPdfEmbed,
+      ],
+    }),
+  },
 });
