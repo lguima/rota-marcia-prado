@@ -22,4 +22,4 @@ Código sob a licença [MIT](LICENSE.md)
 - Construído com [Astro](https://astro.build) 🚀
 - Estilizado com [Tailwind CSS](https://tailwindcss.com) 💨
 - Ícones de [Lucide](https://lucide.dev) ✨
-- Template de [hasinhayder](https://github.com/hasinhayder/storyteller-astro) 🎨
+- Template de [Hasin Hayder](https://github.com/hasinhayder/storyteller-astro) 🎨
