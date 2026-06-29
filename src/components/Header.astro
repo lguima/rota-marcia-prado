@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import SiteOptions from "../site.config.mjs"
+import media from "@config/media.mjs"
 export interface Props {
   showTitle?: boolean
 }
@@ -26,7 +27,7 @@ const { showTitle = true } = Astro.props
 
   <a href="/" class="flex flex-col items-center">
     <Image
-      src="https://res.cloudinary.com/rota-marcia-prado/image/upload/v1780795286/rota-marcia-prado-logo-thumbnail.png"
+      src={`${media.url}/rota-marcia-prado/image/upload/v1780795286/rota-marcia-prado-logo-thumbnail.png`}
       alt="Rota Márcia Prado"
       class="w-28 h-28 rounded-full object-cover border-2 border-gray-200 dark:border-gray-700 shadow mb-6 hover:opacity-80 transition-opacity"
       width={1024}
