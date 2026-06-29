@@ -6,6 +6,8 @@ const { title, description } = Astro.props
 ---
 
 <BaseLayout title={title} description={description} bodyClass="bg-white text-mist-900 dark:bg-mist-900 dark:text-mist-200 transition-colors duration-300 min-h-full">
+  <slot name="structured-data" slot="structured-data" />
+
   <main class={`max-w-275 mx-auto px-4`}>
     <slot />
 
