@@ -6,7 +6,9 @@ const { title, description, bodyClass } = Astro.props
 
 <!doctype html>
 <html lang={Astro.currentLocale} class="h-full">
-  <Head title={title} description={description} />
+  <Head title={title} description={description}>
+    <slot name="structured-data" slot="structured-data" />
+  </Head>
 
   <body class={bodyClass}>
     <slot />
