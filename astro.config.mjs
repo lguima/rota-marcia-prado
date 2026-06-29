@@ -11,7 +11,7 @@ import remarkGoogleMapsEmbed from './src/plugins/remarkGoogleMapsEmbed.js'
 import remarkIframeEmbed from './src/plugins/remarkIframeEmbed.js'
 import remarkPdfEmbed from './src/plugins/remarkPdfEmbed.js'
 
-const { SITE_URL } = loadEnv(process.env.NODE_ENV || 'development', process.cwd(), "");
+const { SITE_URL, CLOUDINARY_DOMAIN } = loadEnv(process.env.NODE_ENV || 'development', process.cwd(), "");
 
 export default defineConfig({
   site: SITE_URL ?? "https://rotamarciaprado.org",
@@ -38,7 +38,7 @@ export default defineConfig({
   },
   image: {
     remotePatterns: [{ protocol: "https" }],
-    domains: ["res.cloudinary.com"],
+    domains: [CLOUDINARY_DOMAIN ?? "res.cloudinary.com"],
   },
   markdown: {
     processor: unified({
