@@ -1,5 +1,5 @@
 /**
- * Localization settings
+ * Localization
  */
 export default {
   locale: "pt-BR", // Locale code

@@ -1,3 +1,6 @@
+/**
+ * Analytics
+ */
 export default {
   googleTag: {
     enabled: import.meta.env.ANALYTICS_GOOGLE_TAG_ENABLED !== "false",
