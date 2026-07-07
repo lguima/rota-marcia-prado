@@ -2,11 +2,11 @@
 import MetaTags from "@components/MetaTags.astro";
 import ThemeSwitcher from "@components/ThemeSwitcher.astro";
 import Analytics from "@components/Analytics.astro";
-import SiteOptions from "../site.config.mjs"
+import site from "@config/site.mjs";
 
-const { title, description = SiteOptions.metadata.description } = Astro.props
+const { title, description = site.metadata.description } = Astro.props
 
-const pageTitle = title ? `${title} | ${SiteOptions.metadata.name}` : SiteOptions.metadata.name;
+const pageTitle = title ? `${title} | ${site.name}` : site.name;
 ---
 
 <head>
@@ -20,7 +20,7 @@ const pageTitle = title ? `${title} | ${SiteOptions.metadata.name}` : SiteOption
 
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="sitemap" href="/sitemap-index.xml" />
-  <link rel="alternate" type="application/rss+xml" title={SiteOptions.siteTitle} href={new URL("rss.xml", Astro.site)} />
+  <link rel="alternate" type="application/rss+xml" title={site.name} href={new URL("rss.xml", Astro.site)} />
 
   <slot name="structured-data" />
 
