@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import SiteOptions from "../site.config.mjs"
+import site from "@config/site.mjs"
 import media from "@config/media.mjs"
 export interface Props {
   showTitle?: boolean
@@ -28,7 +28,7 @@ const { showTitle = true } = Astro.props
   <a href="/" class="flex flex-col items-center">
     <Image
       src={`${media.url}/rota-marcia-prado/image/upload/v1780795286/rota-marcia-prado-logo-thumbnail.png`}
-      alt="Rota Márcia Prado"
+      alt={site.name}
       class="w-28 h-28 rounded-full object-cover border-2 border-gray-200 dark:border-gray-700 shadow mb-6 hover:opacity-80 transition-opacity"
       width={1024}
       height={1024}
@@ -37,10 +37,10 @@ const { showTitle = true } = Astro.props
       showTitle && (
         <>
           <h1 class="text-4xl font-bold tracking-tight mb-2 text-center hover:opacity-80 transition-opacity">
-            {SiteOptions.siteTitle}
+            {site.name}
           </h1>
-          <p class="text-lg text-mist-500 dark:text-mist-400 font-light text-center">
-            {SiteOptions.siteSubTitle}
+          <p title={site.subTitle} class="text-lg text-mist-500 dark:text-mist-400 font-light text-center">
+            Rota cicloturística que liga a <span class="whitespace-nowrap">Região Metropolitana</span> de <span class="whitespace-nowrap">São Paulo</span> a Santos pela <span class="whitespace-nowrap">Serra do Mar</span>, conhecida como a tradicional <span class="whitespace-nowrap">Descida de Santos</span>
           </p>
         </>
       )
