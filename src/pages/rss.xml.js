@@ -1,6 +1,6 @@
 import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
-import SiteOptions from "../site.config.mjs"
+import site from "@config/site.mjs"
 
 export async function GET(context) {
   const articles = await getCollection('article');
@@ -8,10 +8,10 @@ export async function GET(context) {
 
   return rss({
     // `<title>` field in output xml
-    title: SiteOptions.siteTitle,
+    title: site.name,
 
     // `<description>` field in output xml
-    description: SiteOptions.siteSubTitle,
+    description: site.subTitle,
 
     // Pull in your project "site" from the endpoint context
     // https://docs.astro.build/en/reference/api-reference/#site
