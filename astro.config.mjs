@@ -40,6 +40,10 @@ export default defineConfig({
     remotePatterns: [{ protocol: "https" }],
     domains: [CLOUDINARY_DOMAIN ?? "res.cloudinary.com"],
   },
+  redirects: {
+    '/duvidas-frequentes': '/perguntas-frequentes',
+    '/faq': '/perguntas-frequentes',
+  },
   markdown: {
     processor: unified({
       remarkPlugins: [
