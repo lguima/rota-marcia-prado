@@ -1,0 +1,16 @@
+---
+import Head from "@components/Head.astro";
+
+const { title, description } = Astro.props
+---
+
+<!doctype html>
+<html lang={Astro.currentLocale}>
+  <Head title={title} description={description}>
+    <slot name="structured-data" slot="structured-data" />
+  </Head>
+
+  <body>
+    <slot />
+  </body>
+</html>
