@@ -1,46 +1,36 @@
 ---
-import BlogLayout from "@layouts/BlogLayout.astro"
-import Header from "@components/Header.astro"
-import Footer from "@components/Footer.astro"
+import Main from "@layouts/Main.astro";
 ---
 
-<BlogLayout title={`Página não encontrada`} description="A página que você está procurando não existe.">
-  <Header showTitle={true} />
+<Main title="Página não encontrada" description="A página que você está procurando não existe.">
+  <section class="py-12 lg:py-20">
+    <div class="mx-auto max-w-7xl flex flex-col gap-12 px-5 lg:gap-16 lg:px-8">
+      <div class="mx-auto w-full max-w-3xl flex flex-col gap-3 items-center text-center">
+        <h1 class="text-3xl font-medium tracking-tight text-balance lg:text-4xl">
+          Página não encontrada
+        </h1>
+        <p class="text-muted-foreground max-w-2xl text-base text-pretty">
+           A página que você está procurando não existe.
+        </p>
+      </div>
+    </div>
+  </section>
 
-  <!-- Light Horizontal Bar -->
-  <hr class="border-t border-gray-200 dark:border-gray-700 my-8" />
-
-  <!-- Page Header -->
-  <header class="mb-12 text-center">
-    <h1 class="text-3xl font-bold tracking-tight mb-4 text-mist-900 dark:text-mist-100">
-      Página não encontrada
-    </h1>
-  </header>
-
-  <main class="mb-12 text-gray-700 dark:text-mist-300 text-center">
-    <p class="mb-8">Desculpe, a página que você está procurando não está disponível.</p>
-
-    <p class="mb-2">Algumas razões para isso podem ser:</p>
-    <ul class="inline-block list-disc list-inside text-left">
-      <li>A página pode ter sido removida e outras ainda linkam para ela.</li>
-      <li>O conteúdo pode estar temporariamente indisponível.</li>
-      <li>O endereço digitado pode estar incorreto.</li>
-    </ul>
-  </main>
-
-  <!-- Back to Home -->
-  <div class="mt-12 text-center">
-    <a
-      href="/"
-      class="inline-flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-mist-100 transition-colors"
-    >
-      <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
-      </svg>
-      Ir para o início
-    </a>
-  </div>
-
-  <!-- Minimal Footer -->
-  <Footer />
-</BlogLayout>
+  <section class="empty">
+    <header>
+      <figure>
+        <svg class="lucide lucide-search-alert-icon lucide-search-alert" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 7v4"/><path d="M11 15h.01"/></svg>
+      </figure>
+      <p>Desculpe, a página que você está procurando não está disponível.</p>
+    </header>
+    <footer>
+      <p>
+        <a href="/">
+          <button type="button" class="btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-left-icon lucide-arrow-up-left"><path d="M7 17V7h10"/><path d="M17 17 7 7"/></svg> Ir para o início
+          </button>
+        </a>
+      </p>
+    </footer>
+  </section>
+</Main>
