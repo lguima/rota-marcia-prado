@@ -16,6 +16,12 @@ const { SITE_URL, CLOUDINARY_DOMAIN } = loadEnv(process.env.NODE_ENV || 'develop
 export default defineConfig({
   site: SITE_URL ?? "https://rotamarciaprado.org",
   vite: {
+    css: {
+      transformer: 'lightningcss',
+    },
+    build: {
+      cssMinify: 'lightningcss',
+    },
     plugins: [tailwindcss()],
   },
   integrations: [
