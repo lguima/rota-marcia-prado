@@ -2,10 +2,12 @@
 ---
 
 <script is:inline>
-  // Theme initialization - prevents FOUC
-  ;(() => {
-    const theme = localStorage.getItem("theme") ?? (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
-
-    document.documentElement.classList.toggle("dark", theme === "dark")
-  })()
+  (() => {
+    try {
+      const stored = localStorage.getItem("themeMode");
+      if (stored ? stored === "dark" : matchMedia("(prefers-color-scheme: dark)").matches) {
+        document.documentElement.classList.add("dark");
+      }
+    } catch (_) {}
+  })();
 </script>
