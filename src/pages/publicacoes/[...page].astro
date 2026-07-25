@@ -20,7 +20,7 @@ const { page } = Astro.props
 const pageTitle = page.currentPage === 1 ? 'Publicações' : `Publicações - Página ${page.currentPage}`
 ---
 
-<Main title={pageTitle}>
+<Main title={pageTitle} description="">
   <section class="pt-6 pb-6 lg:pt-10 lg:pb-10">
     <div class="mx-auto flex max-w-7xl flex-col gap-12 px-5 lg:gap-16 lg:px-8">
       <div class="flex w-full max-w-3xl flex-col gap-3 mx-auto items-center text-center">
