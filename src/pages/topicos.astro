@@ -33,7 +33,7 @@ const tagsCount = allTags.map((tag) => ({
         {
           tagsCount.map(({ tag, count }) => (
             <a
-              href={`/topico/${tag.toLowerCase().replace(/\s+/g, "-")}`}
+              href={`/topico/${tag.toLowerCase().replace(/\s+/g, "-")}/`}
               class="item"
               data-variant="outline"
             >
