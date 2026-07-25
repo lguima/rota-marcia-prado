@@ -6,7 +6,8 @@
     "dev": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "format": "prettier"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.9",
@@ -25,6 +26,9 @@
   },
   "devDependencies": {
     "@astrojs/partytown": "^2.1.7",
-    "@tailwindcss/typography": "^0.5.20"
+    "@tailwindcss/typography": "^0.5.20",
+    "prettier": "3.9.6",
+    "prettier-plugin-astro": "0.14.1",
+    "prettier-plugin-tailwindcss": "^0.8.1"
   }
 }
