@@ -14,9 +14,12 @@ export interface Props {
     size: number
     total: number
   }
+  basePath?: string
+  rangeDelta?: number
 }
 
-const { page } = Astro.props
+const { page, basePath = "/publicacoes/", rangeDelta = content.posts.pagination.rangeDelta } = Astro.props
+const normalizedBasePath = basePath.endsWith("/") ? basePath : `${basePath}/`
 
 const currentPage = page.currentPage;
 const lastPage = page.lastPage;
@@ -24,7 +27,7 @@ const lastPage = page.lastPage;
 // Generate the visible pages array with ellipses
 const getPaginationRange = () => {
   const range = [];
-  const delta = content.posts.pagination.rangeDelta;
+  const delta = rangeDelta;
 
   for (let i = 1; i <= lastPage; i++) {
     // Always include first page, last page, and pages around current page
@@ -81,7 +84,7 @@ const paginationRange = getPaginationRange();
         }
 
         const isCurrentPage = pageNum === page.currentPage
-        const pageUrl = pageNum === 1 ? "/publicacoes/" : `/publicacoes/${pageNum}/`
+        const pageUrl = pageNum === 1 ? normalizedBasePath : `${normalizedBasePath}${pageNum}/`
 
         return isCurrentPage ? (
           <li>
