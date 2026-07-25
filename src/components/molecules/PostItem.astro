@@ -1,0 +1,33 @@
+---
+import { type CollectionEntry } from "astro:content"
+import localization from "@config/localization.mjs"
+
+export interface Props {
+  post: CollectionEntry<"article">
+}
+
+const { post } = Astro.props
+const { title, pubDate, category } = post.data
+
+const formattedPubDate = new Intl.DateTimeFormat(localization.locale, {
+  year: localization.date.year as Intl.DateTimeFormatOptions['year'],
+  month: localization.date.month as Intl.DateTimeFormatOptions['month'],
+  day: localization.date.day as Intl.DateTimeFormatOptions['day'],
+}).format(pubDate)
+---
+
+<a href={`/publicacao/${post.id}/`} class="item" >
+  <section>
+    <h3 class="lg:text-xl">
+      {title}
+    </h3>
+    <p>
+      <span class="badge" data-variant="secondary">
+        {category}
+      </span>
+    </p>
+  </section>
+  <section>
+    <p>{formattedPubDate}</p>
+  </section>
+</a>

@@ -11,7 +11,7 @@
 
 # Rota Márcia Prado
 
-Rota cicloturística entre a Região Metropolitana de São Paulo e Santos
+Rota cicloturística que liga a Região Metropolitana de São Paulo a Santos pela Serra do Mar, conhecida como a tradicional Descida de Santos.
 
 # 📄 Licença
 
@@ -21,5 +21,8 @@ Código sob a licença [MIT](LICENSE.md)
 
 - Construído com [Astro](https://astro.build) 🚀
 - Estilizado com [Tailwind CSS](https://tailwindcss.com) 💨
+- Componentes de [Basecoat](https://basecoatui.com/) 🧩
+- Template de [tweakcn](https://tweakcn.com) 🎨
+- Fontes de [Fontsource](https://fontsource.org/) ✒️
 - Ícones de [Lucide](https://lucide.dev) ✨
-- Template de [Hasin Hayder](https://github.com/hasinhayder/storyteller-astro) 🎨
+- Boilerplate de [Hasin Hayder](https://github.com/hasinhayder/storyteller-astro) 🛠️

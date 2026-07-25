@@ -1,0 +1,93 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content"
+import type { GetStaticPaths } from "astro"
+import Main from "@layouts/Main.astro"
+import PostItem from "@components/molecules/PostItem.astro"
+import Pagination from "@components/molecules/Pagination.astro"
+import content from "@config/content.mjs"
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const allPosts = await getCollection("article")
+  const allAuthors = [...new Set(allPosts.map((post) => post.data.author))]
+
+  return allAuthors.flatMap((author) => {
+    const authorSlug = author.toLowerCase().replace(/\s+/g, "-")
+    const authorPosts = allPosts
+      .filter((post) => post.data.author === author)
+      .sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf())
+
+    return paginate(authorPosts, {
+      params: {
+        author: authorSlug,
+      },
+      props: {
+        author,
+        authorSlug,
+      },
+      pageSize: content.authors.pagination.pageSize,
+    })
+  })
+}) satisfies GetStaticPaths
+
+type Props = {
+  author: string
+  authorSlug: string
+  page: {
+    data: CollectionEntry<"article">[]
+    currentPage: number
+    lastPage: number
+    size: number
+    total: number
+    url: {
+      current: string
+      next?: string
+      prev?: string
+    }
+  }
+}
+
+const { author, authorSlug, page } = Astro.props
+const pageTitle = page.currentPage === 1 ? `Publicações por ${author}` : `Publicações por ${author} - Página ${page.currentPage}`
+---
+
+<Main title={pageTitle} description={`Publicações de autoria de ${author}`}>
+  <section class="py-6 lg:py-10">
+    <div class="mx-auto flex max-w-7xl flex-col gap-12 px-5 lg:gap-16 lg:px-8">
+      <div class="flex w-full max-w-3xl flex-col gap-3 mx-auto items-center text-center">
+        <h1 class="text-3xl font-medium tracking-tight text-balance lg:text-4xl">
+          {author}
+        </h1>
+        <p class="text-muted-foreground max-w-2xl text-base text-pretty">
+          {page.total}
+          {page.total === 1 ? "publicação" : "publicações"} por {author}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-6 lg:py-10">
+    <div class="mx-auto max-w-7xl px-5 lg:px-8 flex flex-col gap-6 lg:gap-8">
+      <div class="flex w-full flex-col gap-4">
+        {page.data.map((post) => (
+          <PostItem post={post} />
+        ))}
+      </div>
+
+      <Pagination page={page} basePath={`/autoria/${authorSlug}/`} rangeDelta={content.authors.pagination.rangeDelta} />
+
+      <div class="pt-4 text-center">
+        <a href="/autorias/">
+          <button type="button" class="btn" data-variant="link">
+            <svg class="lucide lucide-user-icon lucide-user" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Todas autorias
+          </button>
+        </a>
+
+        <a href="/">
+          <button type="button" class="btn" data-variant="link">
+            <svg class="lucide lucide-house-icon lucide-house" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg> Voltar ao início
+          </button>
+        </a>
+      </div>
+    </div>
+  </section>
+</Main>

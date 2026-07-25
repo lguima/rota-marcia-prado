@@ -1,3 +1,5 @@
+import media from "./media.mjs";
+
 /**
  * Site
  */
@@ -7,5 +9,9 @@ export default {
   metadata: {
     alternateName: "Rota cicloturística Márcia Prado",
     description: "Guia de cicloturismo da Rota Márcia Prado, com informações sobre o percurso, pontos de interesse, dicas de viagem e muito mais.",
+    image: {
+      url: `${media.url}/rota-marcia-prado/image/upload/v1780594091/rota-marcia-prado-og_wtcdzd.webp`,
+      alt: "Título e descrição do site juntamente com o logotipo",
+    },
   },
 }

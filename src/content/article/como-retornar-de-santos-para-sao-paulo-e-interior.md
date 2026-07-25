@@ -1,7 +1,7 @@
 ---
 title: "Como retornar de Santos para São Paulo e interior"
 description: "Conheça mais detalhes sobre o retorno para a cidade de São Paulo e outras do interior do estado."
-pubDate: 2026-06-05
+pubDate: 2026-06-05T12:00:00-03:00
 category: "Acesso"
 tags: ["Retorno", "Santos", "São Paulo", "Ônibus", "Integração modal", "Bicicleta"]
 ---
