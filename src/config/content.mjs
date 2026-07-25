@@ -1,3 +1,5 @@
+import site from "./site.mjs";
+
 /**
  * Content
  */
@@ -12,6 +14,7 @@ export default {
     },
   },
   authors: {
+    defaultName: site.name,
     pagination: {
       pageSize: 6, // Number of posts per page
       rangeDelta: 1, // Number of pages to show around the current page
