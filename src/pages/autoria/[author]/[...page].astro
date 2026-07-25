@@ -51,7 +51,7 @@ const pageTitle = page.currentPage === 1 ? `Publicações por ${author}` : `Publ
 ---
 
 <Main title={pageTitle} description={`Publicações de autoria de ${author}`}>
-  <section class="pt-6 pb-6 lg:pt-10 lg:pb-10">
+  <section class="py-6 lg:py-10">
     <div class="mx-auto flex max-w-7xl flex-col gap-12 px-5 lg:gap-16 lg:px-8">
       <div class="flex w-full max-w-3xl flex-col gap-3 mx-auto items-center text-center">
         <h1 class="text-3xl font-medium tracking-tight text-balance lg:text-4xl">
@@ -65,7 +65,7 @@ const pageTitle = page.currentPage === 1 ? `Publicações por ${author}` : `Publ
     </div>
   </section>
 
-  <section class="pt-6 pb-6 lg:pt-10 lg:pb-10">
+  <section class="py-6 lg:py-10">
     <div class="mx-auto max-w-7xl px-5 lg:px-8 flex flex-col gap-6 lg:gap-8">
       <div class="flex w-full flex-col gap-4">
         {page.data.map((post) => (
