@@ -1,7 +1,6 @@
 ---
 import { getCollection } from "astro:content"
 import Main from "@layouts/Main.astro"
-import SiteOptions from "../site.config.mjs"
 
 // Get all articles and extract unique categories
 const allPosts = await getCollection("article")
@@ -14,7 +13,7 @@ const categoriesCount = allCategories.map((category) => ({
 }))
 ---
 
-<Main title=`${SiteOptions.labels.categories}` description="Navegue pelas publicações por categoria">
+<Main title="Categorias" description="Navegue pelas publicações por categoria">
   <section class="pt-6 pb-6 lg:pt-10 lg:pb-10">
     <div class="mx-auto flex max-w-7xl flex-col gap-12 px-5 lg:gap-16 lg:px-8">
       <div class="flex w-full max-w-3xl flex-col gap-3 mx-auto items-center text-center">
