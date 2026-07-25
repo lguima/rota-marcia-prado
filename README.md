@@ -1,6 +1,6 @@
 <div>
   <p>
-    <img src="https://img.shields.io/badge/Astro-6.4.4-FF5D01?style=flat-square&logo=astro" alt="Astro" />
+    <img src="https://img.shields.io/badge/Astro-7.1.3-FF5D01?style=flat-square&logo=astro" alt="Astro" />
     <img src="https://img.shields.io/badge/TailwindCSS-4.2.4-38B2AC?style=flat-square&logo=tailwind-css" alt="TailwindCSS" />
     <img src="https://img.shields.io/badge/TypeScript-Ready-3178C6?style=flat-square&logo=typescript" alt="TypeScript" />
     <img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="License" />
