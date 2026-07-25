@@ -1,10 +1,7 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content"
-import BlogLayout from "@layouts/BlogLayout.astro"
-import Header from "@components/Header.astro"
-import Footer from "@components/Footer.astro"
-import PostCard from "@components/PostCard.astro"
-import SiteOptions from "../../site.config.mjs"
+import Main from "@layouts/Main.astro"
+import PostItem from "@components/molecules/PostItem.astro"
 
 export async function getStaticPaths() {
   const allPosts = await getCollection("article")
@@ -29,64 +26,42 @@ type Props = {
 const { tag, posts } = Astro.props
 ---
 
-<BlogLayout title={`${SiteOptions.labels.articles} sobre ${tag}`} description={`Publicações sobre ${tag}`}>
-  <Header showTitle={false} />
-
-  <!-- Light Horizontal Bar -->
-  <hr class="border-t border-gray-200 dark:border-gray-700 my-8" />
-
-  <!-- Page Header -->
-  <header class="mb-12 text-center">
-    <h1 class="text-3xl font-bold tracking-tight mb-4 text-gray-900 dark:text-mist-100">
-      {tag}
-    </h1>
-    <p class="text-lg text-gray-500 dark:text-gray-400">
-      {posts.length}
-      {posts.length === 1 ? "publicação" : "publicações"} sobre {tag}
-    </p>
-  </header>
-
-  <!-- Posts List -->
-  <section>
-    {
-      posts.length > 0 ? (
-        <ul class="space-y-4">
-          {posts.map((post) => (
-            <PostCard post={post} showCategory={false} />
-          ))}
-        </ul>
-      ) : (
-        <div class="text-center py-12">
-          <p class="text-gray-500 dark:text-gray-400 text-lg">
-            {SiteOptions.labels.noArticlesFound}
-          </p>
-        </div>
-      )
-    }
+<Main title={`Publicações sobre ${tag}`} description={`Publicações do tópico ${tag}`}>
+  <section class="pt-6 pb-6 lg:pt-10 lg:pb-10">
+    <div class="mx-auto flex max-w-7xl flex-col gap-12 px-5 lg:gap-16 lg:px-8">
+      <div class="flex w-full max-w-3xl flex-col gap-3 mx-auto items-center text-center">
+        <h1 class="text-3xl font-medium tracking-tight text-balance lg:text-4xl">
+          {tag}
+        </h1>
+        <p class="text-muted-foreground max-w-2xl text-base text-pretty">
+          {posts.length}
+          {posts.length === 1 ? "publicação" : "publicações"} sobre {tag}
+        </p>
+      </div>
+    </div>
   </section>
 
-  <!-- Navigation -->
-  <div class="mt-12 flex justify-center space-x-6">
-    <a
-      href="/topicos"
-      class="inline-flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-mist-100 transition-colors"
-    >
-      <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path>
-      </svg>
-      {SiteOptions.labels.allTags}
-    </a>
-    <a
-      href="/"
-      class="inline-flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-mist-100 transition-colors"
-    >
-      <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-      </svg>
-      {SiteOptions.labels.backToHome}
-    </a>
-  </div>
+  <section class="pt-6 pb-6 lg:pt-10 lg:pb-10">
+    <div class="mx-auto max-w-7xl px-5 lg:px-8 flex flex-col gap-6 lg:gap-8">
+      <div class="flex w-full flex-col gap-4">
+        {posts.map((post) => (
+          <PostItem post={post} />
+        ))}
+      </div>
 
-  <!-- Minimal Footer -->
-  <Footer />
-</BlogLayout>
+      <div class="pt-4 text-center">
+        <a href="/topicos/">
+          <button type="button" class="btn" data-variant="link">
+            <svg class="lucide lucide-tag-icon lucide-tag" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></svg> Todos tópicos
+          </button>
+        </a>
+
+        <a href="/">
+          <button type="button" class="btn" data-variant="link">
+            <svg class="lucide lucide-house-icon lucide-house" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg> Voltar ao início
+          </button>
+        </a>
+      </div>
+    </div>
+  </section>
+</Main>
