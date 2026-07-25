@@ -1,9 +1,6 @@
 ---
 import { getCollection } from "astro:content"
-import BlogLayout from "@layouts/BlogLayout.astro"
-import Header from "@components/Header.astro"
-import Footer from "@components/Footer.astro"
-import SiteOptions from "../site.config.mjs"
+import Main from "@layouts/Main.astro"
 
 // Get all articles and extract unique authors
 const allPosts = await getCollection("article")
@@ -19,63 +16,57 @@ allPosts.forEach((post) => {
 })
 
 // Convert to array and sort alphabetically
-const authors = Array.from(authorMap.entries())
+const authorsCount = Array.from(authorMap.entries())
   .map(([author, count]) => ({ author, count }))
   .sort((a, b) => a.author.localeCompare(b.author))
 ---
 
-<BlogLayout title={`${SiteOptions.labels.authors}`} description="Navegue pelas publicações por autoria">
-  <Header showTitle={false} />
-
-  <!-- Light Horizontal Bar -->
-  <hr class="border-t border-gray-200 dark:border-gray-700 my-8" />
-
-  <!-- Page Header -->
-  <header class="mb-12 text-center">
-    <h1 class="text-3xl font-bold tracking-tight mb-4 text-mist-900 dark:text-mist-100">
-      {SiteOptions.labels.authors}
-    </h1>
-    <p class="text-lg text-mist-500 dark:text-mist-400">
-      {SiteOptions.labels.exploreArticlesByAuthors}
-    </p>
-  </header>
-
-  <!-- Authors Grid -->
-  <section class="mb-12">
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-      {
-        authors.map(({ author, count }) => (
-          <a
-            href={`/autoria/${author.toLowerCase().replace(/\s+/g, "-")}`}
-            class="block p-6 bg-gray-50 dark:bg-mist-800 rounded-lg hover:bg-gray-100 dark:hover:bg-mist-700 transition-colors group"
-          >
-            <div class="flex items-center justify-between">
-              <h3 class="text-lg font-semibold text-gray-900 dark:text-mist-100 group-hover:text-gray-700 dark:group-hover:text-mist-200">
-                {author}
-              </h3>
-              <span class="text-sm text-gray-500 dark:text-gray-400 bg-gray-200 dark:bg-mist-600 px-2 py-1 rounded">
-                {count}
-              </span>
-            </div>
-          </a>
-        ))
-      }
+<Main title="Autorias" description="Navegue pelas publicações por autoria">
+  <section class="pt-6 pb-6 lg:pt-10 lg:pb-10">
+    <div class="mx-auto flex max-w-7xl flex-col gap-12 px-5 lg:gap-16 lg:px-8">
+      <div class="flex w-full max-w-3xl flex-col gap-3 mx-auto items-center text-center">
+        <h1 class="text-3xl font-medium tracking-tight text-balance lg:text-4xl">
+          Autorias
+        </h1>
+        <p class="text-muted-foreground max-w-2xl text-base text-pretty">
+           Publicações organizadas por autoria
+        </p>
+      </div>
     </div>
   </section>
 
-  <!-- Back to Home -->
-  <div class="mt-12 text-center">
-    <a
-      href="/"
-      class="inline-flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-mist-100 transition-colors"
-    >
-      <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
-      </svg>
-      {SiteOptions.labels.backToHome}
-    </a>
-  </div>
+  <section class="pt-6 pb-6 lg:pt-10 lg:pb-10">
+    <div class="mx-auto max-w-7xl px-5 lg:px-8 flex flex-col gap-3 lg:gap-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {
+          authorsCount.map(({ author, count }) => (
+            <a
+              href={`/autoria/${author.toLowerCase().replace(/\s+/g, "-")}`}
+              class="item"
+              data-variant="outline"
+            >
+              <section>
+                <h3 class="text-lg">{author}</h3>
+              </section>
+              <section>
+                <p class="flex flex-col items-center gap-3">
+                  <span class="badge">
+                    {count}
+                  </span>
+                </p>
+              </section>
+            </a>
+          ))
+        }
+      </div>
 
-  <!-- Minimal Footer -->
-  <Footer />
-</BlogLayout>
+      <div class="pt-4 text-center">
+        <a href="/">
+          <button type="button" class="btn" data-variant="link">
+            <svg class="lucide lucide-arrow-left-icon lucide-arrow-left" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg> Voltar ao início
+          </button>
+        </a>
+      </div>
+    </div>
+  </section>
+</Main>
