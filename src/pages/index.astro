@@ -1,11 +1,12 @@
 ---
 import { getCollection } from "astro:content"
-import Main from "@layouts/Main.astro";
-import Separator from "@components/atoms/Separator.astro";
+import Main from "@layouts/Main.astro"
+import Separator from "@components/atoms/Separator.astro"
 import FeaturedPost from "@components/molecules/FeaturedPost.astro"
-import PostItem from "@components/molecules/PostItem.astro";
-import site from "@config/site.mjs";
-import content from "@config/content.mjs";
+import PostItem from "@components/molecules/PostItem.astro"
+import site from "@config/site.mjs"
+import content from "@config/content.mjs"
+import FlagIcon from "@components/atoms/FlagIcon.astro"
 
 const webSiteSchema = {
   "@context": "https://schema.org",
