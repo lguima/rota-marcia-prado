@@ -7,7 +7,7 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "format": "prettier"
+    "format:check": "prettier . --check"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.9",
