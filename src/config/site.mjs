@@ -1,4 +1,4 @@
-import media from "@config/media.mjs";
+import media from "./media.mjs";
 
 /**
  * Site
