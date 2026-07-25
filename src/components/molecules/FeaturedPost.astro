@@ -1,0 +1,18 @@
+---
+const { post } = Astro.props
+const { title, description } = post.data
+---
+
+<a href={`/publicacao/${post.id}/`} class="card justify-between">
+  <header>
+    <h2 class="text-lg font-medium tracking-tight text-balance">
+      {title}
+    </h2>
+    <p class="text-muted-foreground line-clamp-3 text-sm text-pretty">
+      {description}
+    </p>
+  </header>
+  <footer>
+    <button type="button" data-variant="link" class="btn">Ler mais</button>
+  </footer>
+</a>
