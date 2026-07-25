@@ -1,8 +1,6 @@
 ---
-import BlogLayout from "@layouts/BlogLayout.astro"
-import Header from "@components/Header.astro"
-import Footer from "@components/Footer.astro"
-import ListExpand from "@components/molecules/ListExpand.astro"
+import Main from "@layouts/Main.astro";
+import AccordionDetails from "@components/molecules/AccordionDetails.astro"
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -156,97 +154,104 @@ const faqSchema = {
 };
 ---
 
-<BlogLayout title={`Perguntas Frequentes (FAQ)`} description="Dúvidas frequentes sobre a Rota Márcia Prado respondidas para facilitar a descida de bicicleta de São Paulo a Santos.">
+<Main title={`Perguntas Frequentes (FAQ)`} description="Dúvidas frequentes sobre a Rota Márcia Prado respondidas para facilitar a descida de bicicleta de São Paulo a Santos.">
   <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} slot="structured-data" />
 
-  <Header showTitle={true} />
+  <section class="py-6 lg:py-10">
+    <div class="mx-auto flex max-w-7xl flex-col gap-12 px-5 lg:gap-16 lg:px-8">
+      <div class="flex w-full max-w-3xl flex-col gap-3 mx-auto items-center text-center">
+        <!-- <span class="text-primary text-base font-medium">Benefits</span> -->
+        <h1 class="text-3xl font-medium tracking-tight text-balance lg:text-4xl">
+          Perguntas Frequentes (FAQ)
+        </h1>
+        <p class="text-muted-foreground max-w-2xl text-base text-pretty">
+          Dúvidas frequentes sobre a Rota Márcia Prado respondidas para facilitar a descida de bicicleta de São Paulo a Santos
+        </p>
+      </div>
+    </div>
+  </section>
 
-  <!-- Light Horizontal Bar -->
-  <hr class="border-t border-gray-200 dark:border-gray-700 my-8" />
+  <div class="mx-auto max-w-7xl py-6 lg:py-10">
+    <section class="accordion px-5 lg:px-8">
+      <AccordionDetails title="O que é a Rota Márcia Prado?">
+        É uma rota cicloturística que liga a Região Metropolitana de São Paulo a Santos pela Serra do Mar, conhecida como a tradicional descida de Santos. É uma rota popular entre ciclistas que desejam descer a serra de bicicleta, aproveitando a paisagem e a experiência única do trajeto.
+      </AccordionDetails>
 
-  <!-- Page Header -->
-  <header class="mb-12 text-center">
-    <h1 class="text-3xl font-bold tracking-tight mb-4 text-mist-900 dark:text-mist-100">
-      Perguntas Frequentes (FAQ)
-    </h1>
-  </header>
+      <AccordionDetails title="Quem foi Márcia Prado?">
+        Márcia Regina de Andrade Prado (17 de setembro de 1968 - 14 de janeiro de 2009, São Paulo) foi fisioterapeuta, ciclista urbana, cicloturista e uma importante defensora da mobilidade por bicicleta em São Paulo. Participante ativa da Bicicletada (Massa Crítica), dedicava-se à promoção de um trânsito mais seguro e ao incentivo do uso da bicicleta como meio de transporte e lazer. Em 14 de janeiro de 2009, foi atropelada e morta por um ônibus enquanto pedalava na capital paulista. Sua morte tornou-se um marco na luta pelos direitos das pessoas que pedalam e inspirou a criação da Rota Márcia Prado, que homenageia seu legado em defesa da mobilidade ativa e da preservação ambiental.
+      </AccordionDetails>
 
-  <main>
-    <p class="mb-8">Dúvidas frequentes sobre a Rota Márcia Prado respondidas para facilitar a descida de bicicleta de São Paulo a Santos.</p>
+      <AccordionDetails title="Qual é a distância total?">
+        A Rota Márcia Prado oficial tem aproximadamente 87 km de extensão, medidos desde o estacionamento da Ciclovia da Marginal Pinheiros (Av. Miguel Yunes) até Santos.
+      </AccordionDetails>
 
-    <ListExpand title="O que é a Rota Márcia Prado?">
-      É uma rota cicloturística que liga a Região Metropolitana de São Paulo a Santos pela Serra do Mar, conhecida como a tradicional descida de Santos. É uma rota popular entre ciclistas que desejam descer a serra de bicicleta, aproveitando a paisagem e a experiência única do trajeto.
-    </ListExpand>
+      <AccordionDetails title="Onde começa o trajeto?">
+        O início oficial fica no estacionamento da ciclovia da Marginal Pinheiros (próximo a Interlagos).
+      </AccordionDetails>
 
-    <ListExpand title="Quem foi Márcia Prado?">
-      Márcia Regina de Andrade Prado (17 de setembro de 1968 - 14 de janeiro de 2009, São Paulo) foi fisioterapeuta, ciclista urbana, cicloturista e uma importante defensora da mobilidade por bicicleta em São Paulo. Participante ativa da Bicicletada (Massa Crítica), dedicava-se à promoção de um trânsito mais seguro e ao incentivo do uso da bicicleta como meio de transporte e lazer. Em 14 de janeiro de 2009, foi atropelada e morta por um ônibus enquanto pedalava na capital paulista. Sua morte tornou-se um marco na luta pelos direitos das pessoas que pedalam e inspirou a criação da Rota Márcia Prado, que homenageia seu legado em defesa da mobilidade ativa e da preservação ambiental.
-    </ListExpand>
+      <AccordionDetails title="Onde termina a rota?">
+        O destino final é a orla da praia de Santos, tradicionalmente na Praia do José Menino (Canal 1).
+      </AccordionDetails>
 
-    <ListExpand title="Qual é a distância total?">
-      A Rota Márcia Prado oficial tem aproximadamente 87 km de extensão, medidos desde o estacionamento da Ciclovia da Marginal Pinheiros (Av. Miguel Yunes) até Santos.
-    </ListExpand>
+      <AccordionDetails title="A rota é só descida?">
+        Não. O trajeto acumula mais de 1.000 metros de subida antes de chegar ao trecho da serra.
+      </AccordionDetails>
 
-    <ListExpand title="Onde começa o trajeto?">
-      O início oficial fica no estacionamento da ciclovia da Marginal Pinheiros (próximo a Interlagos).
-    </ListExpand>
+      <AccordionDetails title="Como é dividida a altimetria?">
+        São cerca de 44 km de planalto com subidas e descidas, seguidos por 17 km de descida de serra e 20 km planos na Baixada.
+      </AccordionDetails>
 
-    <ListExpand title="Onde termina a rota?">
-      O destino final é a orla da praia de Santos, tradicionalmente na Praia do José Menino (Canal 1).
-    </ListExpand>
+      <AccordionDetails title="Passa por rodovias movimentadas?">
+        Não. A rota oficial foi desenhada justamente para evitar o tráfego pesado e o perigo das rodovias Anchieta e Imigrantes.
+      </AccordionDetails>
 
-    <ListExpand title="A rota é só descida?">
-      Não. O trajeto acumula mais de 1.000 metros de subida antes de chegar ao trecho da serra.
-    </ListExpand>
+      <AccordionDetails title="É preciso pegar balsa no caminho?">
+        Sim, o roteiro exige a travessia de duas balsas gratuitas na Represa Billings: a do Grajaú (Ilha do Bororé) e a de Taquacetuba.
+      </AccordionDetails>
 
-    <ListExpand title="Como é dividida a altimetria?">
-      São cerca de 44 km de planalto com subidas e descidas, seguidos por 17 km de descida de serra e 20 km planos na Baixada.
-    </ListExpand>
+      <AccordionDetails title="Como é feita a descida da serra?">
+        A descida ocorre pela Estrada de Manutenção da Rodovia dos Imigrantes, uma via asfaltada fechada para o tráfego regular de veículos.
+      </AccordionDetails>
 
-    <ListExpand title="Passa por rodovias movimentadas?">
-      Não. A rota oficial foi desenhada justamente para evitar o tráfego pesado e o perigo das rodovias Anchieta e Imigrantes.
-    </ListExpand>
+      <AccordionDetails title="Qual é o tipo de terreno da rota?">
+        Misto. O percurso inclui ciclovias urbanas, asfalto nas estradas de manutenção e cerca de 16 km de estradas de terra batida.
+      </AccordionDetails>
 
-    <ListExpand title="É preciso pegar balsa no caminho?">
-      Sim, o roteiro exige a travessia de duas balsas gratuitas na Represa Billings: a do Grajaú (Ilha do Bororé) e a de Taquacetuba.
-    </ListExpand>
+      <AccordionDetails title="Quanto tempo leva para completar?">
+        Depende do ritmo, mas ciclistas de nível intermediário costumam fazer o trajeto entre 5 e 7 horas, incluindo as paradas.
+      </AccordionDetails>
 
-    <ListExpand title="Como é feita a descida da serra?">
-      A descida ocorre pela Estrada de Manutenção da Rodovia dos Imigrantes, uma via asfaltada fechada para o tráfego regular de veículos.
-    </ListExpand>
+      <AccordionDetails title="Como voltar de Santos para São Paulo?">
+        Muitos utilizam vans de turismo especializadas em ciclistas ou retornam de ônibus rodoviário.
+      </AccordionDetails>
 
-    <ListExpand title="Qual é o tipo de terreno da rota?">
-      Misto. O percurso inclui ciclovias urbanas, asfalto nas estradas de manutenção e cerca de 16 km de estradas de terra batida.
-    </ListExpand>
+      <AccordionDetails title="Qual é o nível de dificuldade física?">
+        É classificado como intermediário. Recomenda-se que a pessoa já tenha o hábito de pedalar distâncias longas com regularidade.
+      </AccordionDetails>
 
-    <ListExpand title="Quanto tempo leva para completar?">
-      Depende do ritmo, mas ciclistas de nível intermediário costumam fazer o trajeto entre 5 e 7 horas, incluindo as paradas.
-    </ListExpand>
+      <AccordionDetails title="Qual o tipo de bicicleta ideal?">
+        As bicicletas do tipo Mountain Bike (MTB) ou Gravel são as mais recomendadas devido aos trechos de terra, cascalho e eventuais buracos.
+      </AccordionDetails>
 
-    <ListExpand title="Como voltar de Santos para São Paulo?">
-      Muitos utilizam vans de turismo especializadas em ciclistas ou retornam de ônibus rodoviário.
-    </ListExpand>
+      <AccordionDetails title="Qual o item mecânico mais exigido?">
+        Os freios. Eles precisam passar por uma revisão rigorosa antes de ir, pois serão muito exigidos nos 17 km contínuos de descida da serra.
+      </AccordionDetails>
 
-    <ListExpand title="Qual é o nível de dificuldade física?">
-      É classificado como intermediário. Recomenda-se que a pessoa já tenha o hábito de pedalar distâncias longas com regularidade.
-    </ListExpand>
+      <AccordionDetails title="A rota é bem sinalizada?">
+        Há sinalização não oficial feita por pessoas voluntárias. Recomenda-se o uso de GPS ou aplicativos como o Wikiloc.
+      </AccordionDetails>
 
-    <ListExpand title="Qual o tipo de bicicleta ideal?">
-      As bicicletas do tipo Mountain Bike (MTB) ou Gravel são as mais recomendadas devido aos trechos de terra, cascalho e eventuais buracos.
-    </ListExpand>
+      <AccordionDetails title="É seguro pedalar sozinho?">
+        Recomenda-se fortemente pedalar em grupos devido a trechos isolados na mata e para auxílio mútuo em caso de quebras ou furos de pneu.
+      </AccordionDetails>
+    </section>
 
-    <ListExpand title="Qual o item mecânico mais exigido?">
-      Os freios. Eles precisam passar por uma revisão rigorosa antes de ir, pois serão muito exigidos nos 17 km contínuos de descida da serra.
-    </ListExpand>
-
-    <ListExpand title="A rota é bem sinalizada?">
-      Há sinalização não oficial feita por pessoas voluntárias. Recomenda-se o uso de GPS ou aplicativos como o Wikiloc.
-    </ListExpand>
-
-    <ListExpand title="É seguro pedalar sozinho?">
-      Recomenda-se fortemente pedalar em grupos devido a trechos isolados na mata e para auxílio mútuo em caso de quebras ou furos de pneu.
-    </ListExpand>
-  </main>
-
-  <!-- Minimal Footer -->
-  <Footer />
-</BlogLayout>
+    <div class="pt-8 text-center">
+      <a href="/">
+        <button type="button" class="btn" data-variant="link">
+          <svg class="lucide lucide-house-icon lucide-house" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg> Voltar ao início
+        </button>
+      </a>
+    </div>
+  </div>
+</Main>
