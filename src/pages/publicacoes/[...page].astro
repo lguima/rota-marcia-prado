@@ -1,45 +1,47 @@
 ---
 import { getCollection } from "astro:content"
 import type { GetStaticPaths } from "astro"
-import BlogLayout from "@layouts/BlogLayout.astro"
-import Header from "@components/Header.astro"
-import Footer from "@components/Footer.astro"
-import PostCard from "@components/PostCard.astro"
-import Pagination from "@components/Pagination.astro"
-import SiteOptions from "../../site.config.mjs"
+import Main from "@layouts/Main.astro";
+import PostItem from "@components/molecules/PostItem.astro"
+import Pagination from "@components/molecules/Pagination.astro"
+import content from "@config/content.mjs"
 
 export const getStaticPaths = (async ({ paginate }) => {
   const allPosts = await getCollection("article")
   const sortedPosts = allPosts.sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf())
 
   return paginate(sortedPosts, {
-    pageSize: SiteOptions.numberOfBlogPostsPerPage || 8, // Number of posts per page
+    pageSize: content.posts.pagination.pageSize,
   })
 }) satisfies GetStaticPaths
 
 const { page } = Astro.props
 
 const pageTitle = page.currentPage === 1 ? 'Publicações' : `Publicações - Página ${page.currentPage}`
-const showCategory = SiteOptions.showCategoryOnPosts || false
 ---
 
-<BlogLayout title={pageTitle}>
-  <Header />
-
-  <!-- Light Horizontal Bar -->
-  <hr class="border-t border-gray-200 dark:border-gray-700 my-8" />
-
-  <!-- Latest Blog Posts -->
-  <section>
-    <!-- <h2 class={`text-2xl font-semibold mb-8  text-center`}>All Posts</h2> -->
-    <ul class="space-y-4">
-      {page.data.map((post) => <PostCard post={post} showCategory={showCategory} />)}
-    </ul>
+<Main title={pageTitle}>
+  <section class="pt-6 pb-6 lg:pt-10 lg:pb-10">
+    <div class="mx-auto flex max-w-7xl flex-col gap-12 px-5 lg:gap-16 lg:px-8">
+      <div class="flex w-full max-w-3xl flex-col gap-3 mx-auto items-center text-center">
+        <!-- <span class="text-primary text-base font-medium">Benefits</span> -->
+        <h1 class="text-3xl font-medium tracking-tight text-balance lg:text-4xl">
+          Publicações
+        </h1>
+        <p class="text-muted-foreground max-w-2xl text-base text-pretty">
+           Todas as publicações
+        </p>
+      </div>
+    </div>
   </section>
 
-  <!-- Pagination -->
-  <Pagination page={page} />
+  <section class="pt-6 pb-6 lg:pt-10 lg:pb-10">
+    <div class="mx-auto max-w-7xl px-5 lg:px-8 flex flex-col gap-6 lg:gap-8">
+      <div class="flex w-full flex-col gap-4">
+        {page.data.map((post) => <PostItem post={post} />)}
+      </div>
 
-  <!-- Minimal Footer -->
-  <Footer />
-</BlogLayout>
+      <Pagination page={page} />
+    </div>
+  </section>
+</Main>
