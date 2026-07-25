@@ -4,7 +4,8 @@
 export default {
   posts: {
     pagination: {
-      pageSize: 6, // Number of posts per page
+      pageSize: 2, // Number of posts per page
+      rangeDelta: 1, // Number of pages to show around the current page
     },
   },
 }
