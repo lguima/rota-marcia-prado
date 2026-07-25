@@ -1,7 +1,7 @@
 import { defineCollection } from 'astro:content';
 import { z } from 'astro/zod';
 import { glob } from 'astro/loaders';
-import SiteOptions from "./site.config.mjs"
+import content from "@config/content.mjs";
 
 const articleCollection = defineCollection({
   loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/content/article" }),
@@ -9,7 +9,7 @@ const articleCollection = defineCollection({
     title: z.string(),
     description: z.string(),
     pubDate: z.date(),
-    author: z.string().default(SiteOptions.defaultAuthorName),
+    author: z.string().default(content.authors.defaultName),
     category: z.string(),
     tags: z.array(z.string()),
     featured: z.boolean().default(false),
