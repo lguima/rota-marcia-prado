@@ -29,7 +29,7 @@ export async function GET(context) {
       pubDate: post.data.pubDate,
       description: post.data.description,
       // Compute RSS link from post `id`
-      link: `/publicacao/${post.id}/`,
+      link: `/publicacoes/${post.id}/`,
     })),
 
     // (optional) inject custom xml
