@@ -1,6 +1,6 @@
 ---
 title: "Reunião Ordinária do Ciclo Comitê Paulista (21/07/26)"
-description: "Página da Wikipédia sobre Rota Márcia Prado."
+description: "Confira as pautas e a transmissão da reunião"
 pubDate: 2026-07-21T14:00:00-03:00
 author: "Ciclo Comitê Paulista"
 category: "Mobilidade Urbana"
