@@ -15,6 +15,9 @@ export default {
       pageSize: 6, // Number of posts per page
       rangeDelta: 1, // Number of pages to show around the current page
     },
+    similarPosts: {
+      listSize: 3,
+    }
   },
   authors: {
     defaultName: site.name,
