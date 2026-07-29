@@ -1,13 +1,9 @@
 import rss from '@astrojs/rss'
-import { getCollection } from 'astro:content'
 import site from '@config/site.mjs'
+import { getPublishedArticles } from '@utils/collections/article'
 
 export async function GET(context) {
-  const articles = await getCollection('article')
-  const sortedArticles = articles.sort(
-    (a, b) =>
-      new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf(),
-  )
+  const articles = await getPublishedArticles()
 
   return rss({
     // `<title>` field in output xml
@@ -27,7 +23,7 @@ export async function GET(context) {
     stylesheet: '/rss/styles.xsl',
 
     // Array of `<item>`s in output xml
-    items: sortedArticles.map((post) => ({
+    items: articles.map((post) => ({
       title: post.data.title,
       pubDate: post.data.pubDate,
       description: post.data.description,
