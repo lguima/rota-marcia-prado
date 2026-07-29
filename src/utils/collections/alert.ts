@@ -1,11 +1,16 @@
-import { getCollection } from 'astro:content';
+import { getCollection } from 'astro:content'
 
 export async function getActiveAlerts() {
-  return (await getCollection('alert', ({ data }) => data.active === true))
-  .sort((a, b) => {
+  const now = new Date()
+
+  return (
+    await getCollection('alert', ({ data }) => {
+      return data.active && new Date(data.publishDate) <= now
+    })
+  ).sort((a, b) => {
     if (a.data.severity !== b.data.severity) {
-      return a.data.severity - b.data.severity;
+      return a.data.severity - b.data.severity
     }
-    return b.data.publishDate.valueOf() - a.data.publishDate.valueOf();
+    return b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
   })
 }
