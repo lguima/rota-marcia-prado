@@ -1,13 +1,13 @@
 ---
-import { getCollection } from "astro:content"
 import type { GetStaticPaths } from "astro"
+import { getPublishedArticles } from '@utils/collections/article'
 import Main from "@layouts/Main.astro";
 import PostItem from "@components/molecules/PostItem.astro"
 import Pagination from "@components/molecules/Pagination.astro"
 import content from "@config/content.mjs"
 
 export const getStaticPaths = (async ({ paginate }) => {
-  const allPosts = await getCollection("article")
+  const allPosts = await getPublishedArticles()
   const sortedPosts = allPosts.sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf())
 
   return paginate(sortedPosts, {
