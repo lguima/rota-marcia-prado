@@ -29,7 +29,7 @@ const alert = defineCollection({
     id: z.string(),
     title: z.string(),
     description: z.string(),
-    active: z.boolean().default(false),
+    active: z.boolean(),
     severity: z.union(ALERT_SEVERITIES.map((val) => z.literal(val)) as any),
     publishDate: z.coerce.date(),
     updateDate: z.coerce.date().optional(),
@@ -42,7 +42,7 @@ const announcement = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    active: z.boolean().default(false),
+    active: z.boolean(),
     publishStartDate: z.coerce.date(),
     publishEndDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
