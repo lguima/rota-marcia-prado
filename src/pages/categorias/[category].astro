@@ -1,10 +1,11 @@
 ---
-import { type CollectionEntry, getCollection } from "astro:content"
+import { type CollectionEntry } from "astro:content"
+import { getPublishedArticles } from '@utils/collections/article'
 import Main from "@layouts/Main.astro"
 import PostItem from "@components/molecules/PostItem.astro"
 
 export async function getStaticPaths() {
-  const allPosts = await getCollection("article")
+  const allPosts = await getPublishedArticles()
   const allCategories = [...new Set(allPosts.map((post) => post.data.category))]
 
   return allCategories.map((category) => ({

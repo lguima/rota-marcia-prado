@@ -1,9 +1,9 @@
 ---
-import { getCollection } from "astro:content"
+import { getPublishedArticles } from '@utils/collections/article'
 import Main from "@layouts/Main.astro"
 
 // Get all articles and extract unique categories
-const allPosts = await getCollection("article")
+const allPosts = await getPublishedArticles()
 const allCategories = [...new Set(allPosts.map((post) => post.data.category))].sort()
 
 // Count posts per category
