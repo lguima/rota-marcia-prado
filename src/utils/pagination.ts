@@ -14,7 +14,7 @@ export function getPaginationRange(
       (i >= currentPage - delta && i <= currentPage + delta)
     ) {
       range.push(i)
-    } else if (range[range.length - 1] !== '...') {
+    } else if (range.at(-1) !== '...') {
       // Add ellipsis if it is not already the last item
       range.push('...')
     }
