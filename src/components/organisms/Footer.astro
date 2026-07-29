@@ -1,40 +1,54 @@
 ---
-import Separator from "@components/atoms/Separator.astro";
-import site from "@config/site.mjs";
+import Separator from '@components/atoms/Separator.astro'
+import site from '@config/site.mjs'
 
-const currentYear = new Date().getFullYear();
+const currentYear = new Date().getFullYear()
 ---
 
 <footer>
-  <div class="max-w-7xl mx-auto p-8 flex flex-wrap flex-col gap-6">
-    <nav aria-label="Rodapé" class="flex flex-wrap justify-center gap-x-12 gap-y-3 text-sm">
+  <div class="mx-auto flex max-w-7xl flex-col flex-wrap gap-6 p-8">
+    <nav
+      aria-label="Rodapé"
+      class="flex flex-wrap justify-center gap-x-12 gap-y-3 text-sm"
+    >
       <a href="/perguntas-frequentes/" class="text-muted-foreground">
         Perguntas Frequentes
       </a>
 
-      <a href="/publicacoes/" class="text-muted-foreground">
-        Publicações
-      </a>
-      <a href="/categorias/" class="text-muted-foreground">
-        Categorias
-      </a>
-      <a href="/topicos/" class="text-muted-foreground">
-        Tópicos
-      </a>
-      <a href="/autorias/" class="text-muted-foreground">
-        Autorias
-      </a>
+      <a href="/publicacoes/" class="text-muted-foreground"> Publicações </a>
+      <a href="/categorias/" class="text-muted-foreground"> Categorias </a>
+      <a href="/topicos/" class="text-muted-foreground"> Tópicos </a>
+      <a href="/autorias/" class="text-muted-foreground"> Autorias </a>
 
-      <a href="/rss.xml" title="RSS Feed" target="_blank" class="text-muted-foreground">
+      <a
+        href="/rss.xml"
+        title="RSS Feed"
+        target="_blank"
+        class="text-muted-foreground"
+      >
         <span class="sr-only">RSS Feed</span>
-        <svg class="lucide lucide-rss-icon lucide-rss size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+        <svg
+          class="lucide lucide-rss-icon lucide-rss size-5"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          ><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"
+          ></path><circle cx="5" cy="19" r="1"></circle></svg
+        >
       </a>
     </nav>
 
     <Separator />
 
-    <p class="text-xs text-center text-muted-foreground">
-      &copy; {currentYear} {site.name}. Todos os direitos reservados.
+    <p class="text-muted-foreground text-center text-xs">
+      &copy; {currentYear}&nbsp;
+      {site.name}. Todos os direitos reservados.
     </p>
   </div>
 </footer>
