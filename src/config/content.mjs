@@ -4,6 +4,9 @@ import site from "./site.mjs";
  * Content
  */
 export default {
+  featuredPosts: {
+    listSize: 5,
+  },
   latestPosts: {
     listSize: 5, // Number of posts in the list
   },
