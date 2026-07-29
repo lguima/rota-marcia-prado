@@ -1,9 +1,9 @@
 ---
-import { getCollection } from "astro:content"
+import { getPublishedArticles } from '@utils/collections/article'
 import Main from "@layouts/Main.astro"
 
 // Get all articles and extract unique tags
-const allPosts = await getCollection("article")
+const allPosts = await getPublishedArticles()
 const allTags = [...new Set(allPosts.flatMap((post) => post.data.tags))].sort()
 
 // Count posts per tag
