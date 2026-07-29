@@ -42,6 +42,7 @@ const announcement = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
+    active: z.boolean().default(false),
     publishStartDate: z.coerce.date(),
     publishEndDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
