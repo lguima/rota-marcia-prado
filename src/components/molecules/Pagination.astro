@@ -1,5 +1,6 @@
 ---
 import content from '@config/content.mjs'
+import { getPaginationRange } from '@utils/pagination'
 
 export interface Props {
   page: {
@@ -29,28 +30,7 @@ const normalizedBasePath = basePath.endsWith('/') ? basePath : `${basePath}/`
 const currentPage = page.currentPage
 const lastPage = page.lastPage
 
-// Generate the visible pages array with ellipses
-const getPaginationRange = () => {
-  const range = []
-  const delta = rangeDelta
-
-  for (let i = 1; i <= lastPage; i++) {
-    // Always include first page, last page, and pages around current page
-    if (
-      i === 1 ||
-      i === lastPage ||
-      (i >= currentPage - delta && i <= currentPage + delta)
-    ) {
-      range.push(i)
-    } else if (range[range.length - 1] !== '...') {
-      // Add ellipsis if it is not already the last item
-      range.push('...')
-    }
-  }
-  return range
-}
-
-const paginationRange = getPaginationRange()
+const paginationRange = getPaginationRange(currentPage, lastPage, rangeDelta)
 ---
 
 <nav
