@@ -23,3 +23,16 @@ export function getFeaturedArticles(articles: CollectionEntry<'article'>[]) {
 export function getLatestArticles(articles: CollectionEntry<'article'>[]) {
   return articles.slice(0, content.latestPosts.listSize)
 }
+
+export function getSimilarArticles(
+  articles: CollectionEntry<'article'>[],
+  article: CollectionEntry<'article'>,
+) {
+  return articles
+    .filter(
+      (similarArticle) =>
+        similarArticle.id !== article.id &&
+        similarArticle.data.category === article.data.category,
+    )
+    .slice(0, content.posts.similarPosts.listSize)
+}
