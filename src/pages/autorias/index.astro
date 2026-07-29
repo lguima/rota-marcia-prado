@@ -1,9 +1,9 @@
 ---
-import { getCollection } from "astro:content"
+import { getPublishedArticles } from '@utils/collections/article'
 import Main from "@layouts/Main.astro"
 
 // Get all articles and extract unique authors
-const allPosts = await getCollection("article")
+const allPosts = await getPublishedArticles()
 const authorMap = new Map()
 
 allPosts.forEach((post) => {
