@@ -1,10 +1,13 @@
-import rss from '@astrojs/rss';
-import { getCollection } from 'astro:content';
-import site from "@config/site.mjs"
+import rss from '@astrojs/rss'
+import { getCollection } from 'astro:content'
+import site from '@config/site.mjs'
 
 export async function GET(context) {
-  const articles = await getCollection('article');
-  const sortedArticles = articles.sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf())
+  const articles = await getCollection('article')
+  const sortedArticles = articles.sort(
+    (a, b) =>
+      new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf(),
+  )
 
   return rss({
     // `<title>` field in output xml
@@ -34,5 +37,5 @@ export async function GET(context) {
 
     // (optional) inject custom xml
     customData: `<language>pt-br</language>`,
-  });
+  })
 }
