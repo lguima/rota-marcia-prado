@@ -25,7 +25,7 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   integrations: [
-    partytown({ config: { forward: ['dataLayer.push', 'gtag'] } }),
+    partytown({ config: { forward: ['dataLayer.push'] } }),
     sitemap(),
   ],
   i18n: {
