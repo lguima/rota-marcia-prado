@@ -14,11 +14,15 @@ const isProd = import.meta.env.PROD;
   <script
     is:inline
     type="text/partytown"
-    define:vars={{googleTagMeasurementId: analytics.googleTag.measurementId}}
+    data-gtag-measurement-id={analytics.googleTag.measurementId}
+    id='gtag-init'
   >
+    const measurementId = document
+      .getElementById('gtag-init')
+      .getAttribute('data-gtag-measurement-id')
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', googleTagMeasurementId);
+    gtag('config', measurementId);
   </script>
 )}
