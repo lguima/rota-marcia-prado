@@ -21,8 +21,13 @@ const article = defineCollection({
   }),
 })
 
-const ALERT_SEVERITIES = [1, 2] as const
-
+/**
+ * Severities
+ * 1: Danger (Red)
+ * 2: Warning (Yellow)
+ * 3: Success (Green)
+ * 4: Info (Blue)
+ */
 const alert = defineCollection({
   loader: file('src/data/alerts.json'),
   schema: z.object({
@@ -30,28 +35,15 @@ const alert = defineCollection({
     title: z.string(),
     description: z.string(),
     active: z.boolean(),
-    severity: z.union(ALERT_SEVERITIES.map((val) => z.literal(val)) as any),
+    severity: z.number().int().min(1).max(4),
     publishDate: z.coerce.date(),
-    updatedDate: z.coerce.date().optional(),
-    post: reference('article'),
-  }),
-})
-
-const announcement = defineCollection({
-  loader: file('src/data/announcements.json'),
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    active: z.boolean(),
-    publishStartDate: z.coerce.date(),
-    publishEndDate: z.coerce.date(),
-    updatedDate: z.coerce.date().optional(),
-    post: reference('article'),
+    expirationDate: z.coerce.date().optional(),
+    updateDate: z.coerce.date().optional(),
+    article: reference('article'),
   }),
 })
 
 export const collections = {
   alert,
-  announcement,
   article,
 }
