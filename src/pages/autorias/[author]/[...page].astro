@@ -55,7 +55,7 @@ type Props = {
   }
 }
 
-const { author, authorSlug, page } = Astro.props
+const { author, page } = Astro.props
 const pageTitle =
   page.currentPage === 1
     ? `Publicações por ${author}`
