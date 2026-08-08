@@ -1,18 +1,18 @@
 ---
 interface Props {
-  href: string | undefined;
-  label: string;
+  href: string | undefined
+  label: string
 }
 
-const { href, label } = Astro.props;
+const { href, label } = Astro.props
 ---
 
 <a
   href={href}
-  class:list={["btn", { "pointer-events-none opacity-50": !href }]}
+  class:list={['btn', { 'pointer-events-none opacity-50': !href }]}
   data-variant="ghost"
   aria-label={label}
-  aria-disabled={!href ? "true" : undefined}
+  aria-disabled={!href ? 'true' : undefined}
   tabindex={!href ? -1 : undefined}
 >
   <slot />
