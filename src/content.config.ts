@@ -32,7 +32,7 @@ const alert = defineCollection({
     active: z.boolean(),
     severity: z.union(ALERT_SEVERITIES.map((val) => z.literal(val)) as any),
     publishDate: z.coerce.date(),
-    updateDate: z.coerce.date().optional(),
+    updatedDate: z.coerce.date().optional(),
     post: reference('article'),
   }),
 })
