@@ -1,6 +1,7 @@
 ---
-import content from '@config/content.mjs'
-import { getPaginationRange } from '@utils/pagination'
+import IconChevronLeft from '@components/atoms/IconChevronLeft.astro'
+import IconChevronRight from '@components/atoms/IconChevronRight.astro'
+import PaginationLink from '@components/atoms/PaginationLink.astro'
 
 export interface Props {
   page: {
@@ -15,202 +16,34 @@ export interface Props {
     size: number
     total: number
   }
-  basePath?: string
-  rangeDelta?: number
 }
 
-const {
-  page,
-  basePath = '/publicacoes/',
-  rangeDelta = content.posts.pagination.rangeDelta,
-} = Astro.props
-
-const normalizedBasePath = basePath.endsWith('/') ? basePath : `${basePath}/`
-
-const currentPage = page.currentPage
-const lastPage = page.lastPage
-
-const paginationRange = getPaginationRange(currentPage, lastPage, rangeDelta)
+const { page } = Astro.props
 ---
 
-<nav
-  role="navigation"
-  aria-label="pagination"
-  class="mx-auto flex w-full justify-center"
->
-  <ul class="flex flex-row items-center gap-1">
-    <li>
-      {
-        page.url.prev ? (
-          <a
-            href={page.url.prev}
-            class="btn"
-            data-variant="ghost"
-            aria-label="Ir para a página anterior"
-          >
-            <svg
-              class="lucide lucide-chevron-left"
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="m15 18-6-6 6-6" />
-            </svg>
-            <span>Anterior</span>
-          </a>
-        ) : (
-          <span
-            class="btn pointer-events-none opacity-50"
-            data-variant="ghost"
-            aria-disabled="true"
-            tabindex={-1}
-          >
-            <svg
-              class="lucide lucide-chevron-left"
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="m15 18-6-6 6-6" />
-            </svg>
-            <span>Anterior</span>
-          </span>
-        )
-      }
-    </li>
+<div class="flex flex-col 3xs:flex-row items-center justify-center gap-4">
+  <div class="w-28 text-muted-foreground text-center text-sm">
+    {(page.currentPage - 1) * page.size + 1} a {
+      Math.min(page.currentPage * page.size, page.total)
+    } de {page.total}
+  </div>
 
-    {
-      paginationRange.map((pageNum) => {
-        if (pageNum === '...') {
-          return (
-            <li>
-              <div class="flex size-9 items-center justify-center">
-                <svg
-                  class="lucide lucide-ellipsis size-4 shrink-0"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <>
-                    <circle cx="12" cy="12" r="1" />
-                    <circle cx="19" cy="12" r="1" />
-                    <circle cx="5" cy="12" r="1" />
-                  </>
-                </svg>
-              </div>
-            </li>
-          )
-        }
+  <nav
+    aria-label="pagination"
+    class="flex justify-center"
+  >
+    <ul class="flex flex-row items-center gap-1">
+      <li>
+        <PaginationLink href={page.url.prev} label="Ir para a página anterior">
+          <IconChevronLeft />
+        </PaginationLink>
+      </li>
 
-        const isCurrentPage = pageNum === page.currentPage
-        const pageUrl =
-          pageNum === 1
-            ? normalizedBasePath
-            : `${normalizedBasePath}${pageNum}/`
-
-        return isCurrentPage ? (
-          <li>
-            <span
-              class="btn pointer-events-none"
-              data-variant="outline"
-              data-size="icon"
-              aria-current="page"
-              aria-disabled="true"
-              tabindex={-1}
-            >
-              {pageNum}
-            </span>
-          </li>
-        ) : (
-          <li>
-            <a
-              href={pageUrl}
-              class="btn"
-              data-variant="ghost"
-              data-size="icon"
-              aria-label={`Ir para a página ${pageNum}`}
-            >
-              {pageNum}
-            </a>
-          </li>
-        )
-      })
-    }
-
-    <li>
-      {
-        page.url.next ? (
-          <a
-            href={page.url.next}
-            class="btn"
-            data-variant="ghost"
-            aria-label="Ir para a próxima página"
-          >
-            <span>Próxima</span>
-            <svg
-              class="lucide lucide-chevron-right"
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="m9 18 6-6-6-6" />
-            </svg>
-          </a>
-        ) : (
-          <span
-            class="btn pointer-events-none opacity-50"
-            data-variant="ghost"
-            aria-disabled="true"
-            tabindex={-1}
-          >
-            <span>Próxima</span>
-            <svg
-              class="lucide lucide-chevron-right"
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="m9 18 6-6-6-6" />
-            </svg>
-          </span>
-        )
-      }
-    </li>
-  </ul>
-</nav>
-
-<div class="text-muted-foreground text-center text-sm">
-  Mostrando {(page.currentPage - 1) * page.size + 1} a {
-    Math.min(page.currentPage * page.size, page.total)
-  } de {page.total} publicações
+      <li>
+        <PaginationLink href={page.url.next} label="Ir para a próxima página">
+          <IconChevronRight />
+        </PaginationLink>
+      </li>
+    </ul>
+  </nav>
 </div>
