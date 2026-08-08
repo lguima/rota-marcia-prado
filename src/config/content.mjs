@@ -13,7 +13,6 @@ export default {
   posts: {
     pagination: {
       pageSize: 6, // Number of posts per page
-      rangeDelta: 1, // Number of pages to show around the current page
     },
     similarPosts: {
       listSize: 3,
@@ -23,7 +22,6 @@ export default {
     defaultName: site.name,
     pagination: {
       pageSize: 6, // Number of posts per page
-      rangeDelta: 1, // Number of pages to show around the current page
     },
   },
 }
