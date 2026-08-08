@@ -5,24 +5,26 @@ const isProd = import.meta.env.PROD;
 ---
 
 {analytics.googleTag.enabled && isProd && (
-  <script
-    is:inline
-    type="text/partytown"
-    src={`https://www.googletagmanager.com/gtag/js?id=${analytics.googleTag.measurementId}`}
-  ></script>
+  <>
+    <script
+      is:inline
+      type="text/partytown"
+      src={`https://www.googletagmanager.com/gtag/js?id=${analytics.googleTag.measurementId}`}
+    ></script>
 
-  <script
-    is:inline
-    type="text/partytown"
-    data-gtag-measurement-id={analytics.googleTag.measurementId}
-    id='gtag-init'
-  >
-    const measurementId = document
-      .getElementById('gtag-init')
-      .getAttribute('data-gtag-measurement-id')
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', measurementId);
-  </script>
+    <script
+      is:inline
+      type="text/partytown"
+      data-gtag-measurement-id={analytics.googleTag.measurementId}
+      id='gtag-init'
+    >
+      const measurementId = document
+        .getElementById('gtag-init')
+        .getAttribute('data-gtag-measurement-id')
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', measurementId);
+    </script>
+  </>
 )}
