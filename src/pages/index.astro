@@ -1,13 +1,12 @@
 ---
 import { getFeaturedArticles, getLatestArticles, getPublishedArticles } from '@utils/collections/article'
-import { getActiveAlerts } from '@utils/collections/alert'
-import { getPublishedAnnouncements } from '@utils/collections/announcement'
+import { getActivePriorityAlerts, getActiveSecondaryAlerts } from '@utils/collections/alert'
 import Main from "@layouts/Main.astro"
 import FeaturedPost from "@components/molecules/FeaturedPost.astro"
 import PostItem from "@components/molecules/PostItem.astro"
 import Separator from "@components/atoms/Separator.astro"
-import MegaphoneIcon from '@components/atoms/MegaphoneIcon.astro'
-import TriangleAlertIcon from '@components/atoms/TriangleAlertIcon.astro'
+import PriorityAlerts from '@components/molecules/PriorityAlerts.astro'
+import SecondaryAlerts from '@components/molecules/SecondaryAlerts.astro'
 import site from "@config/site.mjs"
 import content from "@config/content.mjs"
 
@@ -20,42 +19,22 @@ const webSiteSchema = {
   "url": Astro.site,
 };
 
-const alerts = await getActiveAlerts();
-
-const announcements = await getPublishedAnnouncements();
+const priorityAlerts = await getActivePriorityAlerts();
+const secondaryAlerts = await getActiveSecondaryAlerts();
 
 const articles = await getPublishedArticles()
 const featuredPosts = getFeaturedArticles(articles)
 const latestPosts = getLatestArticles(articles)
-
-const alertsGridCols = { 1: 'lg:grid-cols-1', 2: 'lg:grid-cols-2' }[alerts.length] || 'lg:grid-cols-3';
-const announcementsGridCols = { 1: 'lg:grid-cols-1', 2: 'lg:grid-cols-2' }[announcements.length] || 'lg:grid-cols-3';
 ---
 
 <Main>
   <script is:inline type="application/ld+json" set:html={JSON.stringify(webSiteSchema)} slot="structured-data" />
 
   {
-    alerts.length > 0 && (
+    priorityAlerts.length > 0 && (
       <section class="py-2 lg:py-4">
         <div class="mx-auto max-w-7xl px-5 lg:px-8 flex flex-col gap-3 lg:gap-4">
-          <div class={`w-full grid grid-cols-1 md:grid-cols-2 ${alertsGridCols} gap-3`}>
-            {alerts.map(alert => (
-              <a
-                href={`/publicacoes/${alert.data.post.id}/`}
-                class={`item items-start border-muted border-l-4 ${alert.data.severity == 1 ? 'border-l-danger' : 'border-l-warning'}`}
-                data-variant="outline"
-              >
-                <figure class={`${alert.data.severity == 1 ? 'text-danger' : 'text-warning'}`}>
-                  <TriangleAlertIcon class="size-full" />
-                </figure>
-                <section>
-                  <h3>{alert.data.title}</h3>
-                  <p>{alert.data.description}</p>
-                </section>
-              </a>
-            ))}
-          </div>
+          <PriorityAlerts alerts={priorityAlerts} />
         </div>
       </section>
     )
@@ -76,26 +55,10 @@ const announcementsGridCols = { 1: 'lg:grid-cols-1', 2: 'lg:grid-cols-2' }[annou
   </section>
 
   {
-    announcements.length > 0 && (
+    secondaryAlerts.length > 0 && (
       <section class="py-2 lg:py-4">
         <div class="mx-auto max-w-7xl px-5 lg:px-8 flex flex-col gap-3 lg:gap-4">
-          <div class={`w-full grid grid-cols-1 md:grid-cols-2 ${announcementsGridCols} gap-3`}>
-            {announcements.map(announcement => (
-              <a
-                href={`/publicacoes/${announcement.data.post.id}/`}
-                class="item items-start border-muted border-l-info border-l-4"
-                data-variant="outline"
-              >
-                <figure class="text-info">
-                  <MegaphoneIcon class="size-full" />
-                </figure>
-                <section>
-                  <h3>{announcement.data.title}</h3>
-                  <p>{announcement.data.description}</p>
-                </section>
-              </a>
-            ))}
-          </div>
+          <SecondaryAlerts alerts={secondaryAlerts} />
         </div>
       </section>
     )
