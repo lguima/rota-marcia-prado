@@ -38,7 +38,7 @@ const { Content } = await render(post)
 const posts = await getPublishedArticles()
 const similarPosts = getSimilarArticles(posts, post)
 
-const formattedDate = formatDate(pubDate)
+const formattedDate = formatDate(alert?.data?.updatedDate || announcement?.data?.updatedDate || pubDate)
 
 let Icon = null;
 if (alert) Icon = TriangleAlertIcon;
