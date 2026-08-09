@@ -93,18 +93,18 @@ const latestPosts = getLatestArticles(articles)
     <div class="mx-auto max-w-7xl px-5 lg:px-8 flex flex-col gap-6 lg:gap-8">
       <Separator />
 
-      <div class="flex gap-5 lg:gap-9">
-        <div class="flex w-full max-w-3xl flex-col gap-3 items-start text-left flex-1">
+      <div class="flex flex-col 3xs:flex-row 3xs:justify-between gap-4">
+        <div class="flex-initial text-left ">
           <h3 class="font-medium tracking-tight text-balance text-1xl lg:text-2xl">
             Artigos recentes
           </h3>
         </div>
         {
           articles.length > content.latestPosts.listSize && (
-            <a href="/artigos/" class="shrink-0 items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&amp;_svg]:pointer-events-none [&amp;_svg]:shrink-0 [&amp;_svg:not([class*='size-'])]:size-4 bg-secondary text-secondary-foreground hover:bg-secondary/80 h-9 px-4 py-2 ml-auto hidden self-end lg:flex">
-              <button data-slot="button" data-variant="secondary" data-size="default">
-                Ver todas
-              </button>
+            <a
+              href="/artigos/"
+            >
+              <button type="button" class="btn" data-variant="secondary">Ver todos</button>
             </a>
           )
         }
