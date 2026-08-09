@@ -1,0 +1,8 @@
+---
+const { compact, ...rest } = Astro.props
+---
+
+<pagefind-modal-trigger
+  {...compact && { compact: 'true' }}
+  {...rest}
+  hide-shortcut></pagefind-modal-trigger>
