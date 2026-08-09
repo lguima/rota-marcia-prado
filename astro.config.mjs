@@ -29,14 +29,14 @@ export default defineConfig({
     sitemap(),
   ],
   i18n: {
-    locales: ["pt-BR"/* {
+    locales: ["pt-br"/* {
         path: "es",
         codes: ["es", "es-ES", "es-UY", "es-AR", "es-CL", "es-PY", "es-BO", "es-PE", "es-EC", "es-CO", "es-VE"],
       },  {
         path: "en",
         codes: ["en", "en-US", "en-GB", "en-CA", "en-AU"],
       }*/],
-    defaultLocale: "pt-BR",
+    defaultLocale: "pt-br",
     /*fallback: {
       es: "pt-BR",
       en: "pt-BR",
