@@ -7,9 +7,9 @@ export interface Props {
 }
 
 const { post } = Astro.props
-const { title, pubDate, category } = post.data
+const { title, publishDate, category } = post.data
 
-const formattedPubDate = formatDate(pubDate)
+const formattedPublishDate = formatDate(publishDate)
 ---
 
 <a href={`/artigos/${post.id}/`} class="item flex flex-col sm:flex-row items-start">
@@ -24,6 +24,6 @@ const formattedPubDate = formatDate(pubDate)
     </p>
   </section>
   <section>
-    <p>{formattedPubDate}</p>
+    <p>{formattedPublishDate}</p>
   </section>
 </a>
