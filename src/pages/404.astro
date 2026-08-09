@@ -1,9 +1,10 @@
 ---
 import Main from "@layouts/Main.astro";
+import SearchModalTrigger from '@components/molecules/SearchModalTrigger.astro'
 ---
 
 <Main title="Página não encontrada" description="A página que você está procurando não existe.">
-  <section class="py-12 lg:py-20">
+  <section class="py-6 lg:py-10">
     <div class="mx-auto max-w-7xl flex flex-col gap-12 px-5 lg:gap-16 lg:px-8">
       <div class="mx-auto w-full max-w-3xl flex flex-col gap-3 items-center text-center">
         <h1 class="text-3xl font-medium tracking-tight text-balance lg:text-4xl">
@@ -18,15 +19,13 @@ import Main from "@layouts/Main.astro";
 
   <section class="empty">
     <header>
-      <figure>
-        <svg class="lucide lucide-search-alert-icon lucide-search-alert" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 7v4"/><path d="M11 15h.01"/></svg>
-      </figure>
-      <p>Desculpe, a página que você está procurando não está disponível.</p>
+      <p>Desculpe, a página que você acessou não está disponível.</p>
     </header>
     <footer>
+       <SearchModalTrigger placeholder="Tente pesquisar o conteúdo que procura..." />
       <p>
         <a href="/">
-          <button type="button" class="btn">
+          <button type="button" class="btn" data-variant="link">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-left-icon lucide-arrow-up-left"><path d="M7 17V7h10"/><path d="M17 17 7 7"/></svg> Ir para o início
           </button>
         </a>
