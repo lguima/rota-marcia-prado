@@ -30,7 +30,7 @@ type Props = {
 const { tag, posts } = Astro.props
 ---
 
-<Main title={`Publicações sobre ${tag}`} description={`Publicações do tópico ${tag}`}>
+<Main title={`Artigos sobre ${tag}`} description={`Artigos do tópico ${tag}`}>
   <section class="py-6 lg:py-10">
     <div class="mx-auto flex max-w-7xl flex-col gap-12 px-5 lg:gap-16 lg:px-8">
       <div class="flex w-full max-w-3xl flex-col gap-3 mx-auto items-center text-center">
@@ -39,7 +39,7 @@ const { tag, posts } = Astro.props
         </h1>
         <p class="text-muted-foreground max-w-2xl text-base text-pretty">
           {posts.length}&nbsp;
-          {posts.length === 1 ? "publicação" : "publicações"} sobre {tag}
+          {posts.length === 1 ? "artigo" : "artigos"} sobre {tag}
         </p>
       </div>
     </div>

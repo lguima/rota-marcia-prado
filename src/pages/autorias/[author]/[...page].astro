@@ -58,11 +58,11 @@ type Props = {
 const { author, page } = Astro.props
 const pageTitle =
   page.currentPage === 1
-    ? `Publicações por ${author}`
-    : `Publicações por ${author} - Página ${page.currentPage}`
+    ? `Artigos por ${author}`
+    : `Artigos por ${author} - Página ${page.currentPage}`
 ---
 
-<Main title={pageTitle} description={`Publicações de autoria de ${author}`}>
+<Main title={pageTitle} description={`Artigos de autoria de ${author}`}>
   <section class="py-6 lg:py-10">
     <div class="mx-auto flex max-w-7xl flex-col gap-12 px-5 lg:gap-16 lg:px-8">
       <div
@@ -75,7 +75,7 @@ const pageTitle =
         </h1>
         <p class="text-muted-foreground max-w-2xl text-base text-pretty">
           {page.total}&nbsp;
-          {page.total === 1 ? 'publicação' : 'publicações'} por {author}
+          {page.total === 1 ? 'artigo' : 'artigos'} por {author}
         </p>
       </div>
     </div>
