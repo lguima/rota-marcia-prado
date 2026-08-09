@@ -19,6 +19,10 @@ async function getActiveAlertsBySeverity(severities: number[]) {
   });
 }
 
+export async function getActiveAlerts() {
+  return getActiveAlertsBySeverity([1, 2, 3, 4]);
+}
+
 export async function getActivePriorityAlerts() {
   return getActiveAlertsBySeverity([1, 2]);
 }
