@@ -27,13 +27,11 @@ export async function getStaticPaths() {
 }
 
 const { post, alert } = Astro.props;
-const { title, description, pubDate, category, author, tags } = post.data
+const { title, description, publishDate, updateDate, category, author, tags } = post.data
 const { Content } = await render(post)
 
 const posts = await getPublishedArticles()
 const similarPosts = getSimilarArticles(posts, post)
-
-const formattedDate = formatDate(pubDate)
 ---
 
 <Main title={title} description={description}>
@@ -64,11 +62,25 @@ const formattedDate = formatDate(pubDate)
               </p>
             </div>
           </div>
-          <div class="text-muted-foreground flex items-center gap-4 text-sm">
-            <div class="flex items-center gap-1">
-              <IconCalendar class="h-4 w-4" />
-              <span>{formattedDate}</span>
+
+          <div class="flex flex-row gap-4">
+            <div class="text-muted-foreground flex items-center gap-4 text-sm">
+              <div class="flex items-center gap-1">
+                <IconCalendar class="h-4 w-4" />
+                <span>{formatDate(publishDate)}</span>
+              </div>
             </div>
+
+            {
+              updateDate && (
+                <div class="text-muted-foreground flex items-center gap-4 text-sm">
+                  <div class="flex items-center gap-1">
+                    <svg class="lucide lucide-rotate-ccw-clock-icon lucide-rotate-ccw-clock h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></svg>
+                    <span>{formatDate(updateDate)}</span>
+                  </div>
+                </div>
+              )
+            }
           </div>
         </div>
       </header>
