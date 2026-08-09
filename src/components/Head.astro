@@ -1,12 +1,12 @@
 ---
-import MetaTags from "@components/MetaTags.astro";
-import ThemeSwitcher from "@components/ThemeSwitcher.astro";
-import Analytics from "@components/Analytics.astro";
-import site from "@config/site.mjs";
+import MetaTags from '@components/MetaTags.astro'
+import ThemeSwitcher from '@components/ThemeSwitcher.astro'
+import Analytics from '@components/Analytics.astro'
+import site from '@config/site.mjs'
 
 const { title, description = site.metadata.description } = Astro.props
 
-const pageTitle = title ? `${title} | ${site.name}` : site.name;
+const pageTitle = title ? `${title} | ${site.name}` : site.name
 ---
 
 <head>
@@ -20,12 +20,23 @@ const pageTitle = title ? `${title} | ${site.name}` : site.name;
 
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="sitemap" href="/sitemap-index.xml" />
-  <link rel="alternate" type="application/rss+xml" title={site.name} href={new URL("rss.xml", Astro.site)} />
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title={site.name}
+    href={new URL('rss.xml', Astro.site)}
+  />
 
   <slot name="structured-data" />
+
+  <link href="/pagefind/pagefind-component-ui.css" rel="stylesheet" />
+  <script src="/pagefind/pagefind-component-ui.js" type="module" is:inline></script>
 
   <ThemeSwitcher />
   <Analytics />
 
-  <script src="https://cdn.jsdelivr.net/npm/basecoat-css@1.0.2/dist/js/basecoat.min.js" defer is:inline></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/basecoat-css@1.0.2/dist/js/basecoat.min.js"
+    defer
+    is:inline></script>
 </head>

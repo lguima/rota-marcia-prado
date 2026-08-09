@@ -3,11 +3,13 @@
   "type": "module",
   "version": "0.1.0",
   "scripts": {
+    "astro": "astro",
     "dev": "astro dev",
+    "format": "prettier",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro",
-    "format": "prettier"
+    "pagefind": "npx pagefind --site dist",
+    "start": "npm run build && npm run pagefind -- --serve"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.9",

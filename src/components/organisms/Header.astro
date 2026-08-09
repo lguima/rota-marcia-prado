@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets'
 import ThemeSwitcher from '@components/atoms/ThemeSwitcher.astro'
+import SearchModalTrigger from '@components/molecules/SearchModalTrigger.astro'
 import site from '@config/site.mjs'
 import media from '@config/media.mjs'
 ---
@@ -36,6 +37,8 @@ import media from '@config/media.mjs'
         Perguntas Frequentes
       </a>
     </nav>
+
+    <SearchModalTrigger compact />
 
     <div class="flex items-center gap-2">
       <ThemeSwitcher />

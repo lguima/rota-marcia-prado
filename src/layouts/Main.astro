@@ -1,18 +1,18 @@
 ---
-import Base from "./Base.astro";
-import Header from "@components/organisms/Header.astro";
-import Footer from "@components/organisms/Footer.astro";
+import Base from './Base.astro'
+import Header from '@components/organisms/Header.astro'
+import Footer from '@components/organisms/Footer.astro'
 
-import "../styles/global.css"
+import '../styles/global.css'
 
-const { title, description } = Astro.props
+const { title, description, ...rest } = Astro.props
 ---
 
-<Base title={title} description={description}>
+<Base title={title} description={description} {...rest}>
   <slot name="structured-data" slot="structured-data" />
 
   <Header />
-  <main class="py-6 lg:py-10 overflow-x-hidden">
+  <main class="overflow-x-hidden py-6 lg:py-10">
     <slot />
   </main>
   <Footer />

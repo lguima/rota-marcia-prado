@@ -1,16 +1,18 @@
 ---
-import Head from "@components/Head.astro";
+import Head from '@components/Head.astro'
+import SearchModal from '@components/organisms/SearchModal.astro'
 
-const { title, description } = Astro.props
+const { title, description, ...rest } = Astro.props
 ---
 
 <!doctype html>
-<html lang={Astro.currentLocale}>
+<html id="base-layout" lang={Astro.currentLocale} {...rest}>
   <Head title={title} description={description}>
     <slot name="structured-data" slot="structured-data" />
   </Head>
 
   <body>
     <slot />
+    <SearchModal />
   </body>
 </html>
