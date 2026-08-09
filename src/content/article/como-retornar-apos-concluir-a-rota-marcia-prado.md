@@ -27,4 +27,4 @@ _Sempre **consulte previamente** as regras de transporte de bicicletas da empres
 
 A opção mais utilizada pelos ciclistas é o embarque na Rodoviária de Santos, que oferece ligações frequentes para a capital e diversas cidades do estado.
 
-**Leia o guia completo:** [Como retornar de Santos para São Paulo e cidades do interior de ônibus](/publicacoes/como-retornar-de-santos-para-sao-paulo-e-interior/)
+**Leia o guia completo:** [Como retornar de Santos para São Paulo e cidades do interior de ônibus](/artigos/como-retornar-de-santos-para-sao-paulo-e-interior/)
