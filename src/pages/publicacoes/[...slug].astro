@@ -2,7 +2,6 @@
 import { render } from "astro:content"
 import { getPublishedArticles, getSimilarArticles } from '@utils/collections/article'
 import { getActiveAlerts } from '@utils/collections/alert'
-import { getPublishedAnnouncements } from '@utils/collections/announcement'
 import { formatDate } from '@utils/date'
 import Main from "@layouts/Main.astro";
 import FeaturedPost from '@components/molecules/FeaturedPost.astro'
@@ -10,39 +9,40 @@ import Separator from '@components/atoms/Separator.astro'
 import MegaphoneIcon from '@components/atoms/MegaphoneIcon.astro'
 import TriangleAlertIcon from '@components/atoms/TriangleAlertIcon.astro'
 import IconCalendar from '@components/atoms/IconCalendar.astro'
+import IconCircleCheckBig from "@components/atoms/IconCircleCheckBig.astro";
+import IconOctagonAlert from "@components/atoms/IconOctagonAlert.astro";
 
 export async function getStaticPaths() {
   const posts = await getPublishedArticles()
   const alerts = await getActiveAlerts()
-  const announcements = await getPublishedAnnouncements()
 
   return posts.map((post) => {
-    const matchedAlert = alerts.find((alert) => alert.data.post.id === post.id);
-    const matchedAnnouncement = announcements.find((announcement) => announcement.data.post.id === post.id);
+    const matchedAlert = alerts.find((alert) => alert.data.article.id === post.id);
 
     return {
       params: { slug: post.id },
       props: {
         post,
         alert: matchedAlert || null,
-        announcement: matchedAnnouncement || null
       },
     };
   });
 }
 
-const { post, alert, announcement } = Astro.props;
+const { post, alert } = Astro.props;
 const { title, description, pubDate, category, author, tags } = post.data
 const { Content } = await render(post)
 
 const posts = await getPublishedArticles()
 const similarPosts = getSimilarArticles(posts, post)
 
-const formattedDate = formatDate(alert?.data?.updatedDate || announcement?.data?.updatedDate || pubDate)
+const formattedDate = formatDate(pubDate)
 
 let Icon = null;
-if (alert) Icon = TriangleAlertIcon;
-else if (announcement) Icon = MegaphoneIcon;
+if (alert?.data.severity === 1) Icon = TriangleAlertIcon;
+else if (alert?.data.severity === 2) Icon = IconOctagonAlert;
+else if (alert?.data.severity === 3) Icon = IconCircleCheckBig;
+else if (alert?.data.severity === 4) Icon = MegaphoneIcon;
 ---
 
 <Main title={title} description={description}>
@@ -55,11 +55,12 @@ else if (announcement) Icon = MegaphoneIcon;
               <a href={`/categorias/${category.toLowerCase().replace(/\s+/g, "-")}/`}>
                 <span
                   class:list={[
-                    "badge",
+                    'badge',
                     {
-                      "bg-danger/20 text-danger": alert?.data?.severity === 1,
-                      "bg-warning/20 text-warning": alert?.data?.severity === 2,
-                      "bg-info/20 text-info": announcement && !alert
+                      'bg-danger/20 text-danger': alert?.data?.severity === 1,
+                      'bg-warning/20 text-warning': alert?.data?.severity === 2,
+                      'bg-success/20 text-success': alert?.data?.severity === 3,
+                      'bg-info/20 text-info': alert?.data?.severity === 4,
                     }
                   ]}
                   data-variant="secondary"
