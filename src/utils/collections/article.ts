@@ -6,11 +6,11 @@ export async function getPublishedArticles() {
 
   return (
     await getCollection('article', ({ data }) => {
-      return new Date(data.pubDate) <= now
+      return new Date(data.publishDate) <= now
     })
   ).sort(
     (a, b) =>
-      new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime(),
+      new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime(),
   )
 }
 
