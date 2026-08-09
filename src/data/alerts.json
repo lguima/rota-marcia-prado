@@ -1,1 +1,43 @@
-[]
+[
+  {
+    "id": "desmoronamento",
+    "title": "Desmoronamento na Serra do Mar",
+    "description": "Lorem ipsum dolor sit amet, consectetur. Nam tempus libero sit amet metus vulputate.",
+    "active": false,
+    "severity": 1,
+    "publishDate": "2026-07-01T17:00:00-03:00",
+    "updateDate": "2026-08-08T18:00:00-03:00",
+    "article": "alertas/alerta-1"
+  },
+  {
+    "id": "desvio",
+    "title": "Desvio em Cubatão",
+    "description": "Lorem ipsum dolor sit amet, consectetur. Nam tempus libero sit amet metus vulputate.",
+    "active": false,
+    "severity": 2,
+    "publishDate": "2026-07-01T10:00:00-03:00",
+    "updateDate": "2026-08-08T18:00:00-03:00",
+    "article": "alertas/alerta-2"
+  },
+  {
+    "id": "desmoronamento-resolvido",
+    "title": "Desmoronamento resolvido",
+    "description": "Lorem ipsum dolor sit amet, consectetur. Nam tempus libero sit amet metus vulputate.",
+    "active": false,
+    "severity": 3,
+    "publishDate": "2026-07-01T17:00:00-03:00",
+    "updateDate": "2026-08-08T18:00:00-03:00",
+    "article": "alertas/alerta-3"
+  },
+  {
+    "id": "mudanca-reuniao-ciclo-comite-eleicoes-2026",
+    "title": "Mudança nas reuniões do Ciclo Comitê Paulista",
+    "description": "Lorem ipsum dolor sit amet, consectetur. Nam tempus libero sit amet metus vulputate.",
+    "active": false,
+    "severity": 4,
+    "publishDate": "2026-07-01T12:00:00-03:00",
+    "expirationDate": "2026-10-31T20:52:00-03:00",
+    "updatedDate": "2026-08-08T18:00:00-03:00",
+    "article": "alertas/alerta-4"
+  }
+]
