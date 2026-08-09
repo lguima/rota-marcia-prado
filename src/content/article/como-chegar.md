@@ -1,7 +1,7 @@
 ---
 title: "Como chegar até a Rota Márcia Prado"
 description: "Conheças as alternativas para chegar até o início da rota."
-pubDate: 2026-05-23T12:00:00-03:00
+publishDate: 2026-05-23T12:00:00-03:00
 category: "Acesso"
 tags: ["Início da rota", "São Paulo"]
 featured: true
