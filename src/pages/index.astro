@@ -6,6 +6,7 @@ import FeaturedPost from "@components/molecules/FeaturedPost.astro"
 import PostItem from "@components/molecules/PostItem.astro"
 import Separator from "@components/atoms/Separator.astro"
 import PriorityAlerts from '@components/molecules/PriorityAlerts.astro'
+import SearchModalTrigger from '@components/molecules/SearchModalTrigger.astro'
 import SecondaryAlerts from '@components/molecules/SecondaryAlerts.astro'
 import site from "@config/site.mjs"
 import content from "@config/content.mjs"
@@ -50,6 +51,8 @@ const latestPosts = getLatestArticles(articles)
         <p class="text-muted-foreground max-w-xl text-lg text-pretty">
           Rota cicloturística que liga a <span class="whitespace-nowrap">Região Metropolitana</span> de <span class="whitespace-nowrap">São Paulo</span> a Santos pela <span class="whitespace-nowrap">Serra do Mar</span>, conhecida como a tradicional <span class="whitespace-nowrap">Descida de Santos</span>
         </p>
+
+        <SearchModalTrigger placeholder="Pesquisar..." />
       </div>
     </div>
   </section>
