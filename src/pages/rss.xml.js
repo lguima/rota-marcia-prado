@@ -25,7 +25,7 @@ export async function GET(context) {
     // Array of `<item>`s in output xml
     items: articles.map((post) => ({
       title: post.data.title,
-      pubDate: post.data.pubDate,
+      publishDate: post.data.publishDate,
       description: post.data.description,
       // Compute RSS link from post `id`
       link: `/artigos/${post.id}/`,
