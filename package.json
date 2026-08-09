@@ -5,9 +5,13 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro check && astro build",
+    "postbuild": "npm run pagefind",
+    "build:dev": "npm run build && npm run pagefind:dev",
     "preview": "astro preview",
     "astro": "astro",
-    "format": "prettier"
+    "format": "prettier",
+    "pagefind": "npx pagefind --site dist",
+    "pagefind:dev": "npm run pagefind -- --serve"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.9",
