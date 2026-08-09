@@ -3,15 +3,13 @@
   "type": "module",
   "version": "0.1.0",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro check && astro build",
-    "postbuild": "npm run pagefind",
-    "build:dev": "npm run build && npm run pagefind:dev",
-    "preview": "astro preview",
     "astro": "astro",
+    "dev": "astro dev",
     "format": "prettier",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
     "pagefind": "npx pagefind --site dist",
-    "pagefind:dev": "npm run pagefind -- --serve"
+    "start": "npm run build && npm run pagefind -- --serve"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.9",
