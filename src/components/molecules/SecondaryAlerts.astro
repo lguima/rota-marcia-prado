@@ -15,7 +15,7 @@ const alertsGridCols = { 1: 'lg:grid-cols-1', 2: 'lg:grid-cols-2' }[alerts.lengt
 <div class={`w-full grid grid-cols-1 md:grid-cols-2 ${alertsGridCols} gap-3`}>
   {alerts.map(alert => (
     <a
-      href={`/publicacoes/${alert.data.article}/`}
+      href={`/publicacoes/${alert.data.article.id}/`}
       class:list={[
         'item items-start border-muted border-l-4',
         {
