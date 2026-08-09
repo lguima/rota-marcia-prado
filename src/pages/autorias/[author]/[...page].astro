@@ -21,8 +21,8 @@ export const getStaticPaths = (async ({ paginate }) => {
       .filter((post) => post.data.author === author)
       .sort(
         (a, b) =>
-          new Date(b.data.pubDate).valueOf() -
-          new Date(a.data.pubDate).valueOf(),
+          new Date(b.data.publishDate).valueOf() -
+          new Date(a.data.publishDate).valueOf(),
       )
 
     return paginate(authorPosts, {
