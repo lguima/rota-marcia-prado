@@ -30,7 +30,7 @@ type Props = {
 const { category, posts } = Astro.props
 ---
 
-<Main title={`Artigos em ${category}`} description={`Artigos na categoria ${category}`}>
+<Main title={`Artigos em ${category}`} description={`Artigos na categoria ${category}`} data-pagefind-ignore="all">
   <section class="py-6 lg:py-10">
     <div class="mx-auto flex max-w-7xl flex-col gap-12 px-5 lg:gap-16 lg:px-8">
       <div class="flex w-full max-w-3xl flex-col gap-3 mx-auto items-center text-center">
