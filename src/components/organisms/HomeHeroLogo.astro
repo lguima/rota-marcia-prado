@@ -1,0 +1,33 @@
+---
+import media from "@config/media.mjs";
+---
+
+<section class="py-6 lg:py-10">
+  <div class="mx-auto grid w-full max-w-7xl gap-9 px-5 lg:grid-cols-2 lg:px-8">
+    <div class="flex flex-col gap-12 self-center lg:gap-16">
+      <div class="flex w-full max-w-3xl flex-col items-start gap-3 text-left">
+        <h2
+          class="text-3xl font-medium tracking-tight text-balance lg:text-4xl"
+        >
+          Rota Márcia Prado
+        </h2>
+        <p class="text-muted-foreground max-w-2xl text-base text-pretty">
+          Rota cicloturística que liga a <span class="whitespace-nowrap"
+            >Região Metropolitana</span
+          > de <span class="whitespace-nowrap">São Paulo</span> a Santos pela <span
+            class="whitespace-nowrap">Serra do Mar</span
+          >, conhecida como a tradicional <span class="whitespace-nowrap"
+            >Descida de Santos</span
+          >
+        </p>
+      </div>
+    </div>
+    <div class="flex flex-col items-center overflow-hidden rounded-full">
+      <img
+        alt="Rota Márcia Prado"
+        class="size-72 object-cover"
+        src={`${media.url}/rota-marcia-prado/image/upload/v1780600427/rota-marcia-prado-logo_bupnqd.png`}
+      />
+    </div>
+  </div>
+</section>
