@@ -1,8 +1,25 @@
 ---
+const isDev = import.meta.env.DEV
+
 const { compact, ...rest } = Astro.props
 ---
 
-<pagefind-modal-trigger
-  {...compact && { compact: 'true' }}
-  {...rest}
-  hide-shortcut></pagefind-modal-trigger>
+{
+  isDev ? (
+    <div
+      class:list={[
+        'skeleton h-9',
+        {
+          'w-11': compact,
+          'w-32': !compact,
+        },
+      ]}
+    />
+  ) : (
+    <pagefind-modal-trigger
+      {...(compact && { compact: 'true' })}
+      {...rest}
+      hide-shortcut
+    />
+  )
+}
