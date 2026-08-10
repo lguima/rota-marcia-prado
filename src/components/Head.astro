@@ -33,6 +33,18 @@ const pageTitle = title ? `${title} | ${site.name}` : site.name
   <script src="/pagefind/pagefind-component-ui.js" type="module" is:inline></script>
 
   <ThemeSwitcher />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.0.1/dist/cookieconsent.css" />
+  <script is:inline data-category="analytics">
+    function updateConsents() {
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted',
+        analytics_storage: 'granted',
+      });
+    }
+  </script>
   <Analytics />
 
   <script
