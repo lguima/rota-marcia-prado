@@ -7,11 +7,14 @@ export interface Props {
   alerts: CollectionEntry<'alert'>[]
 }
 
+const layoutMap: Record<number, string> = {
+  1: 'lg:grid-cols-1',
+  2: 'lg:grid-cols-2'
+}
+
 const { alerts } = Astro.props
 
-const alertsGridCols =
-  { 1: 'lg:grid-cols-1', 2: 'lg:grid-cols-2' }[alerts.length] ||
-  'lg:grid-cols-3'
+const alertsGridCols = layoutMap[alerts.length] || 'lg:grid-cols-3'
 ---
 
 <div class={`w-full grid grid-cols-1 md:grid-cols-2 ${alertsGridCols} gap-3`}>
