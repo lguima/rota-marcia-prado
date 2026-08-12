@@ -7,15 +7,16 @@ import Breadcrumb from '@components/molecules/Breadcrumb.astro'
 import '../styles/global.css'
 
 interface Props {
+  index?: boolean;
   title: string;
   description: string;
   breadcrumb?: { text: string; href?: string }[];
 }
 
-const { title, description, breadcrumb, ...rest } = Astro.props
+const { index = false, title, description, breadcrumb, ...rest } = Astro.props
 ---
 
-<Base title={title} description={description} {...rest}>
+<Base index={index} title={title} description={description} {...rest}>
   <slot name="structured-data" slot="structured-data" />
 
   <Header />
