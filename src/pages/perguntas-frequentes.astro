@@ -1,6 +1,7 @@
 ---
 import Main from "@layouts/Main.astro";
 import AccordionDetails from "@components/molecules/AccordionDetails.astro"
+import PageHeader from '@components/molecules/PageHeader.astro'
 import HouseIcon from '@components/atoms/HouseIcon.astro'
 
 const faqSchema = {
@@ -160,15 +161,7 @@ const faqSchema = {
 
   <section class="py-6 lg:py-10">
     <div class="flex flex-col gap-12 lg:gap-16">
-      <div class="flex w-full max-w-3xl flex-col gap-3 mx-auto items-center text-center">
-        <!-- <span class="text-primary text-base font-medium">Benefits</span> -->
-        <h1 class="text-3xl font-medium tracking-tight text-balance lg:text-4xl">
-          Perguntas Frequentes (FAQ)
-        </h1>
-        <p class="text-muted-foreground max-w-2xl text-base text-pretty">
-          Dúvidas frequentes sobre a Rota Márcia Prado respondidas para facilitar a descida de bicicleta de São Paulo a Santos
-        </p>
-      </div>
+      <PageHeader title="Perguntas Frequentes (FAQ)" description="Dúvidas frequentes sobre a Rota Márcia Prado respondidas para facilitar a descida de bicicleta de São Paulo a Santos." />
     </div>
   </section>
 

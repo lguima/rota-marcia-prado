@@ -1,6 +1,7 @@
 ---
 import { getPublishedArticles } from '@utils/collections/article'
 import Main from "@layouts/Main.astro"
+import PageHeader from '@components/molecules/PageHeader.astro'
 
 // Get all articles and extract unique categories
 const allPosts = await getPublishedArticles()
@@ -16,14 +17,7 @@ const categoriesCount = allCategories.map((category) => ({
 <Main title="Categorias" description="Navegue pelos artigos por categoria">
   <section class="py-6 lg:py-10">
     <div class="flex flex-col gap-12 lg:gap-16">
-      <div class="flex w-full max-w-3xl flex-col gap-3 mx-auto items-center text-center">
-        <h1 class="text-3xl font-medium tracking-tight text-balance lg:text-4xl">
-          Categorias
-        </h1>
-        <p class="text-muted-foreground max-w-2xl text-base text-pretty">
-          Artigos organizados por categoria
-        </p>
-      </div>
+      <PageHeader title="Categorias" description="Artigos organizados por categoria" />
     </div>
   </section>
 

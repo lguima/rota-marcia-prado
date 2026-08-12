@@ -6,6 +6,7 @@ import content from '@config/content.mjs'
 import { getPublishedArticles } from '@utils/collections/article'
 
 import Main from '@layouts/Main.astro'
+import PageHeader from '@components/molecules/PageHeader.astro'
 import Pagination from '@components/molecules/Pagination.astro'
 import PostItem from '@components/molecules/PostItem.astro'
 import HouseIcon from '@components/atoms/HouseIcon.astro'
@@ -56,28 +57,19 @@ type Props = {
 }
 
 const { author, page } = Astro.props
+
 const pageTitle =
   page.currentPage === 1
     ? `Artigos por ${author}`
     : `Artigos por ${author} - Página ${page.currentPage}`
+
+const pageDescription = `${page.total} ${page.total === 1 ? 'artigo' : 'artigos'} por ${author}`
 ---
 
 <Main title={pageTitle} description={`Artigos de autoria de ${author}`} data-pagefind-ignore="all">
   <section class="py-6 lg:py-10">
     <div class="flex flex-col gap-12 lg:gap-16">
-      <div
-        class="mx-auto flex w-full max-w-3xl flex-col items-center gap-3 text-center"
-      >
-        <h1
-          class="text-3xl font-medium tracking-tight text-balance lg:text-4xl"
-        >
-          {author}
-        </h1>
-        <p class="text-muted-foreground max-w-2xl text-base text-pretty">
-          {page.total}&nbsp;
-          {page.total === 1 ? 'artigo' : 'artigos'} por {author}
-        </p>
-      </div>
+      <PageHeader title={author} description={pageDescription} />
     </div>
   </section>
 
