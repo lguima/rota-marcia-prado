@@ -1,5 +1,5 @@
 ---
-import type { CollectionEntry } from 'astro:content';
+import type { CollectionEntry } from 'astro:content'
 import IconCircleCheckBig from '@components/atoms/IconCircleCheckBig.astro'
 import MegaphoneIcon from '@components/atoms/MegaphoneIcon.astro'
 
@@ -9,37 +9,41 @@ export interface Props {
 
 const { alerts } = Astro.props
 
-const alertsGridCols = { 1: 'lg:grid-cols-1', 2: 'lg:grid-cols-2' }[alerts.length] || 'lg:grid-cols-3';
+const alertsGridCols =
+  { 1: 'lg:grid-cols-1', 2: 'lg:grid-cols-2' }[alerts.length] ||
+  'lg:grid-cols-3'
 ---
 
 <div class={`w-full grid grid-cols-1 md:grid-cols-2 ${alertsGridCols} gap-3`}>
-  {alerts.map(alert => (
-    <a
-      href={`/artigos/${alert.data.article.id}/`}
-      class:list={[
-        'item items-start border-muted border-l-4',
-        {
-          'border-l-success': alert.data.severity == 3,
-          'border-l-info': alert.data.severity == 4
-        }
-      ]}
-      data-variant="outline"
-    >
-      <figure
+  {
+    alerts.map((alert) => (
+      <a
+        href={`/artigos/${alert.data.article.id}/`}
         class:list={[
-        {
-          'text-success': alert.data.severity == 3,
-          'text-info': alert.data.severity == 4
-        }
-      ]}
+          'item border-muted items-start border-l-4',
+          {
+            'border-l-success': alert.data.severity == 3,
+            'border-l-info': alert.data.severity == 4,
+          },
+        ]}
+        data-variant="outline"
       >
-        {alert.data.severity == 3 && <IconCircleCheckBig class="size-full" />}
-        {alert.data.severity == 4 && <MegaphoneIcon class="size-full" />}
-      </figure>
-      <section>
-        <h3>{alert.data.title}</h3>
-        <p>{alert.data.description}</p>
-      </section>
-    </a>
-  ))}
+        <figure
+          class:list={[
+            {
+              'text-success': alert.data.severity == 3,
+              'text-info': alert.data.severity == 4,
+            },
+          ]}
+        >
+          {alert.data.severity == 3 && <IconCircleCheckBig class="size-full" />}
+          {alert.data.severity == 4 && <MegaphoneIcon class="size-full" />}
+        </figure>
+        <section>
+          <h3>{alert.data.title}</h3>
+          <p>{alert.data.description}</p>
+        </section>
+      </a>
+    ))
+  }
 </div>

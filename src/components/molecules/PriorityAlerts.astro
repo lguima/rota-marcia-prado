@@ -1,5 +1,5 @@
 ---
-import type { CollectionEntry } from 'astro:content';
+import type { CollectionEntry } from 'astro:content'
 import TriangleAlertIcon from '@components/atoms/TriangleAlertIcon.astro'
 import IconOctagonAlert from '@components/atoms/IconOctagonAlert.astro'
 
@@ -9,37 +9,41 @@ export interface Props {
 
 const { alerts } = Astro.props
 
-const alertsGridCols = { 1: 'lg:grid-cols-1', 2: 'lg:grid-cols-2' }[alerts.length] || 'lg:grid-cols-3';
+const alertsGridCols =
+  { 1: 'lg:grid-cols-1', 2: 'lg:grid-cols-2' }[alerts.length] ||
+  'lg:grid-cols-3'
 ---
 
 <div class={`w-full grid grid-cols-1 md:grid-cols-2 ${alertsGridCols} gap-3`}>
-  {alerts.map(alert => (
-    <a
-      href={`/artigos/${alert.data.article.id}/`}
-      class:list={[
-        'item items-start border-muted border-l-4',
-        {
-          'border-l-danger': alert.data.severity == 1,
-          'border-l-warning': alert.data.severity == 2
-        }
-      ]}
-      data-variant="outline"
-    >
-      <figure
+  {
+    alerts.map((alert) => (
+      <a
+        href={`/artigos/${alert.data.article.id}/`}
         class:list={[
-        {
-          'text-danger': alert.data.severity == 1,
-          'text-warning': alert.data.severity == 2
-        }
-      ]}
+          'item border-muted items-start border-l-4',
+          {
+            'border-l-danger': alert.data.severity == 1,
+            'border-l-warning': alert.data.severity == 2,
+          },
+        ]}
+        data-variant="outline"
       >
-        {alert.data.severity == 1 && <TriangleAlertIcon class="size-full" />}
-        {alert.data.severity == 2 && <IconOctagonAlert class="size-full" />}
-      </figure>
-      <section>
-        <h3>{alert.data.title}</h3>
-        <p>{alert.data.description}</p>
-      </section>
-    </a>
-  ))}
+        <figure
+          class:list={[
+            {
+              'text-danger': alert.data.severity == 1,
+              'text-warning': alert.data.severity == 2,
+            },
+          ]}
+        >
+          {alert.data.severity == 1 && <TriangleAlertIcon class="size-full" />}
+          {alert.data.severity == 2 && <IconOctagonAlert class="size-full" />}
+        </figure>
+        <section>
+          <h3>{alert.data.title}</h3>
+          <p>{alert.data.description}</p>
+        </section>
+      </a>
+    ))
+  }
 </div>
