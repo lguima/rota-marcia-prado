@@ -12,12 +12,19 @@ const categoriesCount = allCategories.map((category) => ({
   category,
   count: allPosts.filter((post) => post.data.category === category).length,
 }))
+
+const pageName = 'Categorias'
+
+const breadcrumb = [
+  { text: 'Artigos', href: '/artigos/' },
+  { text: pageName }
+];
 ---
 
-<Main title="Categorias" description="Navegue pelos artigos por categoria">
+<Main breadcrumb={breadcrumb} title={pageName} description="Navegue pelos artigos por categoria">
   <section class="py-6 lg:py-10">
     <div class="flex flex-col gap-12 lg:gap-16">
-      <PageHeader title="Categorias" description="Artigos organizados por categoria" />
+      <PageHeader title={pageName} description="Artigos organizados por categoria" />
     </div>
   </section>
 

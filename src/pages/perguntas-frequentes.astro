@@ -4,6 +4,12 @@ import AccordionDetails from "@components/molecules/AccordionDetails.astro"
 import PageHeader from '@components/molecules/PageHeader.astro'
 import HouseIcon from '@components/atoms/HouseIcon.astro'
 
+const pageName = 'Perguntas Frequentes (FAQ)'
+
+const breadcrumb = [
+  { text: pageName }
+];
+
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -156,12 +162,12 @@ const faqSchema = {
 };
 ---
 
-<Main title={`Perguntas Frequentes (FAQ)`} description="Dúvidas frequentes sobre a Rota Márcia Prado respondidas para facilitar a descida de bicicleta de São Paulo a Santos.">
+<Main breadcrumb={breadcrumb} title={pageName} description="Dúvidas frequentes sobre a Rota Márcia Prado respondidas para facilitar a descida de bicicleta de São Paulo a Santos.">
   <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} slot="structured-data" />
 
   <section class="py-6 lg:py-10">
     <div class="flex flex-col gap-12 lg:gap-16">
-      <PageHeader title="Perguntas Frequentes (FAQ)" description="Dúvidas frequentes sobre a Rota Márcia Prado respondidas para facilitar a descida de bicicleta de São Paulo a Santos." />
+      <PageHeader title={pageName} description="Dúvidas frequentes sobre a Rota Márcia Prado respondidas para facilitar a descida de bicicleta de São Paulo a Santos." />
     </div>
   </section>
 

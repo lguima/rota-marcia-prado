@@ -31,9 +31,15 @@ type Props = {
 const { tag, posts } = Astro.props
 
 const pageDescription = `${posts.length} ${posts.length === 1 ? "artigo" : "artigos"} sobre ${tag}`
+
+const breadcrumb = [
+  { text: 'Artigos', href: '/artigos/' },
+  { text: 'Tópicos', href: '/topicos/' },
+  { text: tag }
+];
 ---
 
-<Main title={`Artigos sobre ${tag}`} description={`Artigos do tópico ${tag}`} data-pagefind-ignore="all">
+<Main breadcrumb={breadcrumb} title={`Artigos sobre ${tag}`} description={`Artigos do tópico ${tag}`} data-pagefind-ignore="all">
   <section class="py-6 lg:py-10">
     <div class="flex flex-col gap-12 lg:gap-16">
       <PageHeader title={tag} description={pageDescription} />

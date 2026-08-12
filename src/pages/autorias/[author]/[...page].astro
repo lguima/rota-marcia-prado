@@ -64,9 +64,15 @@ const pageTitle =
     : `Artigos por ${author} - Página ${page.currentPage}`
 
 const pageDescription = `${page.total} ${page.total === 1 ? 'artigo' : 'artigos'} por ${author}`
+
+const breadcrumb = [
+  { text: 'Artigos', href: '/artigos/' },
+  { text: 'Autorias', href: '/autorias/' },
+  { text: author }
+];
 ---
 
-<Main title={pageTitle} description={`Artigos de autoria de ${author}`} data-pagefind-ignore="all">
+<Main breadcrumb={breadcrumb} title={pageTitle} description={`Artigos de autoria de ${author}`} data-pagefind-ignore="all">
   <section class="py-6 lg:py-10">
     <div class="flex flex-col gap-12 lg:gap-16">
       <PageHeader title={author} description={pageDescription} />
