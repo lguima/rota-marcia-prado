@@ -28,7 +28,7 @@ const featuredPosts = getFeaturedArticles(articles)
 const latestPosts = getLatestArticles(articles)
 ---
 
-<Main data-pagefind-ignore="all">
+<Main index title={site.name} description={site.metadata.description} data-pagefind-ignore="all">
   <script is:inline type="application/ld+json" set:html={JSON.stringify(webSiteSchema)} slot="structured-data" />
 
   {
