@@ -6,6 +6,7 @@ import { formatDate } from '@utils/date'
 import Main from "@layouts/Main.astro";
 import FeaturedPost from '@components/molecules/FeaturedPost.astro'
 import CategoryTagsPills from '@components/molecules/CategoryTagsPills.astro';
+import BackToTop from '@components/atoms/BackToTop.astro'
 import Separator from '@components/atoms/Separator.astro'
 import IconCalendar from '@components/atoms/IconCalendar.astro'
 
@@ -141,4 +142,6 @@ const breadcrumb = [
       </section>
     )
   }
+
+  <BackToTop />
 </Main>
