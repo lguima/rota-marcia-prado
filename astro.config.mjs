@@ -47,6 +47,7 @@ export default defineConfig({
     domains: [CLOUDINARY_DOMAIN ?? "res.cloudinary.com"],
   },
   redirects: {
+    '/publicacoes/[...slug]': '/artigos/[...slug]',
     '/duvidas-frequentes': '/perguntas-frequentes',
     '/faq': '/perguntas-frequentes',
   },
