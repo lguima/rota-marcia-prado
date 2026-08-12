@@ -12,8 +12,10 @@ const { title, description, ...rest } = Astro.props
   <slot name="structured-data" slot="structured-data" />
 
   <Header />
-  <main class="overflow-x-hidden py-6 lg:py-10">
+
+  <main class="mx-auto max-w-7xl overflow-x-hidden px-5 py-4 lg:px-8">
     <slot />
   </main>
+
   <Footer />
 </Base>
