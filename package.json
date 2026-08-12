@@ -8,6 +8,7 @@
     "format": "prettier",
     "build": "astro check && astro build",
     "preview": "astro preview",
+    "serve": "npm run build && npm run preview",
     "pagefind": "npx pagefind --site dist",
     "start": "npm run build && npm run pagefind -- --serve"
   },
