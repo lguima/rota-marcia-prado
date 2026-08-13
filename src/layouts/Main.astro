@@ -21,7 +21,7 @@ const { index = false, title, description, breadcrumb, ...rest } = Astro.props
 
   <Header />
 
-  <main class="mx-auto max-w-7xl overflow-x-hidden px-5 py-4 lg:px-8">
+  <main class="mx-auto max-w-7xl overflow-x-hidden px-5 pt-18 pb-4 lg:px-8">
     {breadcrumb && breadcrumb.length > 0 && (
       <Breadcrumb items={breadcrumb} />
     )}
