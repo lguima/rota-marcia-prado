@@ -11,7 +11,7 @@ const slugifiedTitle = title
   .replace(/(^-|-$)+/g, "")
 ---
 
-<details>
+<details class="open:bg-secondary px-4">
   <summary>
     <h3 id={slugifiedTitle} class="sr-only">{title}</h3>
     {title}
