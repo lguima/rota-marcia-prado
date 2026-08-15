@@ -1,6 +1,7 @@
 import type { CollectionEntry } from 'astro:content'
 import site from '@config/site.mjs'
 import media from '@config/media.mjs'
+import { slugify } from './string'
 
 const context = 'https://schema.org'
 
@@ -38,5 +39,25 @@ export function getFaqSchema(faqs: CollectionEntry<'faq'>[]) {
         text: faq.data.answer,
       },
     })),
+  }
+}
+
+export function getArticleSchema(article: CollectionEntry<'article'>, siteUrl: URL | undefined) {
+  return {
+    '@context': context,
+    '@type': 'Article',
+    headline: article.data.title,
+    /* "image": [
+      "https://example.com/photos/1x1/photo.jpg",
+    ], */
+    datePublished: article.data.publishDate,
+    dateModified: article.data.updateDate,
+    author: [
+      {
+        '@type': 'Organization',
+        name: article.data.author,
+        url: `${siteUrl}autorias/${slugify(article.data.author)}/`,
+      },
+    ],
   }
 }
