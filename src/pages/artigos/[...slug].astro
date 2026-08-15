@@ -3,7 +3,7 @@ import { render } from 'astro:content'
 
 import { getPublishedArticles, getSimilarArticles } from '@utils/collections/article'
 import { getActiveAlerts } from '@utils/collections/alert'
-import { formatDate } from '@utils/date'
+import { formatDateLong, formatDateShort } from '@utils/date'
 
 import Main from '@layouts/Main.astro'
 import FeaturedPost from '@components/molecules/FeaturedPost.astro'
@@ -82,20 +82,22 @@ const breadcrumb = [
             </div>
           </div>
 
-          <div class="flex flex-row gap-4">
-            <div class="text-muted-foreground flex items-center gap-4 text-sm">
+          <div class="flex flex-col 3xs:flex-row gap-4">
+            <div class="text-muted-foreground text-sm">
               <div class="flex items-center gap-1">
                 <IconCalendar class="size-4" />
-                <span>{formatDate(publishDate)}</span>
+                <span class="hidden xs:inline">{formatDateLong(publishDate)}</span>
+                <span class="inline xs:hidden">{formatDateShort(publishDate)}</span>
               </div>
             </div>
 
             {
               updateDate && (
-                <div class="text-muted-foreground flex items-center gap-4 text-sm">
+                <div class="text-muted-foreground text-sm">
                   <div class="flex items-center gap-1">
                     <IconRotateCcwClock class="size-4" />
-                    <span>{formatDate(updateDate)}</span>
+                    <span class="hidden xs:inline">{formatDateLong(updateDate)}</span>
+                    <span class="inline xs:hidden">{formatDateShort(updateDate)}</span>
                   </div>
                 </div>
               )
