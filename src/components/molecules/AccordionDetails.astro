@@ -1,24 +1,22 @@
 ---
 import IconChevronDown from '@components/atoms/IconChevronDown.astro'
+import type { CollectionEntry } from 'astro:content'
 
-const { title } = Astro.props
+export interface Props {
+  faq: CollectionEntry<'faq'>
+}
 
-const slugifiedTitle = title
-  .normalize("NFD")
-  .replace(/[\u0300-\u036f]/g, "")
-  .toLowerCase()
-  .replace(/[^a-z0-9]+/g, "-")
-  .replace(/(^-|-$)+/g, "")
+const { faq } = Astro.props
 ---
 
 <details class="open:bg-secondary px-4">
   <summary>
-    <h3 id={slugifiedTitle} class="sr-only">{title}</h3>
-    {title}
+    <h3 id={faq.id} class="sr-only">{faq.data.question}</h3>
+    {faq.data.question}
     <IconChevronDown />
   </summary>
   <section class="text-muted-foreground text-base">
-    <slot />
+    {faq.data.answer}
   </section>
 </details>
 
