@@ -24,11 +24,17 @@
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
         if (mutation.attributeName === 'class') {
+          observer.disconnect();
+
           if (layout.classList.contains('dark')) {
             layout.setAttribute('data-pf-theme', 'dark');
+            layout.classList.add('cc--darkmode');
           } else {
             layout.removeAttribute('data-pf-theme');
+            layout.classList.remove('cc--darkmode');
           }
+
+          observer.observe(layout, { attributes: true });
         }
       });
     });
