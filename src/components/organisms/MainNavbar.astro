@@ -4,12 +4,15 @@ import { Image } from 'astro:assets'
 import EmergencyButton from '@components/molecules/EmergencyButton.astro'
 import SearchModalTrigger from '@components/molecules/SearchModalTrigger.astro'
 import ThemeSwitcher from '@components/atoms/ThemeSwitcher.astro'
+import IconCornerDownRight from '@components/atoms/IconCornerDownRight.astro'
 import IconX from '@components/atoms/IconX.astro'
 import IconMenu from '@components/atoms/IconMenu.astro'
 
 import site from '@config/site.mjs'
 import media from '@config/media.mjs'
-import IconCornerDownRight from '@components/atoms/IconCornerDownRight.astro'
+import { getMenuItems } from '@utils/collections/menu'
+
+const menu = await getMenuItems()
 ---
 
 <nav
@@ -35,18 +38,22 @@ import IconCornerDownRight from '@components/atoms/IconCornerDownRight.astro'
     </a>
 
     <!-- Desktop Menu -->
-    <div class="hidden sm:flex items-center gap-6 text-sm font-medium">
-      <a
-        href="/perguntas-frequentes/"
-        class="focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 inline-flex h-8 shrink-0 items-center justify-center gap-1.5 rounded-md px-3 text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
-      >
-        Perguntas Frequentes
-      </a>
+    <div class="hidden lg:flex items-center gap-6 text-sm font-medium">
+      {
+        menu.map(item => (
+          <a
+            href={item.data.href}
+            class="focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 inline-flex h-8 shrink-0 items-center justify-center gap-1.5 rounded-md px-3 text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
+          >
+            {item.data.text}
+          </a>
+        ))
+      }
     </div>
 
     <div class="flex items-center gap-2">
       <!-- Hamburger Button -->
-      <button id="menu-toggle" type="button" class="btn sm:hidden" data-variant="ghost" data-size="icon" aria-label="Alternar menu" aria-expanded="false">
+      <button id="menu-toggle" type="button" class="btn lg:hidden" data-variant="ghost" data-size="icon" aria-label="Alternar menu" aria-expanded="false">
         <IconMenu id="hamburger-icon" class="block" />
         <IconX id="close-icon" class="hidden" />
       </button>
@@ -62,12 +69,16 @@ import IconCornerDownRight from '@components/atoms/IconCornerDownRight.astro'
   <!-- Mobile Dropdown Menu -->
   <div
     id="mobile-menu"
-    class="sm:hidden absolute top-14 inset-x-0 bg-secondary border-b shadow-lg flex flex-col p-4 space-y-3 font-medium"
+    class="lg:hidden absolute top-14 inset-x-0 bg-secondary border-b shadow-lg flex flex-col p-4 space-y-3 font-medium"
   >
-    <a href="/perguntas-frequentes/" class="py-1 flex items-center gap-2">
-      <IconCornerDownRight class="size-4" />
-      Perguntas Frequentes
-    </a>
+    {
+      menu.map(item => (
+        <a href={item.data.href} class="py-1 flex items-center gap-2">
+          <IconCornerDownRight class="size-4 opacity-50" />
+          {item.data.text}
+        </a>
+      ))
+    }
   </div>
 </nav>
 
