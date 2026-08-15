@@ -8,8 +8,10 @@ import { formatDate } from '@utils/date'
 import Main from '@layouts/Main.astro'
 import FeaturedPost from '@components/molecules/FeaturedPost.astro'
 import CategoryTagsPills from '@components/molecules/CategoryTagsPills.astro'
-import Separator from '@components/atoms/Separator.astro'
+import IconArrowLeft from '@components/atoms/IconArrowLeft.astro'
 import IconCalendar from '@components/atoms/IconCalendar.astro'
+import IconRotateCcwClock from '@components/atoms/IconRotateCcwClock.astro'
+import Separator from '@components/atoms/Separator.astro'
 
 export async function getStaticPaths() {
   const posts = await getPublishedArticles()
@@ -83,7 +85,7 @@ const breadcrumb = [
           <div class="flex flex-row gap-4">
             <div class="text-muted-foreground flex items-center gap-4 text-sm">
               <div class="flex items-center gap-1">
-                <IconCalendar class="h-4 w-4" />
+                <IconCalendar class="size-4" />
                 <span>{formatDate(publishDate)}</span>
               </div>
             </div>
@@ -92,24 +94,7 @@ const breadcrumb = [
               updateDate && (
                 <div class="text-muted-foreground flex items-center gap-4 text-sm">
                   <div class="flex items-center gap-1">
-                    <svg
-                      class="lucide lucide-rotate-ccw-clock-icon lucide-rotate-ccw-clock h-4 w-4"
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    >
-                      <>
-                        <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
-                        <path d="M3 3v5h5" />
-                        <path d="M12 7v5l4 2" />
-                      </>
-                    </svg>
+                    <IconRotateCcwClock class="size-4" />
                     <span>{formatDate(updateDate)}</span>
                   </div>
                 </div>
@@ -130,23 +115,7 @@ const breadcrumb = [
           <div class="pt-4 text-center">
             <a href="/">
               <button type="button" class="btn" data-variant="link">
-                <svg
-                  class="lucide lucide-arrow-left-icon lucide-arrow-left"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <>
-                    <path d="m12 19-7-7 7-7" />
-                    <path d="M19 12H5" />
-                  </>
-                </svg>{' '}
+                <IconArrowLeft />
                 Voltar ao início
               </button>
             </a>
@@ -179,23 +148,7 @@ const breadcrumb = [
           <div class="pt-4 text-center">
             <a href="/">
               <button type="button" class="btn" data-variant="link">
-                <svg
-                  class="lucide lucide-arrow-left-icon lucide-arrow-left"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <>
-                    <path d="m12 19-7-7 7-7" />
-                    <path d="M19 12H5" />
-                  </>
-                </svg>{' '}
+                <IconArrowLeft />
                 Voltar ao início
               </button>
             </a>
