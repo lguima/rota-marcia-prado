@@ -2,6 +2,7 @@
 import { getPublishedArticles } from '@utils/collections/article'
 import Main from "@layouts/Main.astro"
 import PageHeader from '@components/molecules/PageHeader.astro'
+import { slugify } from '@utils/string'
 
 // Get all articles and extract unique authors
 const allPosts = await getPublishedArticles()
@@ -42,7 +43,7 @@ const breadcrumb = [
         {
           authorsCount.map(({ author, count }) => (
             <a
-              href={`/autorias/${author.toLowerCase().replace(/\s+/g, "-")}/`}
+              href={`/autorias/${slugify(author)}/`}
               class="item"
               data-variant="outline"
             >
