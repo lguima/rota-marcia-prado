@@ -9,11 +9,12 @@ import IconMenu from '@components/atoms/IconMenu.astro'
 
 import site from '@config/site.mjs'
 import media from '@config/media.mjs'
+import IconCornerDownRight from '@components/atoms/IconCornerDownRight.astro'
 ---
 
 <nav
   id="smart-nav"
-  class="bg-background border-b fixed top-0 inset-x-0 z-50 transition-transform duration-300 ease-in-out translate-y-0"
+  class="bg-secondary border-b fixed top-0 inset-x-0 z-50 transition-transform duration-300 ease-in-out translate-y-0"
 >
   <!-- Main Nav Bar -->
   <div class="mx-auto h-14 w-full max-w-7xl px-5 lg:px-8 flex items-center justify-between relative z-50">
@@ -27,7 +28,7 @@ import media from '@config/media.mjs'
         priority
       />
       <span
-        class="text-primary hidden text-sm font-medium whitespace-nowrap 2xs:inline"
+        class="hidden text-sm font-medium whitespace-nowrap 2xs:inline"
       >
         {site.name}
       </span>
@@ -61,9 +62,12 @@ import media from '@config/media.mjs'
   <!-- Mobile Dropdown Menu -->
   <div
     id="mobile-menu"
-    class="sm:hidden absolute top-16 inset-x-0 bg-background border-b shadow-lg flex flex-col p-4 space-y-3 font-medium"
+    class="sm:hidden absolute top-14 inset-x-0 bg-secondary border-b shadow-lg flex flex-col p-4 space-y-3 font-medium"
   >
-    <a href="/perguntas-frequentes/" class="py-1">Perguntas Frequentes</a>
+    <a href="/perguntas-frequentes/" class="py-1 flex items-center gap-2">
+      <IconCornerDownRight class="size-4" />
+      Perguntas Frequentes
+    </a>
   </div>
 </nav>
 
