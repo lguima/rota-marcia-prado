@@ -1,11 +1,13 @@
 ---
-import { render } from "astro:content"
+import { render } from 'astro:content'
+
 import { getPublishedArticles, getSimilarArticles } from '@utils/collections/article'
 import { getActiveAlerts } from '@utils/collections/alert'
 import { formatDate } from '@utils/date'
-import Main from "@layouts/Main.astro";
+
+import Main from '@layouts/Main.astro'
 import FeaturedPost from '@components/molecules/FeaturedPost.astro'
-import CategoryTagsPills from '@components/molecules/CategoryTagsPills.astro';
+import CategoryTagsPills from '@components/molecules/CategoryTagsPills.astro'
 import Separator from '@components/atoms/Separator.astro'
 import IconCalendar from '@components/atoms/IconCalendar.astro'
 
@@ -14,7 +16,9 @@ export async function getStaticPaths() {
   const alerts = await getActiveAlerts()
 
   return posts.map((post) => {
-    const matchedAlert = alerts.find((alert) => alert.data.article.id === post.id);
+    const matchedAlert = alerts.find(
+      (alert) => alert.data.article.id === post.id,
+    )
 
     return {
       params: { slug: post.id },
@@ -22,11 +26,11 @@ export async function getStaticPaths() {
         post,
         alert: matchedAlert || null,
       },
-    };
-  });
+    }
+  })
 }
 
-const { post, alert } = Astro.props;
+const { post, alert } = Astro.props
 const { title, description, publishDate, updateDate, category, author, tags } = post.data
 const { Content } = await render(post)
 
@@ -36,16 +40,22 @@ const similarPosts = getSimilarArticles(posts, post)
 const breadcrumb = [
   { text: 'Artigos', href: '/artigos/' },
   { text: title }
-];
+]
 ---
 
 <Main breadcrumb={breadcrumb} title={title} description={description}>
   <div class="flex flex-col gap-3 lg:gap-4">
     <article class="flex flex-col gap-8 py-6 lg:py-10">
       <header class="flex flex-col gap-6">
-        <CategoryTagsPills category={category} tags={tags} alertSeverity={alert?.data?.severity || null} />
+        <CategoryTagsPills
+          category={category}
+          tags={tags}
+          alertSeverity={alert?.data?.severity || null}
+        />
 
-        <h1 class="text-4xl leading-tight font-bold tracking-tight md:text-5xl lg:text-6xl">
+        <h1
+          class="text-4xl leading-tight font-bold tracking-tight md:text-5xl lg:text-6xl"
+        >
           {title}
         </h1>
 
@@ -53,17 +63,19 @@ const breadcrumb = [
           {description}
         </p>
 
-        <div class="flex flex-col justify-between gap-4 pt-4 sm:flex-row sm:items-center">
+        <div
+          class="flex flex-col justify-between gap-4 pt-4 sm:flex-row sm:items-center"
+        >
           <div class="flex items-center gap-3">
             <div>
               <p>
                 Por&nbsp;
                 <a
                   class="font-semibold hover:underline"
-                  href={`/autorias/${author.toLowerCase().replace(/\s+/g, "-")}/`}
+                  href={`/autorias/${author.toLowerCase().replace(/\s+/g, '-')}/`}
                 >
-                {author}
-              </a>
+                  {author}
+                </a>
               </p>
             </div>
           </div>
@@ -80,7 +92,24 @@ const breadcrumb = [
               updateDate && (
                 <div class="text-muted-foreground flex items-center gap-4 text-sm">
                   <div class="flex items-center gap-1">
-                    <svg class="lucide lucide-rotate-ccw-clock-icon lucide-rotate-ccw-clock h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></svg>
+                    <svg
+                      class="lucide lucide-rotate-ccw-clock-icon lucide-rotate-ccw-clock h-4 w-4"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <>
+                        <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+                        <path d="M3 3v5h5" />
+                        <path d="M12 7v5l4 2" />
+                      </>
+                    </svg>
                     <span>{formatDate(updateDate)}</span>
                   </div>
                 </div>
@@ -101,7 +130,24 @@ const breadcrumb = [
           <div class="pt-4 text-center">
             <a href="/">
               <button type="button" class="btn" data-variant="link">
-                <svg class="lucide lucide-arrow-left-icon lucide-arrow-left" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg> Voltar ao início
+                <svg
+                  class="lucide lucide-arrow-left-icon lucide-arrow-left"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <>
+                    <path d="m12 19-7-7 7-7" />
+                    <path d="M19 12H5" />
+                  </>
+                </svg>{' '}
+                Voltar ao início
               </button>
             </a>
           </div>
@@ -117,8 +163,8 @@ const breadcrumb = [
           <Separator />
 
           <div class="flex gap-5 lg:gap-9">
-            <div class="flex w-full max-w-3xl flex-col gap-3 items-start text-left flex-1">
-              <h3 class="font-medium tracking-tight text-balance text-1xl lg:text-2xl">
+            <div class="flex w-full max-w-3xl flex-1 flex-col items-start gap-3 text-left">
+              <h3 class="text-1xl font-medium tracking-tight text-balance lg:text-2xl">
                 Artigos relacionados
               </h3>
             </div>
@@ -133,7 +179,24 @@ const breadcrumb = [
           <div class="pt-4 text-center">
             <a href="/">
               <button type="button" class="btn" data-variant="link">
-                <svg class="lucide lucide-arrow-left-icon lucide-arrow-left" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg> Voltar ao início
+                <svg
+                  class="lucide lucide-arrow-left-icon lucide-arrow-left"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <>
+                    <path d="m12 19-7-7 7-7" />
+                    <path d="M19 12H5" />
+                  </>
+                </svg>{' '}
+                Voltar ao início
               </button>
             </a>
           </div>
