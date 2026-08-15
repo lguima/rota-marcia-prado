@@ -1,0 +1,49 @@
+---
+import IconHouse from '@components/atoms/IconHouse.astro'
+import IconChevronRight from '@components/atoms/IconChevronRight.astro'
+
+interface Props {
+  items: { text: string; href?: string }[];
+}
+
+const { items } = Astro.props;
+---
+
+<nav
+  class="breadcrumb"
+  aria-label="Breadcrumb"
+>
+  <ol
+    class="text-xs"
+  >
+    <li>
+      <a
+        href="/"
+        title="Início"
+      >
+        <IconHouse class="size-4" />
+      </a>
+    </li>
+    <li aria-hidden="true">
+      <IconChevronRight />
+    </li>
+
+    {items.map((item, index) => (
+      <>
+        <li>
+          {item.href ? (
+            <a href={item.href}>{item.text}</a>
+          ) : (
+            <span aria-current="page">{item.text}</span>
+          )}
+        </li>
+
+        {index < items.length - 1 && (
+          <li aria-hidden="true">
+            <IconChevronRight />
+          </li>
+        )}
+      </>
+    ))}
+  </ol>
+</nav>

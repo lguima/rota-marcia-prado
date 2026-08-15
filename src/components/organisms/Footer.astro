@@ -1,7 +1,11 @@
 ---
-import RssIcon from '@components/atoms/RssIcon.astro'
-import Separator from '@components/atoms/Separator.astro'
 import site from '@config/site.mjs'
+import { getMenuItems } from '@utils/collections/menu'
+
+import IconRss from '@components/atoms/IconRss.astro'
+import Separator from '@components/atoms/Separator.astro'
+
+const menu = await getMenuItems()
 
 const currentYear = new Date().getFullYear()
 ---
@@ -12,14 +16,13 @@ const currentYear = new Date().getFullYear()
       aria-label="Rodapé"
       class="flex flex-wrap justify-center gap-x-12 gap-y-3 text-sm"
     >
-      <a href="/perguntas-frequentes/" class="text-muted-foreground">
-        Perguntas Frequentes
-      </a>
-
-      <a href="/artigos/" class="text-muted-foreground"> Artigos </a>
-      <a href="/categorias/" class="text-muted-foreground"> Categorias </a>
-      <a href="/topicos/" class="text-muted-foreground"> Tópicos </a>
-      <a href="/autorias/" class="text-muted-foreground"> Autorias </a>
+      {
+        menu.map(item => (
+          <a href={item.data.href} class="text-muted-foreground">
+            {item.data.text}
+          </a>
+        ))
+      }
 
       <a
         href="/rss.xml"
@@ -28,7 +31,7 @@ const currentYear = new Date().getFullYear()
         class="text-muted-foreground"
       >
         <span class="sr-only">RSS Feed</span>
-        <RssIcon class="size-5" />
+        <IconRss class="size-5" />
       </a>
     </nav>
 

@@ -4,8 +4,9 @@ import { type CollectionEntry } from "astro:content"
 import { getPublishedArticles } from '@utils/collections/article'
 
 import Main from "@layouts/Main.astro"
+import PageHeader from '@components/molecules/PageHeader.astro'
 import PostItem from "@components/molecules/PostItem.astro"
-import HouseIcon from "@components/atoms/HouseIcon.astro"
+import IconHouse from "@components/atoms/IconHouse.astro"
 
 export async function getStaticPaths() {
   const allPosts = await getPublishedArticles()
@@ -28,25 +29,25 @@ type Props = {
 }
 
 const { category, posts } = Astro.props
+
+const pageDescription = `${posts.length} ${posts.length === 1 ? "artigo" : "artigos"} na categoria ${category}`
+
+const breadcrumb = [
+  { text: 'Artigos', href: '/artigos/' },
+  { text: 'Categorias', href: '/categorias/' },
+  { text: category }
+];
 ---
 
-<Main title={`Artigos em ${category}`} description={`Artigos na categoria ${category}`} data-pagefind-ignore="all">
+<Main breadcrumb={breadcrumb} title={`Artigos em ${category}`} description={`Artigos na categoria ${category}`} data-pagefind-ignore="all">
   <section class="py-6 lg:py-10">
-    <div class="mx-auto flex max-w-7xl flex-col gap-12 px-5 lg:gap-16 lg:px-8">
-      <div class="flex w-full max-w-3xl flex-col gap-3 mx-auto items-center text-center">
-        <h1 class="text-3xl font-medium tracking-tight text-balance lg:text-4xl">
-          {category}
-        </h1>
-        <p class="text-muted-foreground max-w-2xl text-base text-pretty">
-          {posts.length}&nbsp;
-          {posts.length === 1 ? "artigo" : "artigos"} na categoria {category}
-        </p>
-      </div>
+    <div class="flex flex-col gap-12 lg:gap-16">
+      <PageHeader title={category} description={pageDescription} />
     </div>
   </section>
 
   <section class="py-6 lg:py-10">
-    <div class="mx-auto max-w-7xl px-5 lg:px-8 flex flex-col gap-6 lg:gap-8">
+    <div class="flex flex-col gap-6 lg:gap-8">
       <div class="flex w-full flex-col gap-4">
         {posts.map((post) => (
           <PostItem post={post} />
@@ -62,7 +63,7 @@ const { category, posts } = Astro.props
 
         <a href="/">
           <button type="button" class="btn" data-variant="link">
-            <HouseIcon />
+            <IconHouse />
             Voltar ao início
           </button>
         </a>

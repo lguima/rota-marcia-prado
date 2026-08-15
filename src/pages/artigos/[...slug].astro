@@ -1,20 +1,28 @@
 ---
-import { render } from "astro:content"
+import { render } from 'astro:content'
+
 import { getPublishedArticles, getSimilarArticles } from '@utils/collections/article'
 import { getActiveAlerts } from '@utils/collections/alert'
-import { formatDate } from '@utils/date'
-import Main from "@layouts/Main.astro";
+import { formatDateLong, formatDateShort } from '@utils/date'
+import { getArticleSchema } from '@utils/structuredData'
+import { slugify } from '@utils/string'
+
+import Main from '@layouts/Main.astro'
 import FeaturedPost from '@components/molecules/FeaturedPost.astro'
-import CategoryTagsPills from '@components/molecules/CategoryTagsPills.astro';
-import Separator from '@components/atoms/Separator.astro'
+import CategoryTagsPills from '@components/molecules/CategoryTagsPills.astro'
+import IconArrowLeft from '@components/atoms/IconArrowLeft.astro'
 import IconCalendar from '@components/atoms/IconCalendar.astro'
+import IconRotateCcwClock from '@components/atoms/IconRotateCcwClock.astro'
+import Separator from '@components/atoms/Separator.astro'
 
 export async function getStaticPaths() {
   const posts = await getPublishedArticles()
   const alerts = await getActiveAlerts()
 
   return posts.map((post) => {
-    const matchedAlert = alerts.find((alert) => alert.data.article.id === post.id);
+    const matchedAlert = alerts.find(
+      (alert) => alert.data.article.id === post.id,
+    )
 
     return {
       params: { slug: post.id },
@@ -22,25 +30,40 @@ export async function getStaticPaths() {
         post,
         alert: matchedAlert || null,
       },
-    };
-  });
+    }
+  })
 }
 
-const { post, alert } = Astro.props;
+const { post, alert } = Astro.props
 const { title, description, publishDate, updateDate, category, author, tags } = post.data
 const { Content } = await render(post)
 
+const articleSchema = getArticleSchema(post, Astro.site)
+
 const posts = await getPublishedArticles()
 const similarPosts = getSimilarArticles(posts, post)
+
+const breadcrumb = [
+  { text: 'Artigos', href: '/artigos/' },
+  { text: title }
+]
 ---
 
-<Main title={title} description={description}>
-  <div class="mx-auto max-w-7xl px-5 lg:px-8 flex flex-col gap-3 lg:gap-4">
+<Main breadcrumb={breadcrumb} title={title} description={description}>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="structured-data" />
+
+  <div class="flex flex-col gap-3 lg:gap-4">
     <article class="flex flex-col gap-8 py-6 lg:py-10">
       <header class="flex flex-col gap-6">
-        <CategoryTagsPills category={category} tags={tags} alertSeverity={alert?.data?.severity || null} />
+        <CategoryTagsPills
+          category={category}
+          tags={tags}
+          alertSeverity={alert?.data?.severity || null}
+        />
 
-        <h1 class="text-4xl leading-tight font-bold tracking-tight md:text-5xl lg:text-6xl">
+        <h1
+          class="text-4xl leading-tight font-bold tracking-tight md:text-5xl lg:text-6xl"
+        >
           {title}
         </h1>
 
@@ -48,35 +71,39 @@ const similarPosts = getSimilarArticles(posts, post)
           {description}
         </p>
 
-        <div class="flex flex-col justify-between gap-4 pt-4 sm:flex-row sm:items-center">
+        <div
+          class="flex flex-col justify-between gap-4 pt-4 sm:flex-row sm:items-center"
+        >
           <div class="flex items-center gap-3">
             <div>
               <p>
                 Por&nbsp;
                 <a
                   class="font-semibold hover:underline"
-                  href={`/autorias/${author.toLowerCase().replace(/\s+/g, "-")}/`}
+                  href={`/autorias/${slugify(author)}/`}
                 >
-                {author}
-              </a>
+                  {author}
+                </a>
               </p>
             </div>
           </div>
 
-          <div class="flex flex-row gap-4">
-            <div class="text-muted-foreground flex items-center gap-4 text-sm">
+          <div class="flex flex-col 3xs:flex-row gap-4">
+            <div class="text-muted-foreground text-sm">
               <div class="flex items-center gap-1">
-                <IconCalendar class="h-4 w-4" />
-                <span>{formatDate(publishDate)}</span>
+                <IconCalendar class="size-4" />
+                <span class="hidden xs:inline">{formatDateLong(publishDate)}</span>
+                <span class="inline xs:hidden">{formatDateShort(publishDate)}</span>
               </div>
             </div>
 
             {
               updateDate && (
-                <div class="text-muted-foreground flex items-center gap-4 text-sm">
+                <div class="text-muted-foreground text-sm">
                   <div class="flex items-center gap-1">
-                    <svg class="lucide lucide-rotate-ccw-clock-icon lucide-rotate-ccw-clock h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></svg>
-                    <span>{formatDate(updateDate)}</span>
+                    <IconRotateCcwClock class="size-4" />
+                    <span class="hidden xs:inline">{formatDateLong(updateDate)}</span>
+                    <span class="inline xs:hidden">{formatDateShort(updateDate)}</span>
                   </div>
                 </div>
               )
@@ -96,7 +123,8 @@ const similarPosts = getSimilarArticles(posts, post)
           <div class="pt-4 text-center">
             <a href="/">
               <button type="button" class="btn" data-variant="link">
-                <svg class="lucide lucide-arrow-left-icon lucide-arrow-left" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg> Voltar ao início
+                <IconArrowLeft />
+                Voltar ao início
               </button>
             </a>
           </div>
@@ -108,12 +136,12 @@ const similarPosts = getSimilarArticles(posts, post)
   {
     similarPosts.length > 0 && (
       <section class="py-6 lg:py-10" data-pagefind-ignore="all">
-        <div class="mx-auto max-w-7xl px-5 lg:px-8 flex flex-col gap-6 lg:gap-8">
+        <div class="flex flex-col gap-6 lg:gap-8">
           <Separator />
 
           <div class="flex gap-5 lg:gap-9">
-            <div class="flex w-full max-w-3xl flex-col gap-3 items-start text-left flex-1">
-              <h3 class="font-medium tracking-tight text-balance text-1xl lg:text-2xl">
+            <div class="flex w-full max-w-3xl flex-1 flex-col items-start gap-3 text-left">
+              <h3 class="text-1xl font-medium tracking-tight text-balance lg:text-2xl">
                 Artigos relacionados
               </h3>
             </div>
@@ -128,7 +156,8 @@ const similarPosts = getSimilarArticles(posts, post)
           <div class="pt-4 text-center">
             <a href="/">
               <button type="button" class="btn" data-variant="link">
-                <svg class="lucide lucide-arrow-left-icon lucide-arrow-left" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg> Voltar ao início
+                <IconArrowLeft />
+                Voltar ao início
               </button>
             </a>
           </div>

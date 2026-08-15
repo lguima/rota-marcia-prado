@@ -1,6 +1,6 @@
 ---
 import { type CollectionEntry } from 'astro:content'
-import { formatDate } from '@utils/date'
+import { formatDateLong, formatDateShort } from '@utils/date'
 
 export interface Props {
   post: CollectionEntry<'article'>
@@ -8,11 +8,9 @@ export interface Props {
 
 const { post } = Astro.props
 const { title, publishDate, category } = post.data
-
-const formattedPublishDate = formatDate(publishDate)
 ---
 
-<a href={`/artigos/${post.id}/`} class="item flex flex-col sm:flex-row items-start">
+<a href={`/artigos/${post.id}/`} class="item flex flex-col xs:flex-row items-start">
   <section>
     <h3 class="lg:text-xl">
       {title}
@@ -24,6 +22,9 @@ const formattedPublishDate = formatDate(publishDate)
     </p>
   </section>
   <section>
-    <p>{formattedPublishDate}</p>
+    <p>
+      <span class="hidden sm:inline">{formatDateLong(publishDate)}</span>
+      <span class="inline sm:hidden">{formatDateShort(publishDate)}</span>
+    </p>
   </section>
 </a>

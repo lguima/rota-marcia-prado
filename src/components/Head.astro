@@ -4,9 +4,9 @@ import ThemeSwitcher from '@components/ThemeSwitcher.astro'
 import Analytics from '@components/Analytics.astro'
 import site from '@config/site.mjs'
 
-const { title, description = site.metadata.description } = Astro.props
+const { index = false, title, description } = Astro.props
 
-const pageTitle = title ? `${title} | ${site.name}` : site.name
+const pageTitle = index ? title : `${title} | ${site.name}`
 ---
 
 <head>

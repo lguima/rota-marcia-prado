@@ -1,6 +1,24 @@
 ---
-const { title } = Astro.props
+import IconChevronDown from '@components/atoms/IconChevronDown.astro'
+import type { CollectionEntry } from 'astro:content'
+
+export interface Props {
+  faq: CollectionEntry<'faq'>
+}
+
+const { faq } = Astro.props
 ---
+
+<details class="open:bg-secondary px-4">
+  <summary>
+    <h3 id={faq.id} class="sr-only">{faq.data.question}</h3>
+    {faq.data.question}
+    <IconChevronDown />
+  </summary>
+  <section class="text-muted-foreground text-base">
+    {faq.data.answer}
+  </section>
+</details>
 
 <script>
   function openTargetedAccordion() {
@@ -21,14 +39,3 @@ const { title } = Astro.props
   window.addEventListener('DOMContentLoaded', openTargetedAccordion);
   window.addEventListener('hashchange', openTargetedAccordion);
 </script>
-
-<details>
-  <summary>
-    {title}
-    <svg class="lucide lucide-chevron-down" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6" /></svg>
-  </summary>
-  <h3 id={title.toLowerCase().replace(/\s+/g, "-")} class="sr-only">{title}</h3>
-  <section class="text-muted-foreground text-base">
-    <slot />
-  </section>
-</details>

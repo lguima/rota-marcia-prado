@@ -1,6 +1,10 @@
 ---
+import site from '@config/site.mjs'
+import content from '@config/content.mjs'
 import { getFeaturedArticles, getLatestArticles, getPublishedArticles } from '@utils/collections/article'
 import { getActivePriorityAlerts, getActiveSecondaryAlerts } from '@utils/collections/alert'
+import { getWebsiteSchema } from '@utils/structuredData'
+
 import Main from "@layouts/Main.astro"
 import FeaturedPost from "@components/molecules/FeaturedPost.astro"
 import PostItem from "@components/molecules/PostItem.astro"
@@ -8,17 +12,8 @@ import Separator from "@components/atoms/Separator.astro"
 import PriorityAlerts from '@components/molecules/PriorityAlerts.astro'
 import SearchModalTrigger from '@components/molecules/SearchModalTrigger.astro'
 import SecondaryAlerts from '@components/molecules/SecondaryAlerts.astro'
-import site from "@config/site.mjs"
-import content from "@config/content.mjs"
 
-const webSiteSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": site.name,
-  "alternateName": [site.metadata.alternateName],
-  "description": site.metadata.description,
-  "url": Astro.site,
-};
+const webSiteSchema = getWebsiteSchema(Astro.site);
 
 const priorityAlerts = await getActivePriorityAlerts();
 const secondaryAlerts = await getActiveSecondaryAlerts();
@@ -28,13 +23,13 @@ const featuredPosts = getFeaturedArticles(articles)
 const latestPosts = getLatestArticles(articles)
 ---
 
-<Main data-pagefind-ignore="all">
+<Main index title={site.name} description={site.metadata.description} data-pagefind-ignore="all">
   <script is:inline type="application/ld+json" set:html={JSON.stringify(webSiteSchema)} slot="structured-data" />
 
   {
     priorityAlerts.length > 0 && (
       <section class="py-2 lg:py-4">
-        <div class="mx-auto max-w-7xl px-5 lg:px-8 flex flex-col gap-3 lg:gap-4">
+        <div class="flex flex-col gap-3 lg:gap-4">
           <PriorityAlerts alerts={priorityAlerts} />
         </div>
       </section>
@@ -42,7 +37,7 @@ const latestPosts = getLatestArticles(articles)
   }
 
   <section class="py-6 lg:py-10">
-    <div class="mx-auto flex max-w-7xl flex-col gap-12 px-5 lg:gap-16 lg:px-8">
+    <div class="flex flex-col gap-12 lg:gap-16">
       <div class="mx-auto flex w-full max-w-3xl flex-col items-center gap-4 text-center">
         <h1 class="font-medium tracking-tight text-balance text-4xl lg:text-6xl">
           {site.name}
@@ -60,7 +55,7 @@ const latestPosts = getLatestArticles(articles)
   {
     secondaryAlerts.length > 0 && (
       <section class="py-2 lg:py-4">
-        <div class="mx-auto max-w-7xl px-5 lg:px-8 flex flex-col gap-3 lg:gap-4">
+        <div class="flex flex-col gap-3 lg:gap-4">
           <SecondaryAlerts alerts={secondaryAlerts} />
         </div>
       </section>
@@ -68,7 +63,7 @@ const latestPosts = getLatestArticles(articles)
   }
 
   <section class="py-6 lg:py-10">
-    <div class="mx-auto flex max-w-7xl flex-col gap-12 px-5 lg:gap-16 lg:px-8">
+    <div class="flex flex-col gap-12 lg:gap-16">
       <div class="flex gap-5 lg:gap-9">
         <div class="flex w-full max-w-3xl flex-col gap-3 items-start text-left flex-1">
           <h2 class="font-medium tracking-tight text-balance text-3xl lg:text-4xl">
@@ -90,7 +85,7 @@ const latestPosts = getLatestArticles(articles)
   </section>
 
   <section class="py-6 lg:py-10">
-    <div class="mx-auto max-w-7xl px-5 lg:px-8 flex flex-col gap-6 lg:gap-8">
+    <div class="flex flex-col gap-6 lg:gap-8">
       <Separator />
 
       <div class="flex flex-col 3xs:flex-row 3xs:justify-between gap-4">

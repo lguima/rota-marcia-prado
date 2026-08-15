@@ -1,0 +1,85 @@
+---
+import IconPhone from '@components/atoms/IconPhone.astro'
+import IconSiren from '@components/atoms/IconSiren.astro'
+import IconX from '@components/atoms/IconX.astro'
+---
+
+<div>
+  <button
+    type="button"
+    onclick="document.getElementById('emergency-dialog').showModal()"
+    class="btn"
+    data-variant="outline"
+    data-size="icon"
+  >
+    <IconSiren class="text-danger" />
+  </button>
+
+  <dialog
+    id="emergency-dialog"
+    class="dialog"
+    aria-labelledby="emergency-dialog-title"
+    aria-describedby="emergency-dialog-description"
+    onclick="(e => { if (e.target === this) this.close() })"
+  >
+    <div class="border-danger border">
+      <header>
+        <h2
+          id="emergency-dialog-title"
+          class="flex items-center gap-2 text-2xl"
+        >
+          <IconSiren class="text-danger size-6" />
+          Emergência
+        </h2>
+        <p id="emergency-dialog-description">
+          Telefones disponíveis 24h para situações de emergência.
+        </p>
+      </header>
+
+      <section class="scrollbar -mx-4 max-h-[50vh] overflow-y-auto px-4">
+        <p class="mb-4 leading-normal">
+          <span><strong>Ecovias</strong> (Anchieta-Imigrantes)</span>
+          <a class="flex items-center gap-2 text-2xl" href="tel:08000197878">
+            <IconPhone />
+            <strong>0800 019 7878</strong>
+          </a>
+        </p>
+
+        <p class="mb-4 leading-normal">
+          <span><strong>Polícia Militar</strong></span>
+          <a class="flex items-center gap-2 text-2xl" href="tel:190">
+            <IconPhone />
+            <strong>190</strong>
+          </a>
+        </p>
+
+        <p class="mb-4 leading-normal">
+          <span><strong>SAMU</strong> (Serviço de Atendimento Móvel de Urgência)</span>
+          <a class="flex items-center gap-2 text-2xl" href="tel:192">
+            <IconPhone />
+            <strong>192</strong>
+          </a>
+        </p>
+
+        <p class="mb-4 leading-normal">
+          <span><strong>Corpo de Bombeiros</strong></span>
+          <a class="flex items-center gap-2 text-2xl" href="tel:193">
+            <IconPhone />
+            <strong>193</strong>
+          </a>
+        </p>
+      </section>
+
+      <button
+        type="button"
+        class="btn"
+        data-variant="ghost"
+        data-size="icon-sm"
+        aria-label="Fechar diálogo"
+        onclick="this.closest('dialog').close()"
+      >
+        <IconX />
+      </button>
+    </div>
+  </dialog>
+</div>

@@ -1,16 +1,16 @@
 ---
-import MegaphoneIcon from '@components/atoms/MegaphoneIcon.astro'
-import TriangleAlertIcon from '@components/atoms/TriangleAlertIcon.astro'
+import IconMegaphone from '@components/atoms/IconMegaphone.astro'
+import IconTriangleAlert from '@components/atoms/IconTriangleAlert.astro'
 import IconCircleCheckBig from "@components/atoms/IconCircleCheckBig.astro";
 import IconOctagonAlert from "@components/atoms/IconOctagonAlert.astro";
 
 const { category, tags, alertSeverity } = Astro.props;
 
 let Icon = null;
-if (alertSeverity === 1) Icon = TriangleAlertIcon;
+if (alertSeverity === 1) Icon = IconTriangleAlert;
 else if (alertSeverity === 2) Icon = IconOctagonAlert;
 else if (alertSeverity === 3) Icon = IconCircleCheckBig;
-else if (alertSeverity === 4) Icon = MegaphoneIcon;
+else if (alertSeverity === 4) Icon = IconMegaphone;
 ---
 
 <div class="flex flex-wrap gap-2">
