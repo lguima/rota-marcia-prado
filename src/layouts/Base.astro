@@ -13,7 +13,7 @@ const { index = false, title, description, ...rest } = Astro.props
 ---
 
 <!doctype html>
-<html id="base-layout" class="scroll-smooth scroll-pt-18" lang={Astro.currentLocale} {...rest}>
+<html id="base-layout" class="scroll-smooth scroll-pt-20" lang={Astro.currentLocale} {...rest}>
   <Head index={index} title={title} description={description}>
     <slot name="structured-data" slot="structured-data" />
   </Head>
