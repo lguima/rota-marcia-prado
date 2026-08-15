@@ -1,5 +1,6 @@
 ---
 import { getFaqs } from '@utils/collections/faq'
+import { getFaqSchema } from '@utils/structuredData'
 
 import Main from '@layouts/Main.astro'
 import Accordion from '@components/organisms/Accordion.astro'
@@ -15,18 +16,7 @@ const breadcrumb = [
 
 const faqs = await getFaqs()
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": faqs.map((faq) => ({
-    "@type": "Question",
-    "name": faq.data.question,
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": faq.data.answer
-    }
-  }))
-}
+const faqSchema = getFaqSchema(faqs)
 ---
 
 <Main breadcrumb={breadcrumb} title={pageName} description="Dúvidas frequentes sobre a Rota Márcia Prado respondidas para facilitar a descida de bicicleta de São Paulo a Santos.">
