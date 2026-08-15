@@ -9,11 +9,10 @@ import PageHeader from '@components/molecules/PageHeader.astro'
 import HouseIcon from '@components/atoms/HouseIcon.astro'
 
 const pageName = 'Perguntas Frequentes (FAQ)'
-const pageDescription = 'Dúvidas frequentes sobre a Rota Márcia Prado respondidas para facilitar a descida de bicicleta de São Paulo a Santos.'
+const pageDescription =
+  'Dúvidas frequentes sobre a Rota Márcia Prado respondidas para facilitar a descida de bicicleta de São Paulo a Santos.'
 
-const breadcrumb = [
-  { text: pageName }
-];
+const breadcrumb = [{ text: pageName }]
 
 const faqs = await getFaqs()
 
@@ -21,7 +20,12 @@ const faqSchema = getFaqSchema(faqs)
 ---
 
 <Main breadcrumb={breadcrumb} title={pageName} description={pageDescription}>
-  <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)} slot="structured-data" />
+  <script
+    is:inline
+    type="application/ld+json"
+    set:html={JSON.stringify(faqSchema)}
+    slot="structured-data"
+  />
 
   <section class="py-6 lg:py-10">
     <div class="flex flex-col gap-12 lg:gap-16">
@@ -31,11 +35,7 @@ const faqSchema = getFaqSchema(faqs)
 
   <div class="py-6 lg:py-10">
     <Accordion>
-      {
-        faqs.map((faq) => (
-          <AccordionDetails faq={faq} />
-        ))
-      }
+      {faqs.map((faq) => <AccordionDetails faq={faq} />)}
     </Accordion>
 
     <div class="pt-8 text-center">
