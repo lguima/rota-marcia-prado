@@ -55,8 +55,19 @@ const faq = defineCollection({
   }),
 })
 
+const menu = defineCollection({
+  loader: file('src/data/menu.json'),
+  schema: z.object({
+    id: z.string(),
+    order: z.number(),
+    text: z.string(),
+    href: z.string(),
+  }),
+})
+
 export const collections = {
   alert,
   article,
   faq,
+  menu,
 }
