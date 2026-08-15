@@ -1,0 +1,110 @@
+[
+  {
+    "id": "o-que-e-a-rota-marcia-prado",
+    "order": 1,
+    "question": "O que é a Rota Márcia Prado?",
+    "answer": "É uma rota cicloturística que liga a Região Metropolitana de São Paulo a Santos pela Serra do Mar, conhecida como a tradicional descida de Santos. É uma rota popular entre ciclistas que desejam descer a serra de bicicleta, aproveitando a paisagem e a experiência única do trajeto."
+  },
+  {
+    "id": "quem-foi-marcia-prado",
+    "order": 2,
+    "question": "Quem foi Márcia Prado?",
+    "answer": "Márcia Regina de Andrade Prado (17 de setembro de 1968 - 14 de janeiro de 2009, São Paulo) foi fisioterapeuta, ciclista urbana, cicloturista e uma importante defensora da mobilidade por bicicleta em São Paulo. Participante ativa da Bicicletada (Massa Crítica), dedicava-se à promoção de um trânsito mais seguro e ao incentivo do uso da bicicleta como meio de transporte e lazer. Em 14 de janeiro de 2009, foi atropelada e morta por um ônibus enquanto pedalava na capital paulista. Sua morte tornou-se um marco na luta pelos direitos das pessoas que pedalam e inspirou a criação da Rota Márcia Prado, que homenageia seu legado em defesa da mobilidade ativa e da preservação ambiental."
+  },
+  {
+    "id": "qual-e-a-distancia-total",
+    "order": 3,
+    "question": "Qual é a distância total?",
+    "answer": "A Rota Márcia Prado oficial tem aproximadamente 87 km de extensão, medidos desde o estacionamento da Ciclovia da Marginal Pinheiros (Av. Miguel Yunes) até Santos."
+  },
+  {
+    "id": "onde-comeca-o-trajeto",
+    "order": 4,
+    "question": "Onde começa o trajeto?",
+    "answer": "O início oficial fica no estacionamento da ciclovia da Marginal Pinheiros (próximo a Interlagos)."
+  },
+  {
+    "id": "onde-termina-a-rota",
+    "order": 5,
+    "question": "Onde termina a rota?",
+    "answer": "O destino final é a orla da praia de Santos, tradicionalmente na Praia do José Menino (Canal 1)."
+  },
+  {
+    "id": "a-rota-e-so-descida",
+    "order": 6,
+    "question": "A rota é só descida?",
+    "answer": "Não. O trajeto acumula mais de 1.000 metros de subida antes de chegar ao trecho da serra."
+  },
+  {
+    "id": "como-e-dividida-a-altimetria",
+    "order": 7,
+    "question": "Como é dividida a altimetria?",
+    "answer": "São cerca de 44 km de planalto com subidas e descidas, seguidos por 17 km de descida de serra e 20 km planos na Baixada."
+  },
+  {
+    "id": "passa-por-rodovias-movimentadas",
+    "order": 8,
+    "question": "Passa por rodovias movimentadas?",
+    "answer": "Não. A rota oficial foi desenhada justamente para evitar o tráfego pesado e o perigo das rodovias Anchieta e Imigrantes."
+  },
+  {
+    "id": "e-preciso-pegar-balsa-no-caminho",
+    "order": 9,
+    "question": "É preciso pegar balsa no caminho?",
+    "answer": "Sim, o roteiro exige a travessia de duas balsas gratuitas na Represa Billings: a do Grajaú (Ilha do Bororé) e a de Taquacetuba."
+  },
+  {
+    "id": "como-e-feita-a-descida-da-serra",
+    "order": 10,
+    "question": "Como é feita a descida da serra?",
+    "answer": "A descida ocorre pela Estrada de Manutenção da Rodovia dos Imigrantes, uma via asfaltada fechada para o tráfego regular de veículos."
+  },
+  {
+    "id": "qual-e-o-tipo-de-terreno-da-rota",
+    "order": 11,
+    "question": "Qual é o tipo de terreno da rota?",
+    "answer": "Misto. O percurso inclui ciclovias urbanas, asfalto nas estradas de manutenção e cerca de 16 km de estradas de terra batida."
+  },
+  {
+    "id": "quanto-tempo-leva-para-completar",
+    "order": 12,
+    "question": "Quanto tempo leva para completar?",
+    "answer": "Depende do ritmo, mas ciclistas de nível intermediário costumam fazer o trajeto entre 5 e 7 horas, incluindo as paradas."
+  },
+  {
+    "id": "como-voltar-de-santos-para-sao-paulo",
+    "order": 13,
+    "question": "Como voltar de Santos para São Paulo?",
+    "answer": "Muitos utilizam vans de turismo especializadas em ciclistas ou retornam de ônibus rodoviário."
+  },
+  {
+    "id": "qual-e-o-nivel-de-dificuldade-fisica",
+    "order": 14,
+    "question": "Qual é o nível de dificuldade física?",
+    "answer": "É classificado como intermediário. Recomenda-se que a pessoa já tenha o hábito de pedalar distâncias longas com regularidade."
+  },
+  {
+    "id": "qual-o-tipo-de-bicicleta-ideal",
+    "order": 15,
+    "question": "Qual o tipo de bicicleta ideal?",
+    "answer": "As bicicletas do tipo Mountain Bike (MTB) ou Gravel são as mais recomendadas devido aos trechos de terra, cascalho e eventuais buracos."
+  },
+  {
+    "id": "qual-o-item-mecanico-mais-exigido",
+    "order": 16,
+    "question": "Qual o item mecânico mais exigido?",
+    "answer": "Os freios. Eles precisam passar por uma revisão rigorosa antes de ir, pois serão muito exigidos nos 17 km contínuos de descida da serra."
+  },
+  {
+    "id": "a-rota-e-bem-sinalizada",
+    "order": 17,
+    "question": "A rota é bem sinalizada?",
+    "answer": "Há sinalização não oficial feita por pessoas voluntárias. Recomenda-se o uso de GPS ou aplicativos como o Wikiloc."
+  },
+  {
+    "id": "e-seguro-pedalar-sozinho",
+    "order": 18,
+    "question": "É seguro pedalar sozinho?",
+    "answer": "Recomenda-se fortemente pedalar em grupos devido a trechos isolados na mata e para auxílio mútuo em caso de quebras ou furos de pneu."
+  }
+]
