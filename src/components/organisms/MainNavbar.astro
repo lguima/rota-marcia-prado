@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets'
 
+import EmergencyButton from '@components/molecules/EmergencyButton.astro'
 import SearchModalTrigger from '@components/molecules/SearchModalTrigger.astro'
 import ThemeSwitcher from '@components/atoms/ThemeSwitcher.astro'
 import IconX from '@components/atoms/IconX.astro'
@@ -52,6 +53,8 @@ import media from '@config/media.mjs'
       <SearchModalTrigger compact />
 
       <ThemeSwitcher />
+
+      <EmergencyButton />
     </div>
   </div>
 
