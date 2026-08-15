@@ -1,5 +1,5 @@
 ---
-import analytics from "@config/analytics.mjs";
+import analytics from '@config/analytics.mjs'
 
 const isProd = import.meta.env.PROD;
 ---
@@ -23,13 +23,13 @@ const isProd = import.meta.env.PROD;
         .getAttribute('data-gtag-measurement-id')
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
       gtag('consent', 'default', {
         ad_storage: 'denied',
         ad_user_data: 'denied',
         ad_personalization: 'denied',
         analytics_storage: 'denied',
       });
+      gtag('js', new Date());
       gtag('config', measurementId);
     </script>
   </>
