@@ -19,6 +19,8 @@ export default function remarkYoutubeEmbed() {
         const match = node.children[0].value.match(/^#youtube\s+([\w-]+)$/);
         if (match) {
           const videoId = match[1];
+
+          // Incorporar apenas se houver consentimento
           parent.children[index] = {
             type: 'html',
             value: `<iframe width="100%" class='aspect-ratio' style="aspect-ratio: 16/9; border-radius:10px;" src="https://www.youtube-nocookie.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>`,

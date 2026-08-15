@@ -23,6 +23,7 @@ export default function remarkGoogleMapsEmbed() {
           // Build the embed URL for Google Maps
           const embedUrl = `https://www.google.com/maps/embed?q=${encodeURIComponent(mapQuery)}`;
 
+          // Incorporar apenas se houver consentimento
           parent.children[index] = {
             type: 'html',
             value: `<iframe width="100%" class="aspect-ratio" style="aspect-ratio: 16/9; border-radius:10px;" src="${embedUrl}" frameborder="0" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>`,
