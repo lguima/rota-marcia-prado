@@ -4,6 +4,8 @@ import { render } from 'astro:content'
 import { getPublishedArticles, getSimilarArticles } from '@utils/collections/article'
 import { getActiveAlerts } from '@utils/collections/alert'
 import { formatDateLong, formatDateShort } from '@utils/date'
+import { getArticleSchema } from '@utils/structuredData'
+import { slugify } from '@utils/string'
 
 import Main from '@layouts/Main.astro'
 import FeaturedPost from '@components/molecules/FeaturedPost.astro'
@@ -36,6 +38,8 @@ const { post, alert } = Astro.props
 const { title, description, publishDate, updateDate, category, author, tags } = post.data
 const { Content } = await render(post)
 
+const articleSchema = getArticleSchema(post, Astro.site)
+
 const posts = await getPublishedArticles()
 const similarPosts = getSimilarArticles(posts, post)
 
@@ -46,6 +50,8 @@ const breadcrumb = [
 ---
 
 <Main breadcrumb={breadcrumb} title={title} description={description}>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(articleSchema)} slot="structured-data" />
+
   <div class="flex flex-col gap-3 lg:gap-4">
     <article class="flex flex-col gap-8 py-6 lg:py-10">
       <header class="flex flex-col gap-6">
@@ -74,7 +80,7 @@ const breadcrumb = [
                 Por&nbsp;
                 <a
                   class="font-semibold hover:underline"
-                  href={`/autorias/${author.toLowerCase().replace(/\s+/g, '-')}/`}
+                  href={`/autorias/${slugify(author)}/`}
                 >
                   {author}
                 </a>
