@@ -8,7 +8,7 @@ import Main from '@layouts/Main.astro'
 import PageHeader from '@components/molecules/PageHeader.astro'
 import PostItem from '@components/molecules/PostItem.astro'
 import Pagination from '@components/molecules/Pagination.astro'
-import HouseIcon from '@components/atoms/HouseIcon.astro'
+import IconHouse from '@components/atoms/IconHouse.astro'
 
 export const getStaticPaths = (async ({ paginate }) => {
   const allPosts = await getPublishedArticles()
@@ -56,7 +56,7 @@ const breadcrumb = [
       <div class="pt-4 text-center">
         <a href="/">
           <button type="button" class="btn" data-variant="link">
-            <HouseIcon />
+            <IconHouse />
             Voltar ao início
           </button>
         </a>

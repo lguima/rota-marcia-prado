@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content'
-import TriangleAlertIcon from '@components/atoms/TriangleAlertIcon.astro'
+
+import IconTriangleAlert from '@components/atoms/IconTriangleAlert.astro'
 import IconOctagonAlert from '@components/atoms/IconOctagonAlert.astro'
 
 export interface Props {
@@ -39,7 +40,7 @@ const alertsGridCols = layoutMap[alerts.length] || 'lg:grid-cols-3'
             },
           ]}
         >
-          {alert.data.severity == 1 && <TriangleAlertIcon class="size-full" />}
+          {alert.data.severity == 1 && <IconTriangleAlert class="size-full" />}
           {alert.data.severity == 2 && <IconOctagonAlert class="size-full" />}
         </figure>
         <section>

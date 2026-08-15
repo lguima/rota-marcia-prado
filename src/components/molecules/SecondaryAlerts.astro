@@ -1,7 +1,8 @@
 ---
 import type { CollectionEntry } from 'astro:content'
+
 import IconCircleCheckBig from '@components/atoms/IconCircleCheckBig.astro'
-import MegaphoneIcon from '@components/atoms/MegaphoneIcon.astro'
+import IconMegaphone from '@components/atoms/IconMegaphone.astro'
 
 export interface Props {
   alerts: CollectionEntry<'alert'>[]
@@ -40,7 +41,7 @@ const alertsGridCols = layoutMap[alerts.length] || 'lg:grid-cols-3'
           ]}
         >
           {alert.data.severity == 3 && <IconCircleCheckBig class="size-full" />}
-          {alert.data.severity == 4 && <MegaphoneIcon class="size-full" />}
+          {alert.data.severity == 4 && <IconMegaphone class="size-full" />}
         </figure>
         <section>
           <h3>{alert.data.title}</h3>

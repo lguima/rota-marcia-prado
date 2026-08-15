@@ -6,7 +6,7 @@ import Main from '@layouts/Main.astro'
 import Accordion from '@components/organisms/Accordion.astro'
 import AccordionDetails from '@components/molecules/AccordionDetails.astro'
 import PageHeader from '@components/molecules/PageHeader.astro'
-import HouseIcon from '@components/atoms/HouseIcon.astro'
+import IconHouse from '@components/atoms/IconHouse.astro'
 
 const pageName = 'Perguntas Frequentes (FAQ)'
 const pageDescription =
@@ -41,7 +41,7 @@ const faqSchema = getFaqSchema(faqs)
     <div class="pt-8 text-center">
       <a href="/">
         <button type="button" class="btn" data-variant="link">
-          <HouseIcon />
+          <IconHouse />
           Voltar ao início
         </button>
       </a>

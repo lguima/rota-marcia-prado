@@ -2,7 +2,7 @@
 import site from '@config/site.mjs'
 import { getMenuItems } from '@utils/collections/menu'
 
-import RssIcon from '@components/atoms/RssIcon.astro'
+import IconRss from '@components/atoms/IconRss.astro'
 import Separator from '@components/atoms/Separator.astro'
 
 const menu = await getMenuItems()
@@ -31,7 +31,7 @@ const currentYear = new Date().getFullYear()
         class="text-muted-foreground"
       >
         <span class="sr-only">RSS Feed</span>
-        <RssIcon class="size-5" />
+        <IconRss class="size-5" />
       </a>
     </nav>
 

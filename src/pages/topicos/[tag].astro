@@ -6,7 +6,7 @@ import { getPublishedArticles } from '@utils/collections/article'
 import Main from "@layouts/Main.astro"
 import PageHeader from '@components/molecules/PageHeader.astro'
 import PostItem from "@components/molecules/PostItem.astro"
-import HouseIcon from '@components/atoms/HouseIcon.astro'
+import IconHouse from '@components/atoms/IconHouse.astro'
 
 export async function getStaticPaths() {
   const allPosts = await getPublishedArticles()
@@ -63,7 +63,7 @@ const breadcrumb = [
 
         <a href="/">
           <button type="button" class="btn" data-variant="link">
-            <HouseIcon />
+            <IconHouse />
             Voltar ao início
           </button>
         </a>
