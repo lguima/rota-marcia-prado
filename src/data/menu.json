@@ -1,0 +1,32 @@
+[
+  {
+    "id": "perguntas-frequentes",
+    "order": 1,
+    "text": "Perguntas Frequentes",
+    "href": "/perguntas-frequentes/"
+  },
+  {
+    "id": "artigos",
+    "order": 2,
+    "text": "Artigos",
+    "href": "/artigos/"
+  },
+  {
+    "id": "categorias",
+    "order": 3,
+    "text": "Categorias",
+    "href": "/categorias/"
+  },
+  {
+    "id": "topicos",
+    "order": 4,
+    "text": "Tópicos",
+    "href": "/topicos/"
+  },
+  {
+    "id": "autorias",
+    "order": 5,
+    "text": "Autorias",
+    "href": "/autorias/"
+  }
+]
