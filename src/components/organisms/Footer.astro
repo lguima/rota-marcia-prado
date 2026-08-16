@@ -5,41 +5,57 @@ import { getMenuItems } from '@utils/collections/menu'
 import IconRss from '@components/atoms/IconRss.astro'
 import Separator from '@components/atoms/Separator.astro'
 
-const menu = await getMenuItems()
+const secondLevelMenu = await getMenuItems([2])
+const thirdLevelMenu = await getMenuItems([3])
 
 const currentYear = new Date().getFullYear()
 ---
 
 <footer>
-  <div class="mx-auto flex max-w-7xl flex-col flex-wrap gap-6 px-5 lg:px-8 py-4">
+  <div class="mx-auto flex max-w-7xl flex-col flex-wrap gap-6 px-5 lg:px-8 py-6">
     <nav
       aria-label="Rodapé"
-      class="flex flex-wrap justify-center gap-x-12 gap-y-3 text-sm"
+      class="flex flex-wrap items-center justify-center gap-x-12 gap-y-3 text-sm"
     >
       {
-        menu.map(item => (
+        secondLevelMenu.map(item => (
           <a href={item.data.href} class="text-muted-foreground">
             {item.data.text}
           </a>
         ))
       }
-
-      <a
-        href="/rss.xml"
-        title="RSS Feed"
-        target="_blank"
-        class="text-muted-foreground"
-      >
-        <span class="sr-only">RSS Feed</span>
-        <IconRss class="size-5" />
-      </a>
     </nav>
 
     <Separator />
 
-    <p class="text-muted-foreground text-center text-xs">
-      &copy; {currentYear} {site.name}
-    </p>
+    <div class="flex flex-col 3xs:flex-row gap-3 items-center justify-between">
+      <p class="text-muted-foreground text-center text-xs">
+        &copy; {currentYear} {site.name}
+      </p>
+
+      <nav
+        aria-label="Rodapé"
+        class="flex flex-wrap flex-col 3xs:flex-row items-center justify-center gap-x-12 gap-y-3 text-sm"
+      >
+         {
+          thirdLevelMenu.map(item => (
+            <a href={item.data.href} class="text-muted-foreground text-xs">
+              {item.data.text}
+            </a>
+          ))
+        }
+
+        <a
+          href="/rss.xml"
+          title="RSS Feed"
+          target="_blank"
+          class="text-muted-foreground"
+        >
+          <span class="sr-only">RSS Feed</span>
+          <IconRss class="size-5" />
+        </a>
+      </nav>
+    </div>
 
     <div class="flex flex-col gap-3">
       <p class="text-muted-foreground text-xs">
