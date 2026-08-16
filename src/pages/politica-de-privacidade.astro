@@ -1,4 +1,28 @@
 ---
+import PageHeader from '@components/molecules/PageHeader.astro'
+import Main from '@layouts/Main.astro'
+import CookieSettings from '@components/atoms/CookieSettings.astro'
+
+const pageName = 'Política de Privacidade'
+const pageDescription = ''
+
+const breadcrumb = [
+  { text: pageName }
+]
 ---
 
+<Main breadcrumb={breadcrumb} title={pageName} description={pageDescription}>
+  <section class="py-6 lg:py-10">
+    <div class="flex flex-col gap-12 lg:gap-16">
+      <PageHeader title={pageName} description={pageDescription} />
+    </div>
+  </section>
+
+  <CookieSettings />
+</Main>
+
+<!--
 https://casahacker.org/politica-de-privacidade/
+https://queridodiario.ok.org.br/privacidade
+https://falzoni.com.br/politica-de-privacidade/
+-->

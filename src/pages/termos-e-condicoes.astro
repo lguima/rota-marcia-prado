@@ -1,4 +1,23 @@
 ---
+import PageHeader from '@components/molecules/PageHeader.astro'
+import Main from '@layouts/Main.astro'
+
+const pageName = 'Termos e Condições'
+const pageDescription = ''
+
+const breadcrumb = [
+  { text: pageName }
+]
 ---
 
+<Main breadcrumb={breadcrumb} title={pageName} description={pageDescription}>
+  <section class="py-6 lg:py-10">
+    <div class="flex flex-col gap-12 lg:gap-16">
+      <PageHeader title={pageName} description={pageDescription} />
+    </div>
+  </section>
+</Main>
+
+<!--
 Responsabilidade legal pela aplicação do conteúdo
+-->
