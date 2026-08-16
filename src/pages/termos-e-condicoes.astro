@@ -1,13 +1,18 @@
 ---
-import PageHeader from '@components/molecules/PageHeader.astro'
-import Main from '@layouts/Main.astro'
+import { formatDateLong } from '@utils/date'
 
-const pageName = 'Termos e Condições'
+import Main from '@layouts/Main.astro'
+import PageHeader from '@components/molecules/PageHeader.astro'
+import Separator from '@components/atoms/Separator.astro'
+
+const pageName = 'Termos e Condições de Uso'
 const pageDescription = ''
 
 const breadcrumb = [
   { text: pageName }
 ]
+
+const lastUpdate = new Date('2026-08-16T19:15:00-03:00')
 ---
 
 <Main breadcrumb={breadcrumb} title={pageName} description={pageDescription}>
@@ -16,8 +21,162 @@ const breadcrumb = [
       <PageHeader title={pageName} description={pageDescription} />
     </div>
   </section>
-</Main>
 
-<!--
-Responsabilidade legal pela aplicação do conteúdo
--->
+  <section class="prose dark:prose-invert max-w-prose mx-auto leading-relaxed">
+    <p class="text-sm">Última atualização: {formatDateLong(lastUpdate)}</p>
+
+    <Separator />
+
+    <!--
+      Atualizar nomeclatura da página mencionada diversas vezes no conteúdo
+    -->
+
+    <p>Bem-vindo ao site Rota Márcia Prado, disponível em <a href="https://rotamarciaprado.org/" target="_blank">rotamarciaprado.org</a>.</p>
+
+    <p>Este site é mantido voluntariamente e sem fins comerciais com o objetivo de reunir e disponibilizar informações que possam auxiliar pessoas interessadas em conhecer, planejar ou realizar a Rota Márcia Prado, uma rota cicloturística que liga a Região Metropolitana de São Paulo a Santos pela Serra do Mar.</p>
+
+    <p>Ao acessar ou utilizar este site, você declara estar ciente destes Termos de Uso. Caso não concorde com alguma de suas disposições, recomendamos que não utilize o site.</p>
+
+    <h3>1. Natureza e finalidade do site</h3>
+
+    <p>O Rota Márcia Prado é um projeto independente, mantido de forma voluntária, destinado à divulgação de informações relacionadas à rota cicloturística, incluindo, entre outros assuntos:</p>
+
+    <ul>
+      <li>acesso ao início e ao final da rota;</li>
+      <li>trajetos e orientações de navegação;</li>
+      <li>pontos de interesse e de apoio;</li>
+      <li>transporte e formas de retorno;</li>
+      condições e características do percurso;
+      avisos, alertas e informações relacionadas à realização da rota;
+      informações relacionadas ao ciclismo, mobilidade urbana e cicloturismo.
+    </ul>
+
+    <p>As informações disponibilizadas têm caráter informativo e orientativo e não constituem prestação profissional de serviços de turismo, transporte, guia, segurança, assistência médica ou qualquer outro serviço especializado.</p>
+
+    <h3>2. Atualidade e precisão das informações</h3>
+
+    <p>As informações publicadas no site são disponibilizadas de boa-fé. Entretanto, não é possível garantir que todo o conteúdo esteja completo, correto ou atualizado no momento de sua consulta.</p>
+
+    <p>Condições de acesso, trajetos, estradas, trilhas, horários, serviços de transporte, sinalizações, regras, restrições, obras, condições ambientais e demais circunstâncias relacionadas à rota podem sofrer alterações a qualquer momento.</p>
+
+    <p>Por esse motivo, o usuário deve verificar e confirmar, junto às fontes oficiais ou aos responsáveis pelos locais e serviços envolvidos, todas as informações relevantes antes de planejar ou realizar uma atividade.</p>
+
+    <p>A existência de uma informação, recomendação ou referência no site não significa que ela tenha sido verificada recentemente ou que permaneça válida na data em que o usuário pretende realizar a rota.</p>
+
+    <h3>3. Segurança e responsabilidade do usuário</h3>
+
+    <p>A realização da Rota Márcia Prado pode envolver riscos relacionados, entre outros fatores, ao trânsito, às condições das vias e trilhas, ao clima, ao relevo, à distância, ao esforço físico, a quedas, obstáculos, animais, deslizamentos, interdições e outras circunstâncias imprevisíveis.</p>
+
+    <p>O conteúdo deste site não substitui a avaliação pessoal das condições do percurso nem orientações de autoridades, órgãos públicos ou responsáveis pelos locais.</p>
+
+    <p>Cabe exclusivamente ao usuário avaliar sua própria capacidade, equipamentos, condições físicas, experiência, condições meteorológicas e demais fatores relevantes antes e durante a realização da atividade.</p>
+
+    <p>O usuário também é responsável por observar a legislação aplicável, sinalizações, regras de circulação, restrições de acesso e orientações dos responsáveis pelos locais visitados.</p>
+
+    <p>Nenhuma informação publicada neste site deve ser interpretada como garantia de segurança ou como recomendação para que o usuário prossiga em uma situação que considere insegura.</p>
+
+    <h3>4. Informações de emergência</h3>
+
+    <p>O site pode disponibilizar números de telefone ou outras informações destinadas a facilitar o acesso a serviços de emergência.</p>
+
+    <p>Essas informações são fornecidas como referência e podem ser alteradas pelas respectivas instituições. Em uma situação de emergência, o usuário deve confirmar e utilizar os canais oficiais e disponíveis no momento da ocorrência.</p>
+
+    <p>A disponibilização de um contato no site não estabelece qualquer vínculo entre o projeto Rota Márcia Prado e a instituição ou serviço correspondente.</p>
+
+    <h3>5. Conteúdo de terceiros</h3>
+
+    <p>O site pode apresentar informações, imagens, mapas, referências, incorporações, citações ou links relacionados a terceiros.</p>
+
+    <p>Esses conteúdos podem estar sujeitos às condições, licenças, direitos autorais e políticas dos respectivos responsáveis.</p>
+
+    <p>A inclusão de conteúdo ou referência de terceiros não significa que o Rota Márcia Prado endosse, controle ou seja responsável por esse conteúdo ou pelo serviço oferecido pelo terceiro.</p>
+
+    <p>Quando uma informação depender de um terceiro — como horários de transporte, funcionamento de estabelecimentos, condições de acesso ou regras de determinada área — o usuário deve consultar diretamente a fonte responsável.</p>
+
+    <h3>6. Links externos</h3>
+
+    <p>O site pode conter links para páginas e serviços de terceiros.</p>
+
+    <p>Esses links são disponibilizados para facilitar o acesso a informações que podem ser úteis ao usuário. O Rota Márcia Prado não controla esses sites e não se responsabiliza pelo seu conteúdo, funcionamento, disponibilidade, segurança ou pelas práticas adotadas por seus respectivos responsáveis.</p>
+
+    <p>O acesso a sites de terceiros é realizado por conta e risco do usuário.</p>
+
+    <h3>7. Propriedade intelectual</h3>
+
+    <p>O conteúdo original produzido para o site, incluindo textos, fotografias, ilustrações, gráficos, identidade visual e outros materiais, poderá estar protegido pela legislação aplicável de propriedade intelectual.</p>
+
+    <p>A utilização de material pertencente a terceiros permanece sujeita aos respectivos direitos e licenças.</p>
+
+    <p>Salvo quando indicado de outra forma, não é autorizada a reprodução integral ou a utilização comercial de conteúdo original do Rota Márcia Prado sem a devida autorização ou sem fundamento em uma licença aplicável.</p>
+
+    <p>Quando determinado conteúdo estiver expressamente disponibilizado sob uma licença específica, sua utilização deverá observar os termos dessa licença.</p>
+
+    <p>O código-fonte do projeto disponibilizado no repositório público possui licença própria, que não deve ser confundida automaticamente com a licença aplicável aos textos, imagens, marcas e demais conteúdos publicados no site.</p>
+
+    <h3>8. Uso adequado do site</h3>
+
+    <p>O usuário compromete-se a utilizar o site de maneira lícita e compatível com sua finalidade.</p>
+
+    <p>Não é permitido utilizar o site para:</p>
+
+    <ul>
+      <li>praticar atividades ilícitas;</li>
+      <li>tentar obter acesso não autorizado a sistemas, servidores ou informações;</li>
+      <li>interferir deliberadamente no funcionamento do site;</li>
+      <li>distribuir códigos maliciosos ou realizar atividades que possam comprometer sua segurança;</li>
+      <li>utilizar o conteúdo de forma fraudulenta ou enganosa;</li>
+      <li>infringir direitos de terceiros.</li>
+    </ul>
+
+    <h3>9. Disponibilidade do site</h3>
+
+    <p>Por se tratar de um projeto mantido voluntariamente, o site poderá ser modificado, atualizado, suspenso ou descontinuado, total ou parcialmente, a qualquer momento.</p>
+
+    <p>Não há garantia de disponibilidade contínua do site ou de qualquer conteúdo ou funcionalidade nele disponibilizada.</p>
+
+    <p>Também não há garantia de que eventuais erros técnicos, indisponibilidades ou falhas serão corrigidos dentro de determinado prazo.</p>
+
+    <h3>10. Limitação de responsabilidade</h3>
+
+    <p>Na extensão permitida pela legislação aplicável, o Rota Márcia Prado e seus responsáveis não garantem a exatidão, integralidade, atualidade ou disponibilidade das informações publicadas no site.</p>
+
+    <p>O conteúdo disponibilizado não constitui garantia das condições que o usuário encontrará no local.</p>
+
+    <p>A utilização das informações do site e as decisões tomadas com base nelas são de responsabilidade do próprio usuário.</p>
+
+    <p>Em particular, o site não se responsabiliza por alterações ou condições relacionadas a vias públicas, estradas, trilhas, parques, unidades de conservação, transporte público ou rodoviário, estabelecimentos comerciais, condições meteorológicas, trânsito, obras, interdições, acidentes ou quaisquer outros eventos que estejam fora do controle do projeto.</p>
+
+    <p>Esta disposição não tem a finalidade de afastar direitos ou responsabilidades que não possam ser legalmente excluídos ou limitados.</p>
+
+    <h3>11. Privacidade e proteção de dados</h3>
+
+    <p>O tratamento de dados pessoais eventualmente realizado durante a utilização do site é explicado na <a href="/politica-de-privacidade" target="_blank"><strong>Política de Privacidade</strong></a> do Rota Márcia Prado.</p>
+
+    <p>A Política de Privacidade deve ser consultada em conjunto com estes Termos de Uso.</p>
+
+    <h3>12. Alterações destes Termos</h3>
+
+    <p>Estes Termos de Uso poderão ser alterados sempre que necessário para refletir mudanças no site, em suas funcionalidades, na forma de manutenção do projeto ou na legislação aplicável.</p>
+
+    <p>A versão mais recente será disponibilizada nesta página, acompanhada da respectiva data de atualização.</p>
+
+    <p>Recomendamos que o usuário consulte periodicamente esta página.</p>
+
+    <h3>13. Legislação aplicável</h3>
+
+    <p>Estes Termos de Uso são regidos pela legislação brasileira.</p>
+
+    <p>Eventuais questões relacionadas à utilização do site serão tratadas de acordo com a legislação brasileira, respeitados os direitos e garantias assegurados ao usuário pela legislação aplicável.</p>
+
+    <h3>14. Contato</h3>
+    <!--
+      Atualizar com canal de contato
+    -->
+
+    <p>Caso tenha dúvidas, encontre informações desatualizadas ou identifique algum problema relacionado ao conteúdo do site, o usuário poderá entrar em contato por meio dos canais disponibilizados no próprio Rota Márcia Prado.</p>
+
+    <Separator />
+
+    <p class="text-sm">Última atualização: {formatDateLong(lastUpdate)}</p>
+  </section>
+</Main>
