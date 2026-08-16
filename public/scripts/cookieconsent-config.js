@@ -29,15 +29,15 @@ CookieConsent.run({
     translations: {
       'pt-br': {
         consentModal: {
-          title: "Preferências de Consentimento",
-          description: "Cookies são usados para aprimorar sua navegação no site.",
+          title: "Preferências de Privacidade",
+          description: "Utilizamos cookies para aprimorar sua experiência de navegação, exibir anúncios ou conteúdo personalizado e analisar nosso tráfego. Ao clicar em “Aceitar todos”, você concorda com nosso uso de cookies. ",
           acceptAllBtn: "Aceitar tudo",
           acceptNecessaryBtn: "Rejeitar tudo",
           showPreferencesBtn: "Gerenciar preferêcias",
-          footer: "<a href=\"/politica-de-privacidade/\">Política de Privacidade</a>"
+          footer: "<a href=\"/politica-de-privacidade/\">Política de Privacidade</a><a href=\"/termos-e-condicoes/\">Termos e Condições</a>"
         },
         preferencesModal: {
-          title: "Preferências de Consentimento",
+          title: "Preferências de Privacidade",
           acceptAllBtn: "Aceitar tudo",
           acceptNecessaryBtn: "Rejeitar tudo",
           savePreferencesBtn: "Salvar preferências",
@@ -54,18 +54,18 @@ CookieConsent.run({
               linkedCategory: "necessary"
             },
             {
-              title: 'Functionality Cookies',
+              title: 'Cookies funcionais',
               description:
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
               linkedCategory: 'functionality',
             },
             {
-              title: "Analytics Cookies",
+              title: "Cookies analíticos",
               description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
               linkedCategory: "analytics"
             },
             {
-              title: "Advertisement Cookies",
+              title: "Cookies de publicidade",
               description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
               linkedCategory: "marketing"
             },
