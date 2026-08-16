@@ -59,6 +59,7 @@ const menu = defineCollection({
   loader: file('src/data/menu.json'),
   schema: z.object({
     id: z.string(),
+    levels: z.array(z.number()),
     order: z.number(),
     text: z.string(),
     href: z.string(),
