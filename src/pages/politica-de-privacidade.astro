@@ -1,7 +1,10 @@
 ---
-import PageHeader from '@components/molecules/PageHeader.astro'
+import { formatDateLong } from '@utils/date'
+
 import Main from '@layouts/Main.astro'
+import PageHeader from '@components/molecules/PageHeader.astro'
 import CookieSettings from '@components/atoms/CookieSettings.astro'
+import Separator from '@components/atoms/Separator.astro'
 
 const pageName = 'Política de Privacidade'
 const pageDescription = ''
@@ -9,6 +12,8 @@ const pageDescription = ''
 const breadcrumb = [
   { text: pageName }
 ]
+
+const lastUpdate = new Date('2026-08-16T18:45:00-03:00')
 ---
 
 <Main breadcrumb={breadcrumb} title={pageName} description={pageDescription}>
@@ -16,6 +21,218 @@ const breadcrumb = [
     <div class="flex flex-col gap-12 lg:gap-16">
       <PageHeader title={pageName} description={pageDescription} />
     </div>
+  </section>
+
+  <section class="prose dark:prose-invert max-w-prose mx-auto leading-relaxed">
+    <p class="text-sm">Última atualização: {formatDateLong(lastUpdate)}</p>
+
+    <Separator />
+
+    <p>O Rota Márcia Prado é um site mantido de forma voluntária e sem fins comerciais, dedicado à divulgação de informações sobre a Rota Márcia Prado e assuntos relacionados ao cicloturismo, à mobilidade e à utilização da rota.</p>
+
+    <p>Este Aviso de Privacidade explica como informações relacionadas aos visitantes podem ser tratadas durante a utilização do site https://rotamarciaprado.org/.</p>
+
+    <h3>1. Quem é responsável pelo tratamento dos dados</h3>
+    <!--
+      Atualizar dados
+    -->
+
+    <p>
+      O responsável pelo tratamento dos dados pessoais relacionados ao site é:<br /><br />
+
+      Responsável: [nome completo ou nome da organização]<br />
+      Site: https://rotamarciaprado.org/<br />
+      Contato sobre privacidade: [e-mail de contato]
+    </p>
+
+    <h3>2. Quais informações podem ser tratadas</h3>
+
+    <p>O site não exige cadastro de usuários e não solicita, como condição para a navegação, informações como nome, endereço, telefone ou outros dados pessoais diretamente identificáveis.</p>
+
+    <p>Durante a utilização do site, determinados dados técnicos podem ser tratados automaticamente pelos serviços envolvidos no funcionamento das páginas, tais como endereço IP, data e horário de acesso, informações sobre o navegador, dispositivo, sistema operacional, página acessada e outros dados técnicos relacionados à requisição.</p>
+
+    <p>O GitHub Pages, serviço utilizado para hospedar este site, informa que o endereço IP dos visitantes de sites hospedados em sua plataforma é registrado e armazenado para fins de segurança.</p>
+
+    <p>Essas informações podem ser utilizadas para possibilitar o funcionamento do site, manter sua segurança, identificar problemas técnicos e, quando aplicável, produzir estatísticas sobre sua utilização.</p>
+
+    <h3>3. Para que utilizamos essas informações</h3>
+
+    <p>As informações podem ser tratadas para as seguintes finalidades:</p>
+
+    <ul>
+      <li>disponibilizar e manter o funcionamento do site;</li>
+      <li>garantir a segurança e a estabilidade da infraestrutura;</li>
+      <li>identificar e corrigir problemas técnicos;</li>
+      <li>compreender, de forma estatística, como o site é utilizado;</li>
+      <li>disponibilizar conteúdos incorporados de terceiros;</li>
+      <li>atender a obrigações legais ou exercer direitos em processos judiciais, administrativos ou arbitrais, quando aplicável.</li>
+    </ul>
+
+    <p>O site não utiliza os dados dos visitantes para venda de produtos ou serviços e não possui, atualmente, cadastro de usuários, newsletter, publicidade direcionada ou sistema de pagamentos.</p>
+
+    <h3>4. Hospedagem pelo GitHub Pages</h3>
+
+    <p>O site é hospedado pelo GitHub Pages, serviço fornecido pela GitHub.</p>
+
+    <p>O GitHub informa que, quando um site hospedado pelo GitHub Pages é visitado, o endereço IP do visitante é registrado e armazenado para fins de segurança, independentemente de o visitante estar ou não conectado a uma conta do GitHub.</p>
+
+    <p>O tratamento realizado pelo GitHub em sua infraestrutura está sujeito às políticas próprias da empresa.</p>
+
+    <p>Além disso, por se tratar de uma infraestrutura fornecida por uma empresa sediada fora do Brasil, determinados tratamentos relacionados à operação do serviço podem ocorrer fora do território brasileiro.</p>
+
+    <h3>5. Google Analytics</h3>
+    <!--
+      Atualizar com a implementação do banner de consentimento
+    -->
+
+    <p>O site utiliza o <strong>Google Analytics</strong>, serviço de análise estatística fornecido pela Google, para compreender como os visitantes utilizam suas páginas e melhorar o conteúdo e a experiência de navegação.</p>
+
+    <p>A implementação utiliza os mecanismos de configuração de consentimento disponibilizados pelo Google. No modo de privacidade adotado pelo site, os recursos relacionados a publicidade e determinados usos de dados são configurados como desativados.</p>
+
+    <p>O Google poderá tratar informações relacionadas à utilização do site de acordo com suas próprias políticas e configurações aplicáveis.</p>
+
+    <h3>6. Conteúdos incorporados de terceiros</h3>
+
+    <p>Alguns artigos podem conter conteúdos incorporados de serviços externos, como vídeos do <strong>YouTube</strong>, mapas do <strong>Google Maps</strong> ou outros conteúdos disponibilizados por terceiros.</p>
+
+    <p>Esses conteúdos podem estabelecer uma comunicação entre o dispositivo do visitante e os servidores do respectivo fornecedor quando são carregados ou utilizados.</p>
+
+    <h4>YouTube</h4>
+
+    <p>Os vídeos do YouTube incorporados pelo site utilizam o domínio <code>youtube-nocookie.com</code>, uma configuração oferecida pelo próprio YouTube destinada a reduzir o uso de cookies relacionados à reprodução incorporada.</p>
+
+    <p>Ainda assim, o YouTube e outras tecnologias utilizadas para disponibilizar o conteúdo podem tratar informações técnicas sobre o acesso.</p>
+
+    <h4>Google Maps</h4>
+
+    <p>Algumas páginas podem incorporar mapas disponibilizados pelo Google Maps. Quando esse conteúdo é carregado, informações técnicas relacionadas à requisição podem ser processadas pela Google.</p>
+
+    <h4>Outros conteúdos incorporados</h4>
+
+    <p>O site também pode incorporar conteúdos provenientes de outros serviços externos. Nesses casos, o tratamento de dados realizado pelo terceiro estará sujeito às políticas e condições desse respectivo serviço.</p>
+
+    <h3>7. Imagens e arquivos de mídia</h3>
+
+    <p>Parte das imagens utilizadas pelo site é disponibilizada por meio da infraestrutura da Cloudinary.</p>
+
+    <p>Ao carregar esses recursos, o navegador do visitante pode realizar requisições aos servidores responsáveis pela disponibilização dos arquivos.</p>
+
+    <p>A Cloudinary poderá tratar informações técnicas relacionadas a essas requisições de acordo com suas próprias políticas e condições de serviço.</p>
+
+    <h3>8. Cookies e tecnologias semelhantes</h3>
+
+    <p>O site e os serviços utilizados por ele podem utilizar cookies ou tecnologias semelhantes.</p>
+
+    <p>Essas tecnologias podem ser utilizadas para:</p>
+
+    <ul>
+      <li>possibilitar determinadas funcionalidades;</li>
+      <li>manter a segurança e o funcionamento do site;</li>
+      <li>obter informações estatísticas sobre a utilização das páginas;</li>
+      <li>disponibilizar conteúdos de terceiros incorporados às páginas.</li>
+    </ul>
+
+    <p>A utilização de cookies pode variar conforme as funcionalidades disponíveis em cada página e os serviços de terceiros incorporados ao conteúdo.</p>
+
+    <p>O visitante pode utilizar as configurações de seu navegador para visualizar, bloquear ou excluir determinados cookies. O gerenciamento de cookies pelo navegador é complementar aos mecanismos disponibilizados pelo site e pelos respectivos serviços de terceiros. A ANPD recomenda que informações claras sobre cookies e mecanismos adequados de gerenciamento sejam disponibilizados aos titulares.</p>
+
+    <h3>9. Pesquisa no site</h3>
+
+    <p>A funcionalidade de pesquisa do site utiliza a tecnologia Pagefind e realiza a pesquisa localmente no conteúdo disponibilizado pelo próprio site.</p>
+
+    <p>A implementação atual não utiliza um serviço externo de pesquisa que exija o envio das consultas de pesquisa para um servidor de terceiros.</p>
+
+    <h3>10. RSS</h3>
+
+    <p>O site disponibiliza um feed RSS com os artigos publicados.</p>
+
+    <p>A utilização do RSS não exige cadastro ou fornecimento de informações pessoais ao Rota Márcia Prado. Aplicativos ou serviços utilizados pelo visitante para acompanhar o feed podem, entretanto, realizar seus próprios tratamentos de dados.</p>
+
+    <h3>11. Links para outros sites</h3>
+
+    <p>O site pode conter links para sites, serviços e plataformas de terceiros.</p>
+
+    <p>Ao acessar um link externo, o visitante estará sujeito às práticas e políticas de privacidade do respectivo terceiro. O Rota Márcia Prado não controla o tratamento de dados realizado por esses sites e recomenda que suas respectivas políticas de privacidade sejam consultadas.</p>
+
+    <h3>12. Compartilhamento de dados</h3>
+
+    <p>O Rota Márcia Prado não comercializa dados pessoais dos visitantes.</p>
+
+    <p>Informações técnicas podem ser tratadas por fornecedores necessários à operação do site, incluindo, conforme aplicável:</p>
+
+    <ul>
+      <li>GitHub, para hospedagem e infraestrutura do site;</li>
+      <li>Google, para análise estatística e conteúdos incorporados;</li>
+      <li>Cloudinary, para disponibilização de imagens e arquivos de mídia;</li>
+      <li>outros fornecedores responsáveis por conteúdos incorporados nas páginas.</li>
+    </ul>
+
+    <p>Dados também poderão ser tratados ou disponibilizados quando isso for necessário para cumprir uma obrigação legal ou regulatória, atender a uma determinação de autoridade competente ou exercer e defender direitos.</p>
+
+    <h3>13. Armazenamento e retenção</h3>
+
+    <p>Os dados pessoais são mantidos pelo período necessário para cumprir as finalidades descritas neste Aviso, observadas as obrigações legais e regulatórias aplicáveis.</p>
+
+    <p>Determinados registros técnicos podem ser mantidos pelos fornecedores responsáveis pela hospedagem, segurança, infraestrutura ou demais serviços utilizados pelo site, de acordo com suas respectivas políticas de retenção.</p>
+
+    <p>O Rota Márcia Prado não mantém, por meio de sua própria aplicação, um banco de dados destinado ao armazenamento de informações pessoais dos visitantes.</p>
+
+    <h3>14. Segurança</h3>
+
+    <p>São adotadas medidas técnicas e administrativas razoáveis para proteger as informações tratadas no âmbito do site contra acessos não autorizados e situações acidentais ou ilícitas de destruição, perda, alteração, comunicação ou difusão.</p>
+
+    <p>Apesar dos esforços empregados, nenhum sistema conectado à Internet pode garantir segurança absoluta.</p>
+
+    <h3>15. Direitos do titular</h3>
+
+    <p>Nos termos da legislação aplicável, especialmente da Lei Geral de Proteção de Dados Pessoais (LGPD), o titular pode exercer, quando aplicável, direitos relacionados aos seus dados pessoais, incluindo:</p>
+
+    <ul>
+      <li>confirmação da existência de tratamento;</li>
+      <li>acesso aos dados;</li>
+      <li>correção de dados incompletos, inexatos ou desatualizados;</li>
+      <li>solicitação de anonimização, bloqueio ou eliminação de dados, quando cabível;</li>
+      <li>informação sobre o compartilhamento de dados;</li>
+      <li>revogação do consentimento, quando o tratamento estiver baseado nessa hipótese;</li>
+      <li>portabilidade, nos termos da regulamentação aplicável;</li>
+      <li>demais direitos previstos na legislação aplicável.</li>
+    </ul>
+
+    <p>Esses direitos não são absolutos e podem estar sujeitos às limitações previstas na legislação, inclusive quando a manutenção dos dados for necessária para cumprimento de obrigação legal ou exercício regular de direitos. A ANPD descreve esses e outros direitos dos titulares em sua orientação oficial.</p>
+
+    <h3>16. Como exercer seus direitos</h3>
+    <!--
+      Atualizar e-mail
+    -->
+
+    <p>Para solicitar informações ou exercer seus direitos relacionados à proteção de dados pessoais, entre em contato pelo endereço:</p>
+
+    <p><strong>E-mail</strong>: [e-mail de contato]</p>
+
+    <p>Para que a solicitação possa ser analisada adequadamente, poderão ser solicitadas informações necessárias para confirmar a identidade do solicitante e compreender o pedido.</p>
+
+    <p>O exercício dos direitos deve ser realizado, inicialmente, diretamente perante o responsável pelo tratamento. Caso o titular não consiga exercer seus direitos ou não obtenha uma resposta satisfatória, poderá recorrer aos canais disponibilizados pela Autoridade Nacional de Proteção de Dados (ANPD), conforme aplicável.</p>
+
+    <h3>17. Alterações deste Aviso</h3>
+
+    <p>Este Aviso de Privacidade poderá ser atualizado periodicamente para refletir alterações no funcionamento do site, nos serviços utilizados ou na legislação aplicável.</p>
+
+    <p>A versão mais recente estará sempre disponível nesta página.</p>
+
+    <p>Recomendamos que este Aviso seja consultado periodicamente.</p>
+
+    <h3>18. Contato</h3>
+    <!--
+      Atualizar dados
+    -->
+
+    <p>Para dúvidas, solicitações ou assuntos relacionados à privacidade e proteção de dados:</p>
+
+    <p><strong>E-mail</strong>: [e-mail de contato]</p>
+
+    <Separator />
+
+    <p class="text-sm">Última atualização: {formatDateLong(lastUpdate)}</p>
   </section>
 
   <CookieSettings />
