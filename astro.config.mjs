@@ -50,6 +50,8 @@ export default defineConfig({
     '/publicacoes/[...slug]': '/artigos/[...slug]',
     '/duvidas-frequentes': '/perguntas-frequentes',
     '/faq': '/perguntas-frequentes',
+    '/aviso-de-privacidade': '/politica-de-privacidade',
+    '/termos-de-uso': '/termos-e-condicoes',
   },
   markdown: {
     processor: unified({
