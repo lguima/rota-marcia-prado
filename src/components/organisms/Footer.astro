@@ -39,7 +39,7 @@ const currentYear = new Date().getFullYear()
       >
          {
           thirdLevelMenu.map(item => (
-            <a href={item.data.href} class="text-muted-foreground text-xs">
+            <a href={item.data.href} class="text-muted-foreground text-xs" {...item.data.attributes || {}}>
               {item.data.text}
             </a>
           ))
