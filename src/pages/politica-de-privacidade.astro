@@ -3,7 +3,6 @@ import { formatDateLong } from '@utils/date'
 
 import Main from '@layouts/Main.astro'
 import PageHeader from '@components/molecules/PageHeader.astro'
-import CookieSettings from '@components/atoms/CookieSettings.astro'
 import Separator from '@components/atoms/Separator.astro'
 
 const pageName = 'Política de Privacidade'
@@ -238,8 +237,6 @@ const lastUpdate = new Date('2026-08-16T18:45:00-03:00')
 
     <p class="text-sm">Última atualização: {formatDateLong(lastUpdate)}</p>
   </section>
-
-  <CookieSettings />
 </Main>
 
 <!--
