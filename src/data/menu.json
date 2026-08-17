@@ -47,5 +47,15 @@
     "order": 7,
     "text": "Termos e Condições",
     "href": "/termos-e-condicoes/"
+  },
+  {
+    "id": "configuracoes-de-cookies",
+    "levels": [3],
+    "order": 8,
+    "text": "Configurações de Cookies",
+    "href": "#",
+    "attributes": {
+      "data-cc": "show-preferencesModal"
+    }
   }
 ]
