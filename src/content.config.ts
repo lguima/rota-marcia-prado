@@ -63,6 +63,7 @@ const menu = defineCollection({
     order: z.number(),
     text: z.string(),
     href: z.string(),
+    attributes: z.record(z.string(), z.string()).optional(),
   }),
 })
 
