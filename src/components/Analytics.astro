@@ -16,26 +16,14 @@ const isProd = import.meta.env.PROD;
       is:inline
       type="text/partytown"
       data-gtag-measurement-id={analytics.googleTag.measurementId}
-      data-gtag-mode={analytics.googleTag.mode}
       id='gtag-init'
     >
       const measurementId = document
         .getElementById('gtag-init')
         .getAttribute('data-gtag-measurement-id')
-      const mode = document
-        .getElementById('gtag-init')
-        .getAttribute('data-gtag-mode')
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      if (mode === 'anonymous') {
-        gtag('consent', 'default', {
-          ad_storage: 'denied',
-          ad_user_data: 'denied',
-          ad_personalization: 'denied',
-          analytics_storage: 'denied',
-        });
-      }
       gtag('config', measurementId);
     </script>
   </>
