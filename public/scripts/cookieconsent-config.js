@@ -6,22 +6,42 @@ CookieConsent.run({
       layout: "box inline",
       position: "bottom left",
       equalWeightButtons: true,
-      flipButtons: false
+      flipButtons: false,
     },
     preferencesModal: {
       layout: "box",
       position: "right",
       equalWeightButtons: true,
-      flipButtons: false
+      flipButtons: false,
     }
   },
   categories: {
     necessary: {
-      readOnly: true
+      readOnly: true,
     },
-    functionality: {},
-    analytics: {},
-    marketing: {},
+    functionality: {
+      services: {
+        theme: {
+          label: 'Preferência de tema (claro/escuro)'
+        },
+        youtube: {
+          label: 'Vídeos do YouTube',
+        },
+        googlemaps: {
+          label: 'Mapas do Google',
+        },
+        embeds: {
+          label: 'Conteúdo incorporado de terceiros',
+        },
+      },
+    },
+    analytics: {
+      services: {
+        google_analytics: {
+          label: 'Google Analytics 4'
+        },
+      },
+    },
   },
   language: {
     default: "pt-br",
@@ -29,46 +49,52 @@ CookieConsent.run({
     translations: {
       'pt-br': {
         consentModal: {
-          title: "Preferências de Privacidade",
-          description: "Utilizamos cookies para aprimorar sua experiência de navegação, exibir anúncios ou conteúdo personalizado e analisar nosso tráfego. Ao clicar em “Aceitar todos”, você concorda com nosso uso de cookies. ",
-          acceptAllBtn: "Aceitar tudo",
-          acceptNecessaryBtn: "Rejeitar tudo",
-          showPreferencesBtn: "Gerenciar preferêcias",
-          footer: "<a href=\"/politica-de-privacidade/\">Política de Privacidade</a><a href=\"/termos-e-condicoes/\">Termos e Condições</a>"
+          title: 'Cookies e tecnologias semelhantes',
+          description:
+            'Utilizamos cookies e outras tecnologias semelhantes para lembrar suas preferências e entender como o site é utilizado. Você pode aceitar, recusar ou escolher quais categorias deseja permitir.',
+          acceptAllBtn: 'Aceitar tudo',
+          acceptNecessaryBtn: 'Recusar opcionais',
+          showPreferencesBtn: 'Gerenciar preferências',
+          footer:
+            '<a href="/politica-de-privacidade/">Política de Privacidade</a> · <a href="/termos-de-uso/">Termos de Uso</a>'
         },
+
         preferencesModal: {
-          title: "Preferências de Privacidade",
-          acceptAllBtn: "Aceitar tudo",
-          acceptNecessaryBtn: "Rejeitar tudo",
-          savePreferencesBtn: "Salvar preferências",
-          closeIconLabel: "Fechar diálogo",
-          serviceCounterLabel: "Service|Services",
+          title: 'Preferências de cookies',
+          acceptAllBtn: 'Aceitar tudo',
+          acceptNecessaryBtn: 'Recusar opcionais',
+          savePreferencesBtn: 'Salvar preferências',
+          closeIconLabel: 'Fechar',
+          serviceCounterLabel: 'Serviços',
           sections: [
             {
-              title: "Uso de cookies",
-              description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-            },
-            {
-              title: "Cookies estritamente necessários <span class=\"pm__badge\">Sempre habilitados</span>",
-              description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-              linkedCategory: "necessary"
-            },
-            {
-              title: 'Cookies funcionais',
+              title: 'Como usamos cookies e tecnologias semelhantes',
               description:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-              linkedCategory: 'functionality',
+                'O Rota Márcia Prado é um projeto voluntário e sem fins comerciais. Utilizamos apenas as tecnologias necessárias para o funcionamento do site, recursos opcionais de conveniência e análises de acesso quando autorizadas.'
             },
             {
-              title: "Cookies analíticos",
-              description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-              linkedCategory: "analytics"
+              title: 'Necessários',
+              description:
+                'Esses recursos são essenciais para o funcionamento do site e para armazenar sua escolha de consentimento. Eles permanecem sempre ativos.',
+              linkedCategory: 'necessary'
             },
             {
-              title: "Cookies de publicidade",
-              description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-              linkedCategory: "marketing"
+              title: 'Funcionais',
+              description:
+                'Permitem lembrar preferências e carregar recursos opcionais como vídeos e mapas incorporados.',
+              linkedCategory: 'functionality'
             },
+            {
+              title: 'Analíticos',
+              description:
+                'Nos ajudam a entender como o site é utilizado para melhorar seu conteúdo e desempenho. Esses recursos são ativados apenas com sua autorização.',
+              linkedCategory: 'analytics'
+            },
+            {
+              title: 'Mais informações',
+              description:
+                'Para mais detalhes, confira a nossa <a href="/politica-de-privacidade/">Política de Privacidade</a> e os nossos <a href="/termos-e-condicoes/">Termos e Condições de Uso</a>.'
+            }
           ]
         }
       }
