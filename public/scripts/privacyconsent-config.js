@@ -113,7 +113,7 @@ CookieConsent.run({
         },
 
         preferencesModal: {
-          title: 'Preferências de cookies',
+          title: 'Preferências de Cookies',
           acceptAllBtn: 'Aceitar tudo',
           acceptNecessaryBtn: 'Recusar opcionais',
           savePreferencesBtn: 'Salvar preferências',
