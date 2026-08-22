@@ -1,15 +1,14 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
-import tailwindcss from "@tailwindcss/vite";
-import partytown from '@astrojs/partytown';
-import sitemap from '@astrojs/sitemap';
-import { unified } from '@astrojs/markdown-remark';
-import { loadEnv } from "vite";
+import { defineConfig } from 'astro/config'
+import tailwindcss from "@tailwindcss/vite"
+import sitemap from '@astrojs/sitemap'
+import { unified } from '@astrojs/markdown-remark'
+import { loadEnv } from 'vite'
 
-import remarkYouTubeEmbed from './src/plugins/remarkYouTubeEmbed.js'
-import remarkGoogleMapsEmbed from './src/plugins/remarkGoogleMapsEmbed.js'
-import remarkIframeEmbed from './src/plugins/remarkIframeEmbed.js'
-import remarkPdfEmbed from './src/plugins/remarkPdfEmbed.js'
+import remarkYouTubeEmbed from '@plugins/remarkYouTubeEmbed.js'
+import remarkGoogleMapsEmbed from '@plugins/remarkGoogleMapsEmbed.js'
+import remarkIframeEmbed from '@plugins/remarkIframeEmbed.js'
+import remarkPdfEmbed from '@plugins/remarkPdfEmbed.js'
 
 const { SITE_URL, CLOUDINARY_DOMAIN } = loadEnv(process.env.NODE_ENV || 'development', process.cwd(), "");
 
@@ -25,7 +24,6 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   integrations: [
-    partytown({ config: { forward: ['dataLayer.push'] } }),
     sitemap(),
   ],
   i18n: {
@@ -50,6 +48,8 @@ export default defineConfig({
     '/publicacoes/[...slug]': '/artigos/[...slug]',
     '/duvidas-frequentes': '/perguntas-frequentes',
     '/faq': '/perguntas-frequentes',
+    '/aviso-de-privacidade': '/politica-de-privacidade',
+    '/termos-de-uso': '/termos-e-condicoes',
   },
   markdown: {
     processor: unified({

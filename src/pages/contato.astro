@@ -1,0 +1,114 @@
+---
+import Main from '@layouts/Main.astro'
+import PageHeader from '@components/molecules/PageHeader.astro'
+
+const pageName = 'Contato'
+const pageDescription = 'Entre em contato com a Rota Márcia Prado, tire dúvidas, consulte as perguntas frequentes e acesse a Política de Privacidade e os Termos e Condições de Uso do site.'
+
+const breadcrumb = [{ text: pageName }]
+---
+
+<Main breadcrumb={breadcrumb} title={pageName} description={pageDescription}>
+  <section class="py-6 lg:py-10">
+    <div class="flex flex-col gap-12 lg:gap-16">
+      <PageHeader title={pageName} />
+    </div>
+  </section>
+
+  <section class="py-6 lg:py-10">
+    <div class="mx-auto flex max-w-7xl flex-col gap-12 px-5 lg:gap-16 lg:px-8">
+      <div class="grid gap-y-12 md:grid-cols-2 md:gap-9 lg:grid-cols-3">
+        <div class="flex max-w-xl flex-col items-start gap-4 text-left">
+          <div
+            class="bg-muted flex size-16 shrink-0 items-center justify-center rounded-lg border"
+          >
+            <svg class="lucide lucide-shield-icon lucide-shield text-primary size-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
+        </div>
+        <div class="flex flex-col gap-1">
+            <h3 class="text-xl font-medium tracking-tight text-balance">
+              <a
+                href="/politica-de-privacidade/"
+                class="hover:text-primary"
+              >
+                Política de Privacidade
+              </a>
+            </h3>
+            <p class="text-muted-foreground text-base text-pretty">
+              Saiba como tratamos cookies, dados de navegação e informações dos visitantes.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex max-w-xl flex-col items-start gap-4 text-left">
+          <div
+            class="bg-muted flex size-16 shrink-0 items-center justify-center rounded-lg border"
+          >
+            <svg class="lucide lucide-file-text-icon lucide-file-text text-primary size-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/><path d="M14 2v5a1 1 0 0 0 1 1h5"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+          </div>
+          <div class="flex flex-col gap-1">
+            <h3 class="text-xl font-medium tracking-tight text-balance">
+              <a
+                href="/termos-e-condicoes/"
+                class="hover:text-primary"
+              >
+                Termos e Condições de Uso
+              </a>
+            </h3>
+            <p class="text-muted-foreground text-base text-pretty">
+              Entenda as condições de uso do site, responsabilidades e limitações sobre seu conteúdo.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex max-w-xl flex-col items-start gap-4 text-left">
+          <div
+            class="relative bg-muted flex size-16 shrink-0 items-center justify-center rounded-lg border"
+            aria-hidden="true"
+          >
+            <a
+              href="/perguntas-frequentes/"
+              class="after:absolute after:inset-0"
+              tabindex="-1"
+            >
+              <svg class="lucide lucide-message-circle-question-mark-icon lucide-message-circle-question-mark text-primary size-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+            </a>
+          </div>
+          <div class="flex flex-col gap-1">
+            <h3 class="text-xl font-medium tracking-tight text-balance">
+              <a
+                href="/perguntas-frequentes/"
+                class="hover:text-primary"
+              >
+                Perguntas Frequentes
+              </a>
+            </h3>
+            <p class="text-muted-foreground text-base text-pretty">
+              Dúvidas frequentes sobre a rota respondidas para facilitar a descida de bicicleta de São Paulo a Santos.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="bg-background flex flex-col items-center gap-9 rounded-xl border px-5 py-9 lg:px-9"
+      >
+        <div
+          class="mx-auto flex w-full max-w-xl flex-col items-center gap-3 text-center"
+        >
+          <p class="text-muted-foreground max-w-2xl text-base text-pretty">
+            Caso precise entrar em contato sobre outros assuntos, utilize o e-mail:
+          </p>
+        </div>
+
+        <button
+          data-slot="button"
+          data-variant="default"
+          data-size="default"
+          class="focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 bg-primary text-primary-foreground hover:bg-primary/90 inline-flex h-9 shrink-0 items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-medium whitespace-nowrap transition-all outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 max-sm:w-full [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
+        >
+          <a href="mailto:contato@rotamarciaprado.org">contato@rotamarciaprado.org</a>
+        </button>
+      </div>
+    </div>
+  </section>
+</Main>

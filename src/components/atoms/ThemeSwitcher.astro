@@ -2,7 +2,8 @@
 ---
 
 <button
-  class="btn"
+  class="btn hidden"
+  id="theme-switcher"
   type="button"
   aria-label="Alternar o tema"
   onclick="window.basecoat.theme.toggle()"
@@ -17,18 +18,34 @@
   </span>
 </button>
 
-<script>
+<script
+  type="text/plain"
+  data-category="functionality"
+  data-service="theme"
+  is:inline
+>
+  if (CookieConsent.acceptedService('theme', 'functionality')) {
+    const button = document.getElementById('theme-switcher');
+    button.classList.remove('hidden');
+  }
+
   const layout = document.getElementById('base-layout');
 
   if (layout) {
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
         if (mutation.attributeName === 'class') {
+          observer.disconnect();
+
           if (layout.classList.contains('dark')) {
             layout.setAttribute('data-pf-theme', 'dark');
+            layout.classList.add('cc--darkmode');
           } else {
             layout.removeAttribute('data-pf-theme');
+            layout.classList.remove('cc--darkmode');
           }
+
+          observer.observe(layout, { attributes: true });
         }
       });
     });

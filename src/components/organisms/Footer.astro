@@ -5,44 +5,62 @@ import { getMenuItems } from '@utils/collections/menu'
 import IconRss from '@components/atoms/IconRss.astro'
 import Separator from '@components/atoms/Separator.astro'
 
-const menu = await getMenuItems()
+const secondLevelMenu = await getMenuItems([2])
+const thirdLevelMenu = await getMenuItems([3])
 
 const currentYear = new Date().getFullYear()
 ---
 
 <footer>
-  <div class="mx-auto flex max-w-7xl flex-col flex-wrap gap-6 px-5 lg:px-8 py-4">
+  <div class="mx-auto flex max-w-7xl flex-col flex-wrap gap-6 px-5 lg:px-8 py-6">
     <nav
       aria-label="Rodapé"
-      class="flex flex-wrap justify-center gap-x-12 gap-y-3 text-sm"
+      class="flex flex-wrap items-center justify-center gap-x-12 gap-y-3 text-sm"
     >
       {
-        menu.map(item => (
+        secondLevelMenu.map(item => (
           <a href={item.data.href} class="text-muted-foreground">
             {item.data.text}
           </a>
         ))
       }
-
-      <a
-        href="/rss.xml"
-        title="RSS Feed"
-        target="_blank"
-        class="text-muted-foreground"
-      >
-        <span class="sr-only">RSS Feed</span>
-        <IconRss class="size-5" />
-      </a>
     </nav>
 
     <Separator />
 
-    <p class="text-muted-foreground text-center text-xs">
-      &copy; {currentYear} {site.name}
-    </p>
+    <div class="flex flex-col 3xs:flex-row gap-3 items-center justify-between">
+      <p class="text-muted-foreground text-center text-xs">
+        &copy; {currentYear} {site.name}
+      </p>
+
+      <nav
+        aria-label="Rodapé"
+        class="flex flex-wrap flex-col 3xs:flex-row items-center justify-center gap-x-12 gap-y-3 text-sm"
+      >
+         {
+          thirdLevelMenu.map(item => (
+            <a href={item.data.href} class="text-muted-foreground text-xs" {...item.data.attributes || {}}>
+              {item.data.text}
+            </a>
+          ))
+        }
+
+        <a
+          href="/rss.xml"
+          title="RSS Feed"
+          target="_blank"
+          class="text-muted-foreground"
+        >
+          <span class="sr-only">RSS Feed</span>
+          <IconRss class="size-5" />
+        </a>
+      </nav>
+    </div>
 
     <div class="flex flex-col gap-3">
       <p class="text-muted-foreground text-xs">
+        <svg class="lucide lucide-message-square-warning-icon lucide-message-square-warning size-4 inline" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"/><path d="M12 15h.01"/><path d="M12 7v4"/></svg>
+        &nbsp;
         Este site é mantido de forma voluntária e sem fins comerciais. As informações disponibilizadas são apresentadas de boa-fé, mas <strong>não há garantia de que todo o conteúdo esteja completo, correto ou atualizado</strong>.
       </p>
       <p class="text-muted-foreground text-xs">
