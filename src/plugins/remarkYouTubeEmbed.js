@@ -20,10 +20,9 @@ export default function remarkYoutubeEmbed() {
         if (match) {
           const videoId = match[1];
 
-          // Incorporar apenas se houver consentimento
           parent.children[index] = {
             type: 'html',
-            value: `<iframe width="100%" class='aspect-ratio' style="aspect-ratio: 16/9; border-radius:10px;" src="https://www.youtube-nocookie.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>`,
+            value: `<div class="rounded-lg!" data-service="youtube" data-id="${videoId}" data-autoscale data-ratio="16:9" data-iframe-class="aspect-ratio rounded-lg" data-iframe-frameborder="0"></div>`
           };
         }
       }
