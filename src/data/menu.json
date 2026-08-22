@@ -57,5 +57,12 @@
     "attributes": {
       "data-cc": "show-preferencesModal"
     }
+  },
+  {
+    "id": "contato",
+    "levels": [3],
+    "order": 9,
+    "text": "Contato",
+    "href": "/contato/"
   }
 ]
