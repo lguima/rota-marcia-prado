@@ -25,4 +25,5 @@ Código sob a licença [MIT](LICENSE.md)
 - Template de [tweakcn](https://tweakcn.com) 🎨
 - Fontes de [Fontsource](https://fontsource.org/) ✒️
 - Ícones de [Lucide](https://lucide.dev) ✨
-- Boilerplate de [Hasin Hayder](https://github.com/hasinhayder/storyteller-astro) 🛠️
+- Boilerplate de [Storyteller](https://github.com/hasinhayder/storyteller-astro) 🛠️
+- Privacidade com [CookieConsent](https://github.com/orestbida/cookieconsent) e [IframeMananger](https://github.com/orestbida/iframemanager) 🛡️
