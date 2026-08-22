@@ -4,8 +4,7 @@
  * URL: https://github.com/hasinhayder/storyteller-astro
  *
  * Usage:
- * #googlemaps New York City
- * #googlemaps Dhaka Parliament Building
+ * #googlemaps !1m18!...!1sen!2sbr
  */
 
 import { visit } from 'unist-util-visit';
@@ -19,14 +18,11 @@ export default function remarkGoogleMapsEmbed() {
       ) {
         const match = node.children[0].value.match(/^#googlemaps\s+(.+)$/);
         if (match) {
-          let mapQuery = match[1].trim();
-          // Build the embed URL for Google Maps
-          const embedUrl = `https://www.google.com/maps/embed?q=${encodeURIComponent(mapQuery)}`;
+          const mapIdentifier = match[1].trim();
 
-          // Incorporar apenas se houver consentimento
           parent.children[index] = {
             type: 'html',
-            value: `<iframe width="100%" class="aspect-ratio" style="aspect-ratio: 16/9; border-radius:10px;" src="${embedUrl}" frameborder="0" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>`,
+            value: `<div class="rounded-lg!" data-service="googlemaps" data-id="${mapIdentifier}" data-autoscale data-ratio="16:9" data-iframe-class="aspect-ratio rounded-lg" data-iframe-frameborder="0" data-iframe-referrerpolicy="strict-origin-when-cross-origin" data-iframe-loading="lazy"></div>`
           };
         }
       }
