@@ -1,6 +1,49 @@
-import 'https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.umd.js';
+const im = iframemanager();
+
+im.run({
+  currLang: 'pt-br',
+  services: {
+    youtube: {
+      embedUrl: 'https://www.youtube-nocookie.com/embed/{data-id}',
+      thumbnailUrl: 'https://i3.ytimg.com/vi/{data-id}/hqdefault.jpg',
+      iframe: {
+        allow: 'accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen;',
+      },
+      languages: {
+        'pt-br': {
+          notice: 'Este conteúdo é hospedado por terceiros. Ao exibir o conteúdo externo, você aceita os <a rel="noreferrer noopener" href="https://www.youtube.com/terms" target="_blank">termos e condições</a> do YouTube',
+          loadAllBtn: "Aceitar e sempre exibir",
+        }
+      }
+    },
+    googlemaps : {
+      embedUrl: 'https://www.google.com/maps/embed?pb={data-id}',
+      iframe: {
+        allow : 'picture-in-picture; fullscreen;'
+      },
+      languages : {
+        'pt-br' : {
+          notice: 'Este conteúdo é hospedado por terceiros. Ao exibir o conteúdo externo, você aceita os <a rel="noreferrer noopener" href="https://cloud.google.com/terms/maps-platform/pt-br" target="_blank">termos e condições</a> do Google Maps.',
+          loadAllBtn: "Aceitar e sempre exibir",
+        }
+      }
+    }
+  },
+  onChange: ({ changedServices, eventSource }) => {
+    if (eventSource.type === 'click') {
+      const servicesToAccept = [
+        ...CookieConsent.getUserPreferences().acceptedServices['functionality'],
+        ...changedServices
+      ];
+
+      CookieConsent.acceptService(servicesToAccept, 'functionality');
+    }
+  },
+});
 
 CookieConsent.run({
+  revision: 1,
+  hideFromBots: true,
   guiOptions: {
     consentModal: {
       layout: "box inline",
@@ -17,6 +60,7 @@ CookieConsent.run({
   },
   categories: {
     necessary: {
+      enabled: true,
       readOnly: true,
     },
     functionality: {
@@ -26,9 +70,13 @@ CookieConsent.run({
         },
         youtube: {
           label: 'Vídeos do YouTube',
+          onAccept: () => im.acceptService('youtube'),
+          onReject: () => im.rejectService('youtube'),
         },
         googlemaps: {
           label: 'Mapas do Google',
+          onAccept: () => im.acceptService('googlemaps'),
+          onReject: () => im.rejectService('googlemaps'),
         },
         embeds: {
           label: 'Conteúdo incorporado de terceiros',
@@ -38,14 +86,19 @@ CookieConsent.run({
     analytics: {
       services: {
         google_analytics: {
-          label: 'Google Analytics 4'
+          label: 'Google Analytics'
         },
+      },
+      autoClear: {
+        cookies: [
+          { name: /^(_ga)/ },
+        ]
       },
     },
   },
   language: {
     default: "pt-br",
-    autoDetect: "browser",
+    autoDetect: "document",
     translations: {
       'pt-br': {
         consentModal: {
@@ -56,7 +109,7 @@ CookieConsent.run({
           acceptNecessaryBtn: 'Recusar opcionais',
           showPreferencesBtn: 'Gerenciar preferências',
           footer:
-            '<a href="/politica-de-privacidade/">Política de Privacidade</a> · <a href="/termos-de-uso/">Termos de Uso</a>'
+            '<a href="/politica-de-privacidade/">Política de Privacidade</a> · <a href="/termos-e-condicoes/">Termos e Condições de Uso</a>'
         },
 
         preferencesModal: {
@@ -99,5 +152,5 @@ CookieConsent.run({
         }
       }
     }
-  }
+  },
 });
