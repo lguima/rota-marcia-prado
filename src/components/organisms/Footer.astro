@@ -2,28 +2,57 @@
 import site from '@config/site.mjs'
 import { getMenuItems } from '@utils/collections/menu'
 
-import IconRss from '@components/atoms/IconRss.astro'
 import Separator from '@components/atoms/Separator.astro'
+import IconGitHub from '@components/atoms/IconGitHub.astro'
+import IconRss from '@components/atoms/IconRss.astro'
 
-const menu = await getMenuItems()
+const secondLevelMenu = await getMenuItems([2])
+const thirdLevelMenu = await getMenuItems([3])
 
 const currentYear = new Date().getFullYear()
 ---
 
-<footer>
-  <div class="mx-auto flex max-w-7xl flex-col flex-wrap gap-6 px-5 lg:px-8 py-4">
-    <nav
-      aria-label="Rodapé"
-      class="flex flex-wrap justify-center gap-x-12 gap-y-3 text-sm"
-    >
-      {
-        menu.map(item => (
-          <a href={item.data.href} class="text-muted-foreground">
-            {item.data.text}
-          </a>
-        ))
-      }
+<footer class="mx-auto flex max-w-7xl flex-col flex-wrap gap-6 px-5 lg:px-8 py-5 lg:py-8">
+  <nav
+    aria-label="Rodapé"
+    class="flex flex-wrap items-center justify-center gap-x-12 gap-y-3 text-sm/6"
+  >
+    {
+      secondLevelMenu.map(item => (
+        <a href={item.data.href} class="text-muted-foreground">
+          {item.data.text}
+        </a>
+      ))
+    }
+  </nav>
 
+  <Separator />
+
+  <nav
+    aria-label="Rodapé"
+    class="flex flex-wrap flex-col 3xs:flex-row items-center justify-center gap-x-12 gap-y-3 text-sm"
+  >
+      {
+      thirdLevelMenu.map(item => (
+        <a href={item.data.href} class="text-muted-foreground text-xs" {...item.data.attributes || {}}>
+          {item.data.text}
+        </a>
+      ))
+    }
+  </nav>
+
+  <Separator />
+
+  <div class="flex flex-col gap-3 2xs:gap-0 2xs:flex-row items-center justify-between">
+    <div class="flex justify-center gap-x-6 2xs:order-2">
+      <a
+        href="https://github.com/lguima/rota-marcia-prado"
+        target="_blank"
+        class="text-muted-foreground"
+      >
+        <span class="sr-only">GitHub</span>
+        <IconGitHub aria-hidden="true" class="size-6" />
+      </a>
       <a
         href="/rss.xml"
         title="RSS Feed"
@@ -31,26 +60,26 @@ const currentYear = new Date().getFullYear()
         class="text-muted-foreground"
       >
         <span class="sr-only">RSS Feed</span>
-        <IconRss class="size-5" />
+        <IconRss class="size-6" />
       </a>
-    </nav>
+    </div>
 
-    <Separator />
-
-    <p class="text-muted-foreground text-center text-xs">
+    <p class="text-center 2xs:order-1 2xs:mt-0 text-muted-foreground text-sm/6">
       &copy; {currentYear} {site.name}
     </p>
+  </div>
 
-    <div class="flex flex-col gap-3">
-      <p class="text-muted-foreground text-xs">
-        Este site é mantido de forma voluntária e sem fins comerciais. As informações disponibilizadas são apresentadas de boa-fé, mas <strong>não há garantia de que todo o conteúdo esteja completo, correto ou atualizado</strong>.
-      </p>
-      <p class="text-muted-foreground text-xs">
-        Informações como condições de acesso, trajetos, horários, serviços, sinalizações, regras, restrições e demais circunstâncias podem sofrer alterações a qualquer momento. Por isso, <strong>recomenda-se verificar e confirmar, junto às fontes oficiais ou responsáveis, todas as informações relevantes antes de utilizá-las para planejar ou realizar uma atividade</strong>.
-      </p>
-      <p class="text-muted-foreground text-xs">
-        O conteúdo deste site não substitui informações oficiais nem deve ser considerado garantia das condições encontradas no local. A utilização das informações disponibilizadas é de responsabilidade exclusiva do usuário.
-      </p>
-    </div>
+  <div class="flex flex-col gap-3 py-2">
+    <p class="text-muted-foreground text-xs">
+      <svg class="lucide lucide-message-square-warning-icon lucide-message-square-warning size-4 inline" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"/><path d="M12 15h.01"/><path d="M12 7v4"/></svg>
+      &nbsp;
+      Este site é mantido de forma voluntária e sem fins comerciais. As informações disponibilizadas são apresentadas de boa-fé, mas <strong>não há garantia de que todo o conteúdo esteja completo, correto ou atualizado</strong>.
+    </p>
+    <p class="text-muted-foreground text-xs">
+      Informações como condições de acesso, trajetos, horários, serviços, sinalizações, regras, restrições e demais circunstâncias podem sofrer alterações a qualquer momento. Por isso, <strong>recomenda-se verificar e confirmar, junto às fontes oficiais ou responsáveis, todas as informações relevantes antes de utilizá-las para planejar ou realizar uma atividade</strong>.
+    </p>
+    <p class="text-muted-foreground text-xs">
+      O conteúdo deste site não substitui informações oficiais nem deve ser considerado garantia das condições encontradas no local. A utilização das informações disponibilizadas é de responsabilidade exclusiva do usuário.
+    </p>
   </div>
 </footer>

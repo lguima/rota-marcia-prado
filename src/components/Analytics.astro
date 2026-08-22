@@ -1,5 +1,5 @@
 ---
-import analytics from "@config/analytics.mjs";
+import analytics from '@config/analytics.mjs'
 
 const isProd = import.meta.env.PROD;
 ---
@@ -8,13 +8,17 @@ const isProd = import.meta.env.PROD;
   <>
     <script
       is:inline
-      type="text/partytown"
+      type="text/plain"
+      data-category="analytics"
+      data-service="google_analytics"
       src={`https://www.googletagmanager.com/gtag/js?id=${analytics.googleTag.measurementId}`}
     ></script>
 
     <script
       is:inline
-      type="text/partytown"
+      type="text/plain"
+      data-category="analytics"
+      data-service="google_analytics"
       data-gtag-measurement-id={analytics.googleTag.measurementId}
       id='gtag-init'
     >
@@ -23,6 +27,15 @@ const isProd = import.meta.env.PROD;
         .getAttribute('data-gtag-measurement-id')
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        analytics_storage: 'granted',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        functionality_storage: 'denied',
+        personalization_storage: 'denied',
+        security_storage: 'denied',
+      });
       gtag('js', new Date());
       gtag('config', measurementId);
     </script>

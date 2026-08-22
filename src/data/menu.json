@@ -1,32 +1,68 @@
 [
   {
     "id": "perguntas-frequentes",
+    "levels": [1, 2],
     "order": 1,
     "text": "Perguntas Frequentes",
     "href": "/perguntas-frequentes/"
   },
   {
     "id": "artigos",
+    "levels": [1, 2],
     "order": 2,
     "text": "Artigos",
     "href": "/artigos/"
   },
   {
     "id": "categorias",
+    "levels": [2],
     "order": 3,
     "text": "Categorias",
     "href": "/categorias/"
   },
   {
     "id": "topicos",
+    "levels": [2],
     "order": 4,
     "text": "Tópicos",
     "href": "/topicos/"
   },
   {
     "id": "autorias",
+    "levels": [2],
     "order": 5,
     "text": "Autorias",
     "href": "/autorias/"
+  },
+  {
+    "id": "politica-de-privacidade",
+    "levels": [3],
+    "order": 6,
+    "text": "Política de Privacidade",
+    "href": "/politica-de-privacidade/"
+  },
+  {
+    "id": "termos-e-condicoes",
+    "levels": [3],
+    "order": 7,
+    "text": "Termos e Condições",
+    "href": "/termos-e-condicoes/"
+  },
+  {
+    "id": "preferencias-de-cookies",
+    "levels": [3],
+    "order": 8,
+    "text": "Preferências de Cookies",
+    "href": "#",
+    "attributes": {
+      "data-cc": "show-preferencesModal"
+    }
+  },
+  {
+    "id": "contato",
+    "levels": [3],
+    "order": 9,
+    "text": "Contato",
+    "href": "/contato/"
   }
 ]

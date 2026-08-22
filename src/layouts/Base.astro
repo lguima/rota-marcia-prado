@@ -1,6 +1,7 @@
 ---
 import Head from '@components/Head.astro'
 import SearchModal from '@components/organisms/SearchModal.astro'
+import PrivacyConsent from '@components/PrivacyConsent.astro';
 
 interface Props {
   index?: boolean;
@@ -21,5 +22,7 @@ const { index = false, title, description, ...rest } = Astro.props
   <body>
     <slot />
     <SearchModal />
+
+    <PrivacyConsent />
   </body>
 </html>
