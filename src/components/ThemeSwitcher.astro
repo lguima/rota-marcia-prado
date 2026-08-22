@@ -4,8 +4,10 @@
 <script is:inline>
   (() => {
     try {
-      const stored = localStorage.getItem("themeMode");
-      if (stored ? stored === "dark" : matchMedia("(prefers-color-scheme: dark)").matches) {
+      const themeMode = localStorage.getItem('themeMode');
+      const prefersDarkTheme = matchMedia('(prefers-color-scheme: dark)').matches;
+
+      if (themeMode ? themeMode === "dark" : prefersDarkTheme) {
         document.documentElement.classList.add("dark");
         document.documentElement.classList.add('cc--darkmode');
         document.documentElement.setAttribute('data-pf-theme', 'dark');
