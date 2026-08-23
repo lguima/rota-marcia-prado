@@ -5,6 +5,7 @@ publishDate: 2026-01-01T12:00:00-03:00
 category: "Acesso"
 tags: ["Retorno", "Santos", "Ônibus", "Integração modal", "Bicicleta"]
 featured: true
+order: 3
 ---
 
 Chegar a Santos é apenas parte da aventura. Depois de completar a Rota Márcia Prado, é hora de planejar o retorno para casa.
