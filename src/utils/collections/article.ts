@@ -17,6 +17,7 @@ export async function getPublishedArticles() {
 export function getFeaturedArticles(articles: CollectionEntry<'article'>[]) {
   return articles
     .filter((article) => article.data.featured)
+    .sort((a, b) => a.data.order - b.data.order)
     .slice(0, content.featuredPosts.listSize)
 }
 
