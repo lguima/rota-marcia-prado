@@ -106,7 +106,7 @@ CookieConsent.run({
           description:
             'Utilizamos cookies e outras tecnologias semelhantes para lembrar suas preferências e entender como o site é utilizado. Você pode aceitar, recusar ou escolher quais categorias deseja permitir.',
           acceptAllBtn: 'Aceitar tudo',
-          acceptNecessaryBtn: 'Aceitar apenas o necessário',
+          acceptNecessaryBtn: 'Recusar opcionais',
           showPreferencesBtn: 'Gerenciar preferências',
           footer:
             '<a href="/politica-de-privacidade/">Política de Privacidade</a> · <a href="/termos-e-condicoes/">Termos e Condições de Uso</a>'
@@ -115,7 +115,7 @@ CookieConsent.run({
         preferencesModal: {
           title: 'Preferências de Cookies',
           acceptAllBtn: 'Aceitar tudo',
-          acceptNecessaryBtn: 'Aceitar apenas o necessário',
+          acceptNecessaryBtn: 'Recusar opcionais',
           savePreferencesBtn: 'Salvar preferências',
           closeIconLabel: 'Fechar',
           serviceCounterLabel: 'Serviços',
