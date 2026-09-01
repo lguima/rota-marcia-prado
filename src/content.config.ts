@@ -21,6 +21,7 @@ const article = defineCollection({
     publishDate: z.coerce.date(),
     expirationDate: z.coerce.date().optional(),
     updateDate: z.coerce.date().optional(),
+    relatedArticles: z.array(reference('article')).optional(),
   }),
 })
 
