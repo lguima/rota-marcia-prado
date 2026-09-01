@@ -1,16 +1,47 @@
 ---
-title: "Como chegar até a Rota Márcia Prado"
-description: "Conheças as alternativas para chegar até o início da rota."
-publishDate: 2026-01-01T12:00:00-03:00
+title: "Como chegar ao início da Rota Márcia Prado"
+description: "Conheça as principais formas de chegar ao ponto de partida oficial da Rota Márcia Prado, na Avenida Miguel Yunes, em São Paulo."
+publishDate: 2026-06-01T12:00:00-03:00
+updateDate: 2026-09-01T11:00:00-03:00
 category: "Acesso"
 tags: ["Início da rota", "São Paulo"]
 featured: true
 order: 1
+relatedArticles:
+- inicio-da-rota
+- bicicleta-no-metro-ou-trem
 ---
 
-Como chegar ao ponto de partida.
+O início oficial da Rota Márcia Prado fica no acesso da **Ciclovia Rio Pinheiros**, na **Avenida Miguel Yunes**, na Zona Sul de São Paulo. Antes de iniciar os cerca de **87 km** até Santos, é possível chegar ao ponto de partida utilizando bicicleta, transporte público ou carro.
 
-- Como chegar de metrô
-- Como chegar de ônibus
-- Como chegar de carro
-- Como chegar pedalando
+Esta página reúne as principais opções de acesso e direciona para guias detalhados de cada percurso.
+
+## Chegando de transporte público com bicicleta
+
+Quem chega à capital com a bicicleta pode utilizar o Metrô de São Paulo e os trens metropolitanos para acessar a Ciclovia Rio Pinheiros e pedalar até o início oficial da rota.
+
+### Saindo do Terminal Rodoviário Tietê
+
+O percurso utiliza as linhas 1-Azul, 5-Lilás e 9-Esmeralda, com desembarque na Estação Jurubatuba, de onde basta seguir pela ciclovia até a Avenida Miguel Yunes.
+
+**Leia o guia completo:** *Como chegar ao início da Rota Márcia Prado de metrô saindo do Terminal Rodoviário Tietê.*
+
+### Saindo do Terminal Barra Funda
+
+Quem desembarca na Barra Funda pode seguir pela Linha 8-Diamante até Osasco e fazer integração com a Linha 9-Esmeralda até Jurubatuba, realizando apenas uma baldeação antes de chegar ao início da rota.
+
+**Leia o guia completo:** *Como chegar ao início da Rota Márcia Prado de metrô saindo do Terminal Barra Funda.*
+
+## Chegando de bicicleta
+
+Quem já está em São Paulo pode acessar a Ciclovia Rio Pinheiros pela rede cicloviária da cidade e seguir até o acesso da Avenida Miguel Yunes, sem necessidade de utilizar transporte público.
+
+## Chegando de carro
+
+Também é possível ir de carro até a região da Avenida Miguel Yunes e utilizar estacionamentos próximos antes de iniciar a viagem de bicicleta até Santos.
+
+## Planeje sua saída
+
+A maior parte dos ciclistas inicia a Rota Márcia Prado entre **6h e 7h da manhã**, aproveitando temperaturas mais amenas e mais tempo de luz durante o percurso.
+
+Se você pretende utilizar o metrô em um dia útil, lembre-se de que bicicletas convencionais não podem embarcar nesse horário. Nesses casos, vale considerar viajar na noite anterior, optar por um fim de semana ou utilizar uma bicicleta dobrável devidamente embalada.

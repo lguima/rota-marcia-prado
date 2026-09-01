@@ -1,0 +1,19 @@
+---
+title: "Estacionamento da Miguel Yunes"
+description: "Estrutura no começo da ciclovia da marginal Pinheiros"
+publishDate: 2026-08-15T15:00:00-03:00
+updateDate: 2026-09-01T09:00:00-03:00
+category: "Acesso"
+tags: ["Estacionamento", "Hidratação", "Sanitário"]
+relatedArticles:
+- inicio-da-rota
+---
+
+O estacionamento fica no início do trajeto da Rota Márcia Prado e conta com ponto de **hidratação** e **sanitários**, possui 50 vagas e é aberto 24h.
+
+#googlemaps !1m14!1m12!1m3!1d659.0648945931265!2d-46.68397832452214!3d-23.694775289646664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sbr!4v1788266114593!5m2!1sen!2sbr
+
+---
+
+_Para mais detalhes e informações atualizadas, confira a página oficial da empresa responsável:_
+- <a href="https://www.multipark.com.br/multipark-ciclovia-miguel-yunes" target="_blank">Estacionamento Ciclovia marginal Pinheiros - Miguel Yunes</a>

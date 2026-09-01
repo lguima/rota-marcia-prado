@@ -3,7 +3,7 @@ title: "Como retornar após concluir a Rota Márcia Prado"
 description: "Saiba mais sobre o retorno de Santos de ônibus rodoviário."
 publishDate: 2026-01-01T12:00:00-03:00
 category: "Acesso"
-tags: ["Retorno", "Santos", "Ônibus", "Integração modal", "Bicicleta"]
+tags: ["Final da rota", "Retorno", "Santos", "Ônibus", "Integração modal", "Bicicleta"]
 featured: true
 order: 3
 ---

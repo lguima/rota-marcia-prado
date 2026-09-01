@@ -4,6 +4,8 @@ description: "Conheça a chegada em Santos pela Rota Márcia Prado."
 publishDate: 2026-05-23T12:00:00-03:00
 category: "Navegação"
 tags: ["Final da rota", "Santos", "Praia"]
+relatedArticles:
+- como-voltar
 ---
 
 Município de Santos.

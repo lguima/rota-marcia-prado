@@ -3,7 +3,7 @@ title: "Como retornar de Santos para São Paulo e interior"
 description: "Conheça mais detalhes sobre o retorno para a cidade de São Paulo e outras do interior do estado."
 publishDate: 2026-06-05T12:00:00-03:00
 category: "Acesso"
-tags: ["Retorno", "Santos", "São Paulo", "Ônibus", "Integração modal", "Bicicleta"]
+tags: ["Final da rota", "Retorno", "Santos", "São Paulo", "Ônibus", "Integração modal", "Bicicleta"]
 ---
 
 Após completar a Rota Márcia Prado e chegar a Santos, muitos ciclistas optam por retornar de ônibus. Essa alternativa evita o desgaste de encarar novamente a serra e permite que pessoas de diferentes níveis de condicionamento aproveitem a experiência. A própria comunidade ciclista costuma considerar o ônibus a forma mais prática de retorno após a descida.
