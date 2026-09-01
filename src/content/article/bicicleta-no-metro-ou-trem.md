@@ -4,6 +4,9 @@ description: "Detalhes sobre o deslocamento com a bicicleta no transporte sobre 
 publishDate: 2026-09-01T10:00:00-03:00
 category: "Mobilidade Urbana"
 tags: ["Integração modal", "Metrô", "Trem", "Bicicleta", "São Paulo"]
+relatedArticles:
+- como-chegar
+- inicio-da-rota
 ---
 
 ## Regras para transportar a bicicleta

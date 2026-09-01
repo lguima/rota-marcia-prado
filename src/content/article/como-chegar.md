@@ -1,6 +1,6 @@
 ---
 title: "Como chegar ao início da Rota Márcia Prado"
-description: "Conheça as principais formas de chegar ao ponto de partida oficial da Rota Márcia Prado, na Avenida Miguel Yunes, em São Paulo."
+description: "Conheça as principais formas de chegar ao ponto de partida oficial da Rota Márcia Prado"
 publishDate: 2026-06-01T12:00:00-03:00
 updateDate: 2026-09-01T11:00:00-03:00
 category: "Acesso"
@@ -24,13 +24,13 @@ Quem chega à capital com a bicicleta pode utilizar o Metrô de São Paulo e os 
 
 O percurso utiliza as linhas 1-Azul, 5-Lilás e 9-Esmeralda, com desembarque na Estação Jurubatuba, de onde basta seguir pela ciclovia até a Avenida Miguel Yunes.
 
-**Leia o guia completo:** *Como chegar ao início da Rota Márcia Prado de metrô saindo do Terminal Rodoviário Tietê.*
+**Leia o guia completo:** <a href="/artigos/como-chegar-de-metro-e-trem-vindo-do-tiete/">Como chegar ao início da Rota Márcia Prado de metrô saindo do Terminal Rodoviário Tietê.</a>
 
 ### Saindo do Terminal Barra Funda
 
 Quem desembarca na Barra Funda pode seguir pela Linha 8-Diamante até Osasco e fazer integração com a Linha 9-Esmeralda até Jurubatuba, realizando apenas uma baldeação antes de chegar ao início da rota.
 
-**Leia o guia completo:** *Como chegar ao início da Rota Márcia Prado de metrô saindo do Terminal Barra Funda.*
+**Leia o guia completo:** <a href="/artigos/como-chegar-de-metro-vindo-da-barra-funda/">Como chegar ao início da Rota Márcia Prado de metrô saindo do Terminal Barra Funda.</a>
 
 ## Chegando de bicicleta
 
