@@ -7,5 +7,6 @@
 @import '@fontsource-variable/geist-mono/wght.css'; /* Supports weights 100-900 */
 
 @import "./styles/theme.css";
+@import "./cookie-consent.css";
 
 @plugin '@tailwindcss/typography';
