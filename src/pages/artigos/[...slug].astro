@@ -40,8 +40,6 @@ const { Content } = await render(post)
 
 const articleSchema = getArticleSchema(post, Astro.site)
 
-const posts = await getPublishedArticles()
-
 const relatedArticles = await getEntries(relatedArticleIds || [])
 
 const breadcrumb = [
