@@ -13,6 +13,7 @@ import CategoryTagsPills from '@components/molecules/CategoryTagsPills.astro'
 import IconArrowLeft from '@components/atoms/IconArrowLeft.astro'
 import IconCalendar from '@components/atoms/IconCalendar.astro'
 import IconRotateCcwClock from '@components/atoms/IconRotateCcwClock.astro'
+import Link from '@components/atoms/Link.astro'
 import Separator from '@components/atoms/Separator.astro'
 
 export async function getStaticPaths() {
@@ -114,7 +115,7 @@ const breadcrumb = [
       <Separator />
 
       <div class="prose prose-gray dark:prose-invert max-w-none">
-        <Content />
+        <Content components={{ a: Link }} />
       </div>
 
       {
