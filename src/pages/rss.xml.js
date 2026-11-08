@@ -19,13 +19,10 @@ export async function GET(context) {
     // Whether to add a trailing slash to the end of every item link
     trailingSlash: false,
 
-    // (optional) specify a custom stylesheet for your RSS feed
-    stylesheet: '/rss/styles.xsl',
-
     // Array of `<item>`s in output xml
     items: articles.map((post) => ({
       title: post.data.title,
-      publishDate: post.data.publishDate,
+      pubDate: post.data.publishDate,
       description: post.data.description,
       // Compute RSS link from post `id`
       link: `/artigos/${post.id}/`,
