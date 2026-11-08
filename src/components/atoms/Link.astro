@@ -5,12 +5,15 @@ interface Props {
 }
 
 const { href, ...props } = Astro.props
+
+const isExternal = typeof href === 'string' && href.startsWith('http');
+const rel = isExternal ? 'noopener noreferrer' : 'noopener';
 ---
 
 <a
   {...props}
   href={href}
-  rel="noopener noreferrer"
+  rel={rel}
   target="_blank"
 >
   <slot />
