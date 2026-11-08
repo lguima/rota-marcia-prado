@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config'
+import mdx from '@astrojs/mdx';
 import tailwindcss from "@tailwindcss/vite"
 import sitemap from '@astrojs/sitemap'
 import { unified } from '@astrojs/markdown-remark'
@@ -24,6 +25,7 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   integrations: [
+    mdx(),
     sitemap(),
   ],
   i18n: {
