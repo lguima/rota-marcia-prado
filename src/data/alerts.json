@@ -7,5 +7,14 @@
     "severity": 4,
     "publishDate": "2026-10-27T17:00:00-03:00",
     "article": "tradicional-descida-a-santos-2026"
+  },
+  {
+    "id": "arvore-caida-na-serra-do-mar",
+    "title": "Árvore caída na Serra do Mar",
+    "description": "Cuidado ao trasitar pela Estrada de Manutenção",
+    "active": true,
+    "severity": 2,
+    "publishDate": "2026-11-09T08:00:00-03:00",
+    "article": "arvore-caida-na-serra-do-mar"
   }
 ]
